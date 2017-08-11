@@ -7,13 +7,11 @@ spring:
   jackson:
     serialization:
       INDENT_OUTPUT: true
-  jpa:
-    hibernate:
-      ddl-auto: update
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/shiv
+    url: jdbc:postgresql://localhost:5432/und
     username: postgres
-    passord:  postgres
+    password:  postgres
 
 security:
   header:
