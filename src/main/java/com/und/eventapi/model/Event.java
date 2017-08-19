@@ -11,11 +11,14 @@ import java.util.HashMap;
 /**
  * Created by shiv on 21/07/17.
  */
-//@Document(collection = "#{tenantId}_event")
+@Document(collection = "#{tenantProvider.getTenant()}_event")
+//@Document(collection = "event")
 public class Event {
 
     @Id
     private String id;
+
+    private String clientId;
 
     private Long userid = null;
 
@@ -36,7 +39,7 @@ public class Event {
 
     private String name;
 
-    private HashMap<String, String> map = null;
+    private HashMap<String, Object> attributes = null;
 
     public Event() {
     }
@@ -205,14 +208,22 @@ public class Event {
         this.time = time;
     }
 
+
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
     @ApiModelProperty(value = "")
-    public HashMap<String, String> getMap() {
-        return map;
+    public HashMap<String, Object> getAttributes() {
+        return attributes;
     }
 
-    public void setMap(HashMap<String, String> map) {
-        this.map = map;
+    public void setAttributes(HashMap<String, Object> attributes) {
+        this.attributes = attributes;
     }
-
-
 }

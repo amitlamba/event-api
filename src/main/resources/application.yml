@@ -13,6 +13,14 @@ spring:
     username: postgres
     password:  postgres
 
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            database: eventdb
+            username: eventuser
+            password: password
+
 security:
   header:
     token: Authorization
