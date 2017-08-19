@@ -48,11 +48,10 @@ public class AuthenticationUtils {
   public static String getId() {
     Object principal = getPrincipal();
     if (principal instanceof EventUser) {
-      return ""+((EventUser) principal).getId();
+      return "" + ((EventUser) principal).getId();
     }
     return "_";
   }
-
 
 
 }
