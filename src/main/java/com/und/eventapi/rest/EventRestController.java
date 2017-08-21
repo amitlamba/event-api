@@ -47,7 +47,7 @@ public class EventRestController {
     @RequestMapping(value = "/event/{name}",
             produces = { "application/json" },
             method = RequestMethod.GET)
-    public  List<Event> getPerson(@PathVariable("name") String name) {
+    public  List<Event> getEvent(@PathVariable("name") String name) {
         List<Event> events = eventService.findByName(name);
         return events;
 

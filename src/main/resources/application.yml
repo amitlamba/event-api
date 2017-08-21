@@ -12,14 +12,20 @@ spring:
     url: jdbc:postgresql://localhost:5432/und
     username: postgres
     password:  postgres
+    tomcat:
+      initial-size: 10
+      max-wait: 10000
+      max-active: 50
+      test-on-borrow: true
 
-    data:
-        mongodb:
-            host: localhost
-            port: 27017
-            database: eventdb
-            username: eventuser
-            password: password
+
+  data:
+    mongodb:
+      database: eventdb
+      username: eventuser
+      password: password
+      host: localhost
+      port: 27017
 
 security:
   header:
