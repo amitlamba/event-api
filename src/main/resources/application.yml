@@ -38,6 +38,11 @@ security:
       path: auth
       refresh: refresh
 
+kafka:
+  ip: 192.168.0.107
+  topic: Event-API
+  port: 9092
+
 #logging:
 #  level:
 #    org.springframework:

@@ -5,12 +5,7 @@ import org.apache.commons.lang3.StringUtils
 /**
  * Created by shiv on 01/09/17.
  */
-object StringUtil {
+fun String.isEmpty(string:String) = StringUtils.isEmpty(string)
 
-    fun isEmpty(string: String): Boolean {
-
-        return StringUtils.isEmpty(string)
-    }
-}
 
 

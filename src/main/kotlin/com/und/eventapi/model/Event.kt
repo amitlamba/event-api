@@ -11,6 +11,8 @@ import java.util.HashMap
 /**
  * Created by shiv on 21/07/17.
  */
+
+//TODO fix tenant provide as user login will not be available after kafka
 @Document(collection = "#{tenantProvider.getTenant()}_event")
 //@Document(collection = "event")
 class Event {
@@ -133,4 +135,10 @@ class Event {
         this.time = time
         return this
     }
+
+    override fun toString(): String {
+        return "Event(id=$id, clientId=$clientId, userid=$userid, isanonymus=$isanonymus, username=$username, firstName=$firstName, lastName=$lastName, email=$email, phone=$phone, time=$time, name=$name, attributes=$attributes)"
+    }
+
+
 }

@@ -1,0 +1,17 @@
+$ mkdir -p kafka-ex/{data,logs} && cd kafka-ex
+
+ZK_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' zookeeper)
+
+KAFKA_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' kafka)
+
+LOCAL_IP=192.168.0.107
+
+docker run -d -p $LOCAL_IP:2181:2181 --name zookeeper jplock/zookeeper
+
+docker run -d --hostname localhost --name kafka --volume /Users/shiv/data:/data --volume /Users/shiv/logs:/logs --publish $LOCAL_IP:9092:9092 --publish 7203:7203 --env KAFKA_ADVERTISED_HOST_NAME=$LOCAL_IP --link zookeeper:zookeeper ches/kafka
+
+docker run --rm ches/kafka  kafka-topics.sh --create --topic Event-API --replication-factor 1 --partitions 3 --zookeeper $LOCAL_IP:2181
+
+docker run --rm --interactive ches/kafka  kafka-console-producer.sh --topic Event --broker-list $LOCAL_IP:9092
+
+docker run --rm ches/kafka kafka-console-consumer.sh  --topic Spring --from-beginning --zookeeper $LOCAL_IP:2181
