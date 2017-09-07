@@ -1,4 +1,4 @@
-package com.und.kafka
+package com.und.eventapi.kafkalistner
 
 import com.und.eventapi.model.Event
 import com.und.eventapi.service.EventService
@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.annotation.TopicPartition
-import java.util.concurrent.CountDownLatch
+import org.springframework.kafka.support.KafkaHeaders
+import org.springframework.messaging.handler.annotation.Header
+import org.springframework.messaging.handler.annotation.Payload
 
-class Listener {
+class EventListener {
 
     //TODO externalize topic partition names
 
@@ -22,7 +24,10 @@ class Listener {
     lateinit private var eventService: EventService
 
     @KafkaListener(id = "id0", topicPartitions = arrayOf(TopicPartition(topic = "Event-API", partitions = arrayOf("0"))))
-    fun listenPartition0(event: Event) {
+    fun listenPartition0(@Payload event: Event, @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) key:Int,
+                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) partition :Int,
+                         @Header(KafkaHeaders.RECEIVED_TOPIC) topic :String,
+                         @Header(KafkaHeaders.OFFSET) offset : Long) {
         println("Listener Id0, Thread ID: " + Thread.currentThread().id)
         println("Received: " + event)
         eventService.saveToMongoEvent(event)

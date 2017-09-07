@@ -1,3 +1,4 @@
+
 $ mkdir -p kafka-ex/{data,logs} && cd kafka-ex
 
 ZK_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' zookeeper)
@@ -14,4 +15,16 @@ docker run --rm ches/kafka  kafka-topics.sh --create --topic Event-API --replica
 
 docker run --rm --interactive ches/kafka  kafka-console-producer.sh --topic Event --broker-list $LOCAL_IP:9092
 
-docker run --rm ches/kafka kafka-console-consumer.sh  --topic Spring --from-beginning --zookeeper $LOCAL_IP:2181
+
+
+/*
+username and passwords for three temp users
+         admin & admin
+         user & password
+         disabled & password
+
+user--
+eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNTA0NzY5ODMyODQ1LCJleHAiOjE1MDUzNzQ2MzJ9.KKykGNOScp1a4yetzXVVu2Dk76vZx7nv8qvR7ib-1GYsEEqZqMW1WneFc8gN7LlT7B5CBJChG_cd-2lumkEJrQ
+admin--
+eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNTA0NzY5NTg5MjIxLCJleHAiOjE1MDUzNzQzODl9.V9Efs2qMHVS0m0z4YciDIb_R6SSUnPDFef-YIfG5mtqX9cmWeUJzOLl1PMI_speyl6FXN3vxLjrt71DSuApcbA
+*/

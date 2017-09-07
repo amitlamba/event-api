@@ -1,7 +1,7 @@
 package com.und.config
 
+import com.und.eventapi.kafkalistner.EventListener
 import com.und.eventapi.model.Event
-import com.und.kafka.Listener
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.springframework.beans.factory.annotation.Value
@@ -12,8 +12,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory
 import org.springframework.kafka.core.ConsumerFactory
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory
 import org.springframework.kafka.support.serializer.JsonDeserializer
-
-import java.util.HashMap
+import java.util.*
 
 @Configuration
 @EnableKafka
@@ -62,7 +61,7 @@ class KafkaConsumerConfig {
     }
 
     @Bean
-    fun listener(): Listener {
-        return Listener()
+    fun listener(): EventListener {
+        return EventListener()
     }
 }

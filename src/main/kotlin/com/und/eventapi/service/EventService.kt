@@ -2,6 +2,7 @@ package com.und.eventapi.service
 
 import com.und.eventapi.model.Event
 import com.und.eventapi.repository.EventRepository
+import com.und.security.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.kafka.core.KafkaTemplate
@@ -13,6 +14,9 @@ import java.util.*
 @Service
 class EventService {
 
+
+    @Autowired
+    lateinit var tenantProvider: TenantProvider
 
     @Value("\${kafka.ip}")
     lateinit private var ip: String
@@ -32,8 +36,7 @@ class EventService {
 
     fun saveToKafkaEvent(event: Event): Event {
 
-        val future = kafkaTemplate.send(topic,
-                event)
+        val future = kafkaTemplate.send(topic, event.clientId, event)
         future.addCallback(object : ListenableFutureCallback<SendResult<String, Event>> {
             override fun onSuccess(result: SendResult<String, Event>) {
                 println("Sent message: " + result)
@@ -43,13 +46,13 @@ class EventService {
                 println("Failed to send message")
             }
         })
-        //val get = future.get();
         return event
-        //return eventRepository.save(event)
     }
 
 
     fun saveToMongoEvent(event: Event): Event {
-        return eventRepository.save(event)
+        val clientId = event.clientId
+        tenantProvider.setTenat(if(clientId!=null) clientId else "")
+        return eventRepository.insert(event)//, collectionName)
     }
 }
