@@ -1,6 +1,7 @@
 package com.und.security
 
 import com.und.common.utils.DateUtils
+import com.und.security.model.UndUserDetails
 import com.und.security.utils.RestTokenUtil
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.within
@@ -11,6 +12,7 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
+import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.test.util.ReflectionTestUtils
 import java.util.*
 
@@ -112,7 +114,7 @@ class RestTokenUtilTest {
         val device = DeviceMock()
         device.isNormal = true
 
-        return restTokenUtil.generateToken(UserDetailsMock(TEST_USER), device)
+        return restTokenUtil.generateToken(UndUserDetails(id=1L,username = TEST_USER,secret = "secret",key="key"), device)
     }
 
     companion object {

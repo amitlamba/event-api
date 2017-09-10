@@ -53,7 +53,6 @@ class EventService {
     fun saveToMongoEvent(event: Event): Event {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId)
-        //TODO fix immutability violation here
         event.systemDetails = browser(event.systemDetails.agentString)
         return eventRepository.insert(event)//, collectionName)
     }
