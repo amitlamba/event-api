@@ -22,12 +22,14 @@ class EventListener {
 
     @Autowired
     lateinit private var eventService: EventService
-
-    @KafkaListener(id = "id0", topicPartitions = arrayOf(TopicPartition(topic = "Event-API", partitions = arrayOf("0"))))
-    fun listenPartition0(@Payload event: Event, @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) key:Int,
+/*
+, @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) key:Int,
                          @Header(KafkaHeaders.RECEIVED_PARTITION_ID) partition :Int,
                          @Header(KafkaHeaders.RECEIVED_TOPIC) topic :String,
-                         @Header(KafkaHeaders.OFFSET) offset : Long) {
+                         @Header(KafkaHeaders.OFFSET) offset : Long
+ */
+    @KafkaListener(id = "id0", topicPartitions = arrayOf(TopicPartition(topic = "Event-API", partitions = arrayOf("0"))))
+    fun listenPartition0(@Payload event: Event) {
         println("Listener Id0, Thread ID: " + Thread.currentThread().id)
         println("Received: " + event)
         eventService.saveToMongoEvent(event)

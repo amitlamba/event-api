@@ -1,9 +1,6 @@
 package com.und.eventapi.rest
 
-import com.und.eventapi.model.Event
-import com.und.eventapi.model.EventUser
-import com.und.eventapi.model.GeoDetails
-import com.und.eventapi.model.Initializer
+import com.und.eventapi.model.*
 import com.und.eventapi.service.EventService
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
@@ -28,13 +25,16 @@ class EventRestController {
     lateinit private var tenantProvider: TenantProvider
 
     @RequestMapping(value = "/event", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
-    fun saveEvent(@Valid @RequestBody event: Event, request:HttpServletRequest): Event {
+    fun saveEvent(@Valid @RequestBody event: Event, request:HttpServletRequest,  device : Device): Event {
+        buildEvent(event, request, device)
+        return eventService.saveToKafkaEvent(event)
+    }
+
+    private fun buildEvent(event: Event, request: HttpServletRequest, device: Device) {
         event.clientId = tenantProvider.tenant
         event.geoDetails = GeoDetails(ipAddress = request.ipAddr());
-        event.eventUser = EventUser(undUserId= request.undUserId())
-        request.undUserId()
-
-        return eventService.saveToKafkaEvent(event)
+        event.eventUser = EventUser(undUserId = request.undUserId())
+        event.systemDetails = SystemDetails(agentString = request.getHeader("User-Agent") )
     }
 
 

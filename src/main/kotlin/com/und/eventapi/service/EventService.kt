@@ -2,6 +2,7 @@ package com.und.eventapi.service
 
 import com.und.eventapi.model.Event
 import com.und.eventapi.repository.EventRepository
+import com.und.eventapi.utils.browser
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -52,6 +53,8 @@ class EventService {
     fun saveToMongoEvent(event: Event): Event {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId)
+        //TODO fix immutability violation here
+        event.systemDetails = browser(event.systemDetails.agentString)
         return eventRepository.insert(event)//, collectionName)
     }
 }

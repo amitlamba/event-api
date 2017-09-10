@@ -1,6 +1,12 @@
 package com.und.eventapi.utils
 
+import com.und.eventapi.model.SystemDetails
+import eu.bitwalker.useragentutils.UserAgent
+import java.util.HashMap
 import javax.servlet.http.HttpServletRequest
+import eu.bitwalker.useragentutils.*
+
+//TODO write test cases for this class
 
 fun HttpServletRequest.ipAddr(): String {
 
@@ -22,7 +28,24 @@ fun HttpServletRequest.ipAddr(): String {
 }
 
 
-fun HttpServletRequest.undUserId():String {
-    return this.cookies.filter { it.name=="und.uid" }.map { it.value }.joinToString { it.toString() }
+fun HttpServletRequest.undUserId(): String {
+    return this.cookies.filter { it.name == "und.uid" }.map { it.value }.joinToString { it.toString() }
+}
+
+
+fun browser(agentString: String): SystemDetails {
+    val systemDetails = SystemDetails()
+    val userAgent = UserAgent.parseUserAgentString(agentString)
+    val browser = userAgent.browser
+
+    val operatingSystem = userAgent.operatingSystem
+    val deviceType = operatingSystem.deviceType
+    val osName = operatingSystem.getName()
+    systemDetails.browser = browser.getName()
+    systemDetails.browserVersion = userAgent.browserVersion.version
+    systemDetails.OS = osName
+    systemDetails.deviceType = deviceType.name
+
+    return systemDetails
 }
 
