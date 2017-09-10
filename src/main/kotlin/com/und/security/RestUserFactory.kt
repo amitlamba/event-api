@@ -10,8 +10,8 @@ class RestUserFactory {
     companion object {
 
         @JvmStatic
-        fun create(user: User): UndUserDetails {
-            return UndUserDetails(
+        fun create(user: User) =
+             UndUserDetails(
                     user.id,
                     user.username,
                     user.firstname,
@@ -24,7 +24,6 @@ class RestUserFactory {
                     user.clientSecret,
                     user.key
             )
-        }
 
         private fun mapToGrantedAuthorities(authorities: List<Authority>?): List<GrantedAuthority> {
             return authorities!!.map { authority -> SimpleGrantedAuthority(authority.name!!.name) }

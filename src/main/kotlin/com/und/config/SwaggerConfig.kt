@@ -14,6 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 import com.google.common.collect.Lists.newArrayList
+import springfox.documentation.service.Contact
 import springfox.documentation.service.ResponseMessage
 
 
@@ -51,8 +52,8 @@ class SwaggerConfig {
                 "User And Dot Event REST API",
                 "API to track user generated events data of interest.",
                 "1.0.0", "http://userndot.com/v1/api/terms",
-                "shiv@userndot.com",
+                Contact("shiv Pratap", "http://userndot.com","shiv@userndot.com"),
                 "License of API",
-                "http://userndot.com/v1/api/licence")
+                "http://userndot.com/v1/api/licence", arrayListOf())
     }
 }

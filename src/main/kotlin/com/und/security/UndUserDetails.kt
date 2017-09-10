@@ -14,35 +14,31 @@ open class UndUserDetails : UserDetails {
 
     @get:JsonIgnore
     val id: Long?
+
     private val username: String
+
     val firstname: String?
+
     val lastname: String?
+
     private val password: String?
+
     val email: String?
+
     private val authorities: Collection<GrantedAuthority>?
+
     private val enabled: Boolean
+
     @get:JsonIgnore
     val lastPasswordResetDate: Date?
+
     @get:JsonIgnore
     val secret: String
+
     @get:JsonIgnore
     val key: String?
 
 
-    constructor(username: String) {
-        this.id = 0L
-        this.username = username
-        this.firstname = null
-        this.lastname = null
-        this.email = null
-        this.password = null
-        this.authorities = null
-        this.enabled = false
-        this.lastPasswordResetDate = null
-        this.secret = ""
-        this.key = null
-
-    }
 
     constructor(
             id: Long?,

@@ -15,18 +15,18 @@ import org.springframework.stereotype.Component
 class RestAuthenticationProvider : AuthenticationProvider {
 
     @Autowired
-    private val userRepository: UserRepository? = null
+    lateinit private var userRepository: UserRepository
 
     @Autowired
-    private val restTokenUtil: RestTokenUtil? = null
+    lateinit private var restTokenUtil: RestTokenUtil
 
     @Throws(AuthenticationException::class)
     override fun authenticate(authentication: Authentication): Authentication {
         val token = authentication as RestAuthenticationToken
-        val user = RestUserFactory.create(userRepository!!.findByUsername(token.getName())!!)
+        val user = RestUserFactory.create(userRepository.findByUsername(token.getName())!!)
 
-        if (user != null || token.key.equals(user.key)) {
-            if (restTokenUtil!!.validateToken(user.key!!, user)) {
+        if (token.key.equals(user.key)) {
+            if (restTokenUtil.validateToken(user.key!!, user)) {
                 return RestAuthenticationToken(user, user.password!!, user.authorities!!, token.key)
             }
         }

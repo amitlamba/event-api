@@ -13,18 +13,16 @@ object AuthenticationUtils {
             val securityContext = SecurityContextHolder.getContext() ?: return false
 
             val authentication = securityContext.authentication
-            return if (authentication == null || !authentication.isAuthenticated || authentication is AnonymousAuthenticationToken) {
-                false
-            } else true
+            return ! (authentication == null || !authentication.isAuthenticated || authentication is AnonymousAuthenticationToken)
         }
 
-    val principal: Any
+    private val principal: UndUserDetails
         get() {
             val securityContext = SecurityContextHolder.getContext() ?: throw AccessDeniedException("User is not logged in to the system.")
 
             val authentication = securityContext.authentication ?: throw AccessDeniedException("User is not logged in to the system.")
 
-            return authentication.principal
+            return authentication.principal as UndUserDetails
         }
 
 
@@ -38,7 +36,7 @@ object AuthenticationUtils {
         get() {
             val principal = principal
             return if (principal is UndUserDetails) {
-                "" + principal.id!!
+                "" + principal.id
             } else "_"
         }
 
