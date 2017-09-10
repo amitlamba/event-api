@@ -1,5 +1,6 @@
-package com.und.security
+package com.und.security.model
 
+import com.und.security.model.UndUserDetails
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.GrantedAuthority
 

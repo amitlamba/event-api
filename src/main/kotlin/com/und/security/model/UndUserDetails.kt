@@ -1,4 +1,4 @@
-package com.und.security
+package com.und.security.model
 
 import java.util.Date
 

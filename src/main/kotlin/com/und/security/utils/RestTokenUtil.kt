@@ -1,6 +1,7 @@
-package com.und.security
+package com.und.security.utils
 
 import com.und.common.utils.DateUtils
+import com.und.security.model.UndUserDetails
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm

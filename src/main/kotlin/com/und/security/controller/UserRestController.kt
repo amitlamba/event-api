@@ -1,7 +1,7 @@
 package com.und.security.controller
 
-import com.und.security.RestTokenUtil
-import com.und.security.UndUserDetails
+import com.und.security.utils.RestTokenUtil
+import com.und.security.model.UndUserDetails
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.core.userdetails.UserDetailsService

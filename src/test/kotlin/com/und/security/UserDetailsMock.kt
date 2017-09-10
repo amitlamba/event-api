@@ -1,9 +1,8 @@
 package com.und.security
 
 import com.google.common.collect.Lists
-import com.und.security.UndUserDetails
+import com.und.security.model.UndUserDetails
 import org.springframework.security.core.GrantedAuthority
-import org.springframework.security.core.userdetails.UserDetails
 import java.util.Date
 
 /**

@@ -1,9 +1,8 @@
-package com.und.security
+package com.und.security.utils
 
+import com.und.security.model.UndUserDetails
 import org.springframework.security.access.AccessDeniedException
 import org.springframework.security.authentication.AnonymousAuthenticationToken
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.core.context.SecurityContextHolder
 
 object AuthenticationUtils {
@@ -34,10 +33,7 @@ object AuthenticationUtils {
 
     val id: String
         get() {
-            val principal = principal
-            return if (principal is UndUserDetails) {
-                "" + principal.id
-            } else "_"
+            return  principal.id.toString()
         }
 
 

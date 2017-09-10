@@ -1,4 +1,4 @@
-package com.und.security
+package com.und.security.filter
 
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.AuthenticationEntryPoint

@@ -2,14 +2,13 @@ package com.und.eventapi.service
 
 import com.und.eventapi.model.Event
 import com.und.eventapi.repository.EventRepository
-import com.und.security.TenantProvider
+import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.SendResult
 import org.springframework.stereotype.Service
 import org.springframework.util.concurrent.ListenableFutureCallback
-import java.util.*
 
 @Service
 class EventService {

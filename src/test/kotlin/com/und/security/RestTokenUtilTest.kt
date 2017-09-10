@@ -1,6 +1,7 @@
 package com.und.security
 
 import com.und.common.utils.DateUtils
+import com.und.security.utils.RestTokenUtil
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.within
 import org.assertj.core.util.DateUtil

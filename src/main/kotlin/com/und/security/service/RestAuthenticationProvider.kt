@@ -1,6 +1,9 @@
-package com.und.security
+package com.und.security.service
 
+import com.und.security.model.RestAuthenticationToken
 import com.und.security.repository.UserRepository
+import com.und.security.utils.RestTokenUtil
+import com.und.security.utils.RestUserFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.BadCredentialsException

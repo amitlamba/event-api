@@ -1,8 +1,8 @@
 package com.und.security.controller
 
-import com.und.security.RestAuthenticationRequest
-import com.und.security.RestTokenUtil
-import com.und.security.UndUserDetails
+import com.und.security.model.RestAuthenticationRequest
+import com.und.security.utils.RestTokenUtil
+import com.und.security.model.UndUserDetails
 import com.und.security.service.SecurityAuthenticationResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -49,7 +49,7 @@ class AuthenticationRestController {
         SecurityContextHolder.getContext().authentication = authentication
 
         // Reload password post-security so we can generate token
-        val user:UndUserDetails? = userDetailsService.loadUserByUsername(authenticationRequest.username) as UndUserDetails?
+        val user: UndUserDetails? = userDetailsService.loadUserByUsername(authenticationRequest.username) as UndUserDetails?
         val token = if(user==null) "" else restTokenUtil.generateToken(user, device)
 
         // Return the token
