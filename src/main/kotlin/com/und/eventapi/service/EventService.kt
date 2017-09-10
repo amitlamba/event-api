@@ -51,7 +51,7 @@ class EventService {
 
     fun saveToMongoEvent(event: Event): Event {
         val clientId = event.clientId
-        tenantProvider.setTenat(if(clientId!=null) clientId else "")
+        tenantProvider.setTenat(clientId)
         return eventRepository.insert(event)//, collectionName)
     }
 }
