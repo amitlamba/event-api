@@ -27,14 +27,17 @@ class EventRestController {
     @RequestMapping(value = "/event", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
     fun saveEvent(@Valid @RequestBody event: Event, request:HttpServletRequest,  device : Device): Event {
         buildEvent(event, request, device)
-        return eventService.saveToKafkaEvent(event)
+        eventService.saveToKafkaEvent(event)
+        return event
     }
 
-    private fun buildEvent(event: Event, request: HttpServletRequest, device: Device) {
+    private fun buildEvent(event: Event, request: HttpServletRequest, device: Device):String {
         event.clientId = tenantProvider.tenant
-        event.geoDetails = GeoDetails(ipAddress = request.ipAddr());
-        event.eventUser = EventUser(undUserId = request.undUserId())
-        event.systemDetails = SystemDetails(agentString = request.getHeader("User-Agent") )
+        event.geoDetails.ipAddress  = request.ipAddr();
+        event.eventUser.undUserId = request.undUserId() ?: ""
+        event.eventUser.clientId = event.clientId
+        event.systemDetails.agentString  = request.getHeader("User-Agent")
+        return event.eventUser.undUserId
     }
 
 

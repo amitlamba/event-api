@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import org.springframework.security.core.userdetails.User
 
 /**
  * Created by shiv on 21/07/17.
@@ -36,7 +37,7 @@ class UndUserDetails(
 
         @get:JsonIgnore
         val key: String?=null
-) : UserDetails {
+) : User(username,password,authorities) {
 
     override fun getUsername(): String {
         return username

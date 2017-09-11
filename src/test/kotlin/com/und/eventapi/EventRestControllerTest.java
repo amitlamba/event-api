@@ -43,6 +43,7 @@ public class EventRestControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isUnauthorized());
     }
 
+    //TODO fix this failing test case
     @Test
     @WithMockUser(roles = "USER")
     public void getPersonsSuccessfullyWithUserRole() throws Exception{

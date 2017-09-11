@@ -53,7 +53,7 @@ class EventService {
     fun saveToMongoEvent(event: Event): Event {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId)
-        event.systemDetails = browser(event.systemDetails.agentString)
-        return eventRepository.insert(event)//, collectionName)
+        val newEvent = event.copy(systemDetails = browser(event.systemDetails.agentString))
+        return eventRepository.insert(newEvent)//, collectionName)
     }
 }

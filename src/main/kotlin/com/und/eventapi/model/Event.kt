@@ -1,14 +1,8 @@
 package com.und.eventapi.model
 
-import com.fasterxml.jackson.annotation.JsonProperty
-import io.swagger.annotations.ApiModelProperty
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
-import java.time.Clock
-import java.time.LocalDateTime
-import java.time.LocalDateTime.*
-import javax.validation.constraints.NotNull
-import java.util.HashMap
+import java.util.*
 
 /**
  * Created by shiv on 21/07/17.
@@ -16,22 +10,20 @@ import java.util.HashMap
 
 @Document(collection = "#{tenantProvider.getTenant()}_event")
 data class Event(
-        var name: String = ""
-) {
+        val name: String = "",
 
-    @Id
-    private val id: String? = null
+        @Id
+        private var id: String? = null,
 
-    var clientId: String = ""
+        var clientId: String = "-1",
 
-    var eventUser: EventUser = EventUser()
+        val eventUser: EventUser = EventUser(),
 
-    var geoDetails: GeoDetails = GeoDetails()
+        val geoDetails: GeoDetails = GeoDetails(),
 
-    var systemDetails: SystemDetails = SystemDetails()
+        val systemDetails: SystemDetails = SystemDetails(),
 
-    var localDateTime: Long = System.currentTimeMillis()
+        val localDateTime: Long = System.currentTimeMillis(),
 
-    var attributes: HashMap<String, Any> = hashMapOf()
-
-}
+        val attributes: HashMap<String, Any> = hashMapOf()
+)
