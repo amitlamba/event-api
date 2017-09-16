@@ -15,7 +15,7 @@ docker run --rm ches/kafka  kafka-topics.sh --create --topic Event-API --replica
 
 docker run --rm --interactive ches/kafka  kafka-console-producer.sh --topic Event-API --broker-list $LOCAL_IP:9092
 
-docker run --rm ches/kafka kafka-console-consumer.sh  --topic Event-API  --from-latest--zookeeper 192.168.0.107:2181
+docker run --rm ches/kafka kafka-console-consumer.sh  --topic Event-API  --from-latest --zookeeper 192.168.0.107:2181
 
 
 

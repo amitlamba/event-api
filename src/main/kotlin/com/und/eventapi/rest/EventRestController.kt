@@ -2,6 +2,7 @@ package com.und.eventapi.rest
 
 import com.und.eventapi.model.*
 import com.und.eventapi.service.EventService
+import com.und.eventapi.service.EventUserService
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Scope
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
 
 import com.und.eventapi.utils.ipAddr
-import com.und.eventapi.utils.undUserId
 
 import javax.validation.Valid
 
@@ -22,22 +22,26 @@ class EventRestController {
     lateinit private var eventService: EventService
 
     @Autowired
+    lateinit private var eventUserService: EventUserService
+
+    @Autowired
     lateinit private var tenantProvider: TenantProvider
 
     @RequestMapping(value = "/event", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
-    fun saveEvent(@Valid @RequestBody event: Event, request:HttpServletRequest,  device : Device): Event {
+    fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest, device: Device): Event {
         buildEvent(event, request, device)
-        eventService.saveToKafkaEvent(event)
+        eventService.toKafka(event)
         return event
     }
 
-    private fun buildEvent(event: Event, request: HttpServletRequest, device: Device):String {
+    private fun buildEvent(event: Event, request: HttpServletRequest, device: Device): String? {
         event.clientId = tenantProvider.tenant
-        event.geoDetails.ipAddress  = request.ipAddr();
-        event.eventUser.undUserId = request.undUserId() ?: ""
+        event.geoDetails.ipAddress = request.ipAddr();
+        event.instanceId = eventUserService.initialiseUser(event.instanceId)
+        //event.eventUser.undUserId = request.undUserId() ?: ""
         event.eventUser.clientId = event.clientId
-        event.systemDetails.agentString  = request.getHeader("User-Agent")
-        return event.eventUser.undUserId
+        event.systemDetails.agentString = request.getHeader("User-Agent")
+        return event.instanceId
     }
 
 
@@ -47,9 +51,11 @@ class EventRestController {
 
     }
 
-    @RequestMapping(value = "/event/initialize" , produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
-    fun initialize(@Valid @RequestBody initializer : Initializer, device : Device) :Initializer {
+    @RequestMapping(value = "/event/initialize", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
+    fun initialize(@Valid @RequestBody instanceID: String?, device: Device): String? {
 
-        return initializer
+        return eventUserService.initialiseUser(instanceID)
     }
+
+
 }

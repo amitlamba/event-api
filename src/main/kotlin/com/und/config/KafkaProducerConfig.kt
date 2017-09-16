@@ -1,6 +1,7 @@
 package com.und.config
 
 import com.und.eventapi.model.Event
+import com.und.eventapi.model.EventUser
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.StringSerializer
 import org.springframework.beans.factory.annotation.Value
@@ -20,15 +21,17 @@ class KafkaProducerConfig {
     @Value("\${kafka.ip}")
     lateinit private var ip: String
 
-    @Value("\${kafka.topic}")
-    lateinit private var topic: String
-
     @Value("\${kafka.port}")
     lateinit private var port: String
 
     @Bean
     fun producerFactory(): ProducerFactory<String, Event> {
         return DefaultKafkaProducerFactory<String, Event>(producerConfigs())
+    }
+
+    @Bean
+    fun producerFactoryUser(): ProducerFactory<String, EventUser> {
+        return DefaultKafkaProducerFactory<String, EventUser>(producerConfigs())
     }
 
     @Bean
@@ -54,5 +57,10 @@ class KafkaProducerConfig {
     @Bean
     fun kafkaTemplate(): KafkaTemplate<String, Event> {
         return KafkaTemplate<String, Event>(producerFactory())
+    }
+
+    @Bean
+    fun kafkaTemplateUser(): KafkaTemplate<String, EventUser> {
+        return KafkaTemplate<String, EventUser>(producerFactoryUser())
     }
 }

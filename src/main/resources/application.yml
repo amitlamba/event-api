@@ -9,7 +9,7 @@ spring:
       INDENT_OUTPUT: true
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/und
+    url: jdbc:postgresql://localhost:5434/und
     username: postgres
     password:  postgres
     tomcat:
@@ -40,9 +40,10 @@ security:
 
 kafka:
   ip: 192.168.0.107
-  topic: Event-API
   port: 9092
-
+  topic:
+    event: Event-API
+    userevent: User-Event-API
 #logging:
 #  level:
 #    org.springframework:

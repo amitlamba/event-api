@@ -21,7 +21,7 @@ class EventService {
     @Value("\${kafka.ip}")
     lateinit private var ip: String
 
-    @Value("\${kafka.topic}")
+    @Value("\${kafka.topic.event}")
     lateinit private var topic: String
 
     @Autowired
@@ -34,7 +34,7 @@ class EventService {
         return eventRepository.findByName(name)
     }
 
-    fun saveToKafkaEvent(event: Event): Event {
+    fun toKafka(event: Event): Event {
 
         val future = kafkaTemplate.send(topic, event.clientId, event)
         future.addCallback(object : ListenableFutureCallback<SendResult<String, Event>> {
@@ -50,7 +50,7 @@ class EventService {
     }
 
 
-    fun saveToMongoEvent(event: Event): Event {
+    fun save(event: Event): Event {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId)
         val newEvent = event.copy(systemDetails = browser(event.systemDetails.agentString))
