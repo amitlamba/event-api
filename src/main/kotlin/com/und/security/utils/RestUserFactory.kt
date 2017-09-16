@@ -13,17 +13,17 @@ class RestUserFactory {
         @JvmStatic
         fun create(user: User) =
                 UndUserDetails(
-                        user.id,
-                        user.username,
-                        user.firstname,
-                        user.lastname,
-                        user.email,
-                        user.password,
-                        mapToGrantedAuthorities(user.authorities),
-                        user.enabled,
-                        user.lastPasswordResetDate,
-                        user.clientSecret,
-                        user.key
+                        id=user.id,
+                        username= user.username,
+                        firstname = user.firstname,
+                        lastname = user.lastname,
+                        email = user.email,
+                        password = user.password,
+                        authorities =  mapToGrantedAuthorities(user.authorities),
+                        enabled = user.enabled,
+                        lastPasswordResetDate = user.lastPasswordResetDate,
+                        secret = user.clientSecret,
+                        key = user.key
                 )
 
         private fun mapToGrantedAuthorities(authorities: List<Authority>?): List<GrantedAuthority> {

@@ -114,7 +114,7 @@ class RestTokenUtilTest {
         val device = DeviceMock()
         device.isNormal = true
 
-        return restTokenUtil.generateToken(UndUserDetails(id=1L,username = TEST_USER,secret = "secret",key="key"), device)
+        return restTokenUtil.generateToken(UndUserDetails(id=1L,username = TEST_USER,secret = "secret",key="key", password = ""), device)
     }
 
     companion object {

@@ -4,7 +4,7 @@ $ mkdir -p kafka-ex/{data,logs} && cd kafka-ex
 ZK_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' zookeeper)
 
 KAFKA_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' kafka)
-
+LOCAL_IP=192.168.1.105
 LOCAL_IP=192.168.0.107
 
 docker run -d -p $LOCAL_IP:2181:2181 --name zookeeper jplock/zookeeper
@@ -19,6 +19,24 @@ docker run --rm ches/kafka kafka-console-consumer.sh  --topic Event-API  --from-
 
 
 
+docker run -d --hostname 10.128.0.2 --name kafka --volume /home/shivprataps/kafka/data:/data --volume /home/shivprataps/kafka/logs:/logs --publish 9092:9092 --publish 7203:7203 --env KAFKA_ADVERTISED_HOST_NAME=$LOCAL_IP --link zookeeper:zookeeper ches/kafka
+
+
+
+docker run -d \
+    --hostname remotethis \
+    --name kafka \
+    --volume   --volume /home/shivprataps/kafka/logs:/logs \
+    --publish 9092:9092 --publish 7203:7203 \
+    --env KAFKA_ADVERTISED_HOST_NAME=35.192.117.139 --env ZOOKEEPER_IP=10.128.0.2 \
+    ches/kafka
+
+docker run -d --hostname localhost --name kafka --publish 9092:9092 --publish 7203:7203 --env KAFKA_ADVERT
+ISED_HOST_NAME=10.128.0.2 --env ZOOKEEPER_IP=10.128.0.2 ches/kafka
+
+docker run -d --hostname localhost --name kafka --volume /home/shivprataps/kafka/data:/data  --volume /home/shivprataps/kafka/logs:/logs --publish 9092:9092 --publish 7203:7203 --env KAFKA_ADVERTISED_HOST_NAME=10.128.0.2 --env ZOOKEEPER_IP=10.128.0.2 ches/kafka
+
+    docker run --rm ches/kafka kafka-console-consumer.sh kafka-console-consumer.sh --topic test --from-beginning --bootstrap-server kafka:9092
 /*
 username and passwords for three temp users
          admin & admin
