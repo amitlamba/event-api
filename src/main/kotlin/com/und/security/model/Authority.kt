@@ -16,7 +16,7 @@ class Authority {
     @Column(name = "NAME", length = 50)
     @NotNull
     @Enumerated(EnumType.STRING)
-    var name: AuthorityName? = null
+    var name: AuthorityName = AuthorityName.ROLE_NONE
 
     @ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
     var users: List<User>? = null

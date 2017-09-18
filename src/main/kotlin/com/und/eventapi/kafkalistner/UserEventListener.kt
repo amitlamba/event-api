@@ -31,6 +31,10 @@ class UserEventListener {
     @KafkaListener(id = "id4", topicPartitions = arrayOf(TopicPartition(topic = "User-Event-API", partitions = arrayOf("0"))), containerFactory = "kafkaListenerContainerFactoryUser")
     fun listenPartition0(@Payload eventUser: EventUser) {
         //TODO handle mongo stuff, update eventUser details instead of save, matching instanceId
+        //search for this in postgres
+        //if found get undUserId, otherwise create new row
+        //update undUserID in user data in mongo
+        //update events with this instanceId and update undUserId
         eventUserService.save(eventUser)
     }
 

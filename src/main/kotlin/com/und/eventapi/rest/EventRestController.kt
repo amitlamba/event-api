@@ -31,6 +31,7 @@ class EventRestController {
     fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest, device: Device): Event {
         buildEvent(event, request, device)
         eventService.toKafka(event)
+        //TODO don't send event back rather send instance id, and status, also send a new instance id if user id changes
         return event
     }
 

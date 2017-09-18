@@ -116,7 +116,7 @@ class AuthenticationRestControllerTest {
         return user
     }
 
-    private fun buildAuthorities(authorityNames: AuthorityName): List<Authority>? {
+    private fun buildAuthorities(authorityNames: AuthorityName): List<Authority> {
 
         val authority = Authority()
         authority.id = 0L

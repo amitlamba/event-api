@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.annotation.TopicPartition
-import org.springframework.kafka.support.KafkaHeaders
-import org.springframework.messaging.handler.annotation.Header
 import org.springframework.messaging.handler.annotation.Payload
 
 class EventListener {
@@ -60,7 +58,7 @@ class EventListener {
     }
 
     fun EventUser.changed() = when {
-        this.GoogleId.isNotEmpty() -> true
+        this.googleId.isNotEmpty() -> true
         this.clientUserId.isNotEmpty() -> true
         this.email.isNotEmpty() -> true
         this.mobile.isNotEmpty() -> true

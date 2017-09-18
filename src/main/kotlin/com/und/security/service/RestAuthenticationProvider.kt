@@ -28,6 +28,7 @@ class RestAuthenticationProvider : AuthenticationProvider {
         val token = authentication as RestAuthenticationToken
         val user = RestUserFactory.create(userRepository.findByUsername(token.getName())!!)
 
+        //FIXME NPE
         if (token.key.equals(user.key)) {
             if (restTokenUtil.validateToken(user.key!!, user)) {
                 return RestAuthenticationToken(user, user.password!!, user.authorities!!, token.key)

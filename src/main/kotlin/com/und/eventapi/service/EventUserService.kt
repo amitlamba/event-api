@@ -1,10 +1,7 @@
 package com.und.eventapi.service
 
-import com.und.eventapi.model.Event
 import com.und.eventapi.model.EventUser
-import com.und.eventapi.repository.EventRepository
 import com.und.eventapi.repository.EventUserRepository
-import com.und.eventapi.utils.browser
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -54,12 +51,13 @@ class EventUserService {
         return event
     }
 
-    fun initialiseUser(instanceID: String?): String? {
+    fun initialiseUser(instanceId: String?): String? {
         //TODO move this data through kafka and refactor as immutable
+        //TODO handle when user changes with same instance id, or user changes to different id, or add additional id
         return when {
-            instanceID.isNullOrEmpty() -> this.save(EventUser(clientId = tenantProvider.tenant)).id
-            findById(instanceID.toString()).isEmpty() -> return this.save(EventUser(clientId = tenantProvider.tenant)).id
-            else -> instanceID
+            instanceId.isNullOrEmpty() -> save(EventUser(clientId = tenantProvider.tenant)).id
+            findById(instanceId.toString()).isEmpty() -> return save(EventUser(clientId = tenantProvider.tenant)).id
+            else -> instanceId
         }
     }
 }

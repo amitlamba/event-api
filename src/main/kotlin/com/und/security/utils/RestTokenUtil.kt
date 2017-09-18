@@ -127,6 +127,7 @@ class RestTokenUtil : Serializable {
     fun refreshToken(token: String, secret: String): String {
         val refreshedToken: String
         val claims = getClaimsFromToken(token, secret)
+        //FIXME NPE
         claims!!.put(CLAIM_KEY_CREATED, dateUtils.now())
         refreshedToken = doGenerateToken(claims, secret)
 
