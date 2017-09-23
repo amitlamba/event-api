@@ -64,7 +64,6 @@ class UserRestControllerTest {
     fun getPersonsSuccessfullyWithUserRole() {
 
 
-
         val user = buildMockUser(AuthorityName.ROLE_ADMIN)
 
         val eventUser = RestUserFactory.create(user)
@@ -80,17 +79,19 @@ class UserRestControllerTest {
     private fun buildMockUser(authorityNames: AuthorityName): User {
 
         val user = User()
-        user.username = "username"
-        user.firstname = "firstname"
-        user.authorities = buildAuthorities(authorityNames)
-        user.enabled = java.lang.Boolean.TRUE
-        user.password = ""
-        user.lastname = ""
-        user.clientSecret = "secret"
-        user.email = ""
-        user.key = ""
-        user.lastPasswordResetDate = DateUtils().now()
-        user.lastPasswordResetDate = Date(System.currentTimeMillis() + 1000 * 1000)
+        with(user) {
+            username = "username"
+            firstname = "firstname"
+            authorities = buildAuthorities(authorityNames)
+            enabled = java.lang.Boolean.TRUE
+            password = ""
+            lastname = ""
+            clientSecret = "secret"
+            email = ""
+            key = ""
+            lastPasswordResetDate = DateUtils().now()
+            lastPasswordResetDate = Date(System.currentTimeMillis() + 1000 * 1000)
+        }
         return user
     }
 

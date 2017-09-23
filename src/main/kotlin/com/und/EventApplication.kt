@@ -9,9 +9,10 @@ import org.springframework.context.annotation.ComponentScan
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackages = arrayOf("com.und"))
-class EventApplication
+class EventApplication {
 
-fun main(args: Array<String>) {
+    fun main(args: Array<String>) {
 
-    SpringApplication.run(EventApplication::class.java, *args)
+        SpringApplication.run(EventApplication::class.java, *args)
+    }
 }
