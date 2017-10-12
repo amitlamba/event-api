@@ -24,4 +24,6 @@ data class EventUser(
         var firstname:String="",
         var lastname:String="",
         val localDateTime: Long = System.currentTimeMillis()
+        //TODO - By Amit Lamba - We should track country code
+//TODO - By Amit Lamba - We should track custom user attributes
 )
