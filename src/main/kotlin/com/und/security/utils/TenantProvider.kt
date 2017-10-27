@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 class TenantProvider {
     val local : ThreadLocal<String> = ThreadLocal.withInitial { "" }
 
-
+    //FIXME Check for Multithreaded environment, It will cause issue
     val tenant: String
         get() = if (AuthenticationUtils.isUserLoggedIn) AuthenticationUtils.id else local.get()
 
