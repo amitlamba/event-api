@@ -9,6 +9,8 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.SendResult
 import org.springframework.stereotype.Service
 import org.springframework.util.concurrent.ListenableFutureCallback
+import java.util.*
+import javax.swing.text.html.Option
 
 @Service
 class EventUserService {
@@ -32,7 +34,7 @@ class EventUserService {
         return eventUserRepository.insert(eventUser)//, collectionName)
     }
 
-    fun findById(instanceID:String?):List<EventUser> {
+    fun findById(instanceID: String?): Optional<EventUser> {
         return eventUserRepository.findById(instanceID.toString())
     }
 
@@ -56,7 +58,7 @@ class EventUserService {
         //TODO handle when user changes with same instance id, or user changes to different id, or add additional id
         return when {
             instanceId.isNullOrEmpty() -> save(EventUser(clientId = tenantProvider.tenant)).id
-            findById(instanceId.toString()).isEmpty() -> return save(EventUser(clientId = tenantProvider.tenant)).id
+            findById(instanceId.toString()).isPresent -> return save(EventUser(clientId = tenantProvider.tenant)).id
             else -> instanceId
         }
     }

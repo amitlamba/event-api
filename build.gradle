@@ -1,23 +1,19 @@
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
-    ext.spring_boot_version = '1.5.6.RELEASE'
+    ext.kotlin_version = '1.1.51'
+    ext.spring_boot_version = '2.0.0.M3'
     repositories {
-        jcenter()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
         mavenCentral()
         maven { url 'https://repo.spring.io/libs-snapshot' }
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
         jcenter()
-        maven { url 'https://repo.spring.io/simple/ext-release-local' }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
-
+        classpath "com.moowork.gradle:gradle-node-plugin:1.1.0"
     }
 }
 
@@ -44,14 +40,9 @@ jacocoTestReport {
     }
 }
 
-
-ext.kotlinVersion = '1.1.4-3'
-ext.springbootVersion = '1.5.6.RELEASE'
-ext.aspectjVersion = '1.8.7'
-ext.jsonPathVersion = '2.1.0'
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/libs-snapshot' }
@@ -68,7 +59,27 @@ jar {
 }
 
 
+ext {
+    commonsLangVersion = '3.5'
+    flywayVersion= '3.2.1'
+    jstlVersion = '1.2'
+    taglibVersion = '1.1.2'
+    javaxElVersion = '2.2.1-b04'
+    bitWalkerUagentVersion = '1.20'
+    kotlinVersion = '1.1.51'
+    springbootVersion = '2.0.0.M4'
+    aspectjVersion = '1.8.7'
+    jsonPathVersion = '2.1.0'
+    swaggerVersion = '2.7.0'
+    springkafkaVersion = '2.0.0.RELEASE'
+    pgDriverVersion = '9.4-1206-jdbc42'
+    jjwtVersion = '0.9.0'
+    gauvaVersion = '19.0'
+    bootRedisVersion = '1.4.7.RELEASE'
+    dataRedisVersion = '2.0.0.RELEASE'
+    jedisVersion = '2.9.0'
 
+}
 dependencies {
     testCompile(
             'junit:junit:4.12',
@@ -76,7 +87,7 @@ dependencies {
 
     )
     testCompile "org.mockito:mockito-core:1.+"
-    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.6.RELEASE') {
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.0.M4') {
         exclude(module: 'commons-logging')
     }
         compile(
@@ -89,23 +100,28 @@ dependencies {
                 "org.springframework.boot:spring-boot-actuator:$springbootVersion",
                 "org.aspectj:aspectjrt:$aspectjVersion",
                 "org.aspectj:aspectjweaver:$aspectjVersion",
-                'org.postgresql:postgresql:9.4-1206-jdbc42',
-                'io.jsonwebtoken:jjwt:0.7.0',
-                'io.springfox:springfox-swagger2:2.7.0',
-                'io.springfox:springfox-swagger-ui:2.7.0',
-                'com.google.guava:guava:19.0',
-                'org.apache.commons:commons-lang3:3.5',
-                'org.flywaydb:flyway-core:3.2.1',
-                'javax.servlet:jstl:1.2',
-                'jstl:jstl:1.2',
-                'taglibs:standard:1.1.2',
-                'javax.el:el-api:2.2.1-b04',
-                "eu.bitwalker:UserAgentUtils:1.20"
+                "org.postgresql:postgresql:$pgDriverVersion",
+                "io.jsonwebtoken:jjwt:$jjwtVersion",
+                "io.springfox:springfox-swagger2:$swaggerVersion",
+                "io.springfox:springfox-swagger-ui:$swaggerVersion",
+                "com.google.guava:guava:$gauvaVersion",
+                "org.apache.commons:commons-lang3:$commonsLangVersion",
+                "org.flywaydb:flyway-core:$flywayVersion",
+                "javax.servlet:jstl:$jstlVersion",
+                "jstl:jstl:$jstlVersion",
+                "taglibs:standard:$taglibVersion",
+                "javax.el:el-api:$javaxElVersion",
+                "eu.bitwalker:UserAgentUtils:$bitWalkerUagentVersion"
         )
 
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-redis', version: "$bootRedisVersion"
+    compile group: 'org.springframework.data', name: 'spring-data-redis', version: "$dataRedisVersion"
+    compile group: 'redis.clients', name: 'jedis', version: "$jedisVersion"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-    compile group: 'org.springframework.kafka', name: 'spring-kafka', version:'1.1.0.RELEASE'
-    compile group: 'org.springframework.kafka', name: 'spring-kafka-test', version:'1.1.0.RELEASE'
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    compile "org.springframework.boot:spring-boot-devtools:$springbootVersion"
+    compile group: 'org.springframework.kafka', name: 'spring-kafka', version:"$springkafkaVersion"
+    compile group: 'org.springframework.kafka', name: 'spring-kafka-test', version:"$springkafkaVersion"
 }
 
 

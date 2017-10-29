@@ -2,16 +2,16 @@ package com.und.eventapi
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.und.common.utils.DateUtils
-import com.und.security.model.RestAuthenticationRequest
-import com.und.security.utils.RestTokenUtil
-import com.und.security.utils.RestUserFactory
 import com.und.security.model.Authority
 import com.und.security.model.AuthorityName
+import com.und.security.model.RestAuthenticationRequest
 import com.und.security.model.User
+import com.und.security.utils.RestTokenUtil
+import com.und.security.utils.RestUserFactory
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Matchers.*
+import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
