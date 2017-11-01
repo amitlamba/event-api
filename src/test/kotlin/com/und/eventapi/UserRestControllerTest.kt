@@ -9,7 +9,7 @@ import com.und.security.model.User
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Matchers.anyString
+import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
