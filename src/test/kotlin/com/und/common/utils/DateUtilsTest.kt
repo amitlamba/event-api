@@ -1,8 +1,8 @@
 package com.und.common.utils
 
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import java.util.*
-import org.assertj.core.api.Assertions.*
 
 /**
  * Created by shiv on 21/07/17.
