@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Primary
 @Configuration
 class JacksonConfig {
 
-    @Bean
+/*    @Bean
     @Primary
     fun objectMapper(): ObjectMapper {
         val mapper = ObjectMapper()
@@ -19,5 +19,5 @@ class JacksonConfig {
         mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true)
 
         return mapper
-    }
+    }*/
 }

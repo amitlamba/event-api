@@ -4,7 +4,7 @@ spring:
       default
   cloud:
     config:
-      #uri: http://localhost:8888
+      uri: http://192.168.0.109:8888
       enabled: true
       name: event-api
   application:
@@ -13,14 +13,3 @@ spring:
     view:
       prefix:
 
-eureka:
-  instance:
-    prefer-ip-address: true
-    health-check-url-path: /application/health
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url: http://localhost:8761/eureka
-      #discovery:
-       # enabled: true
-        #service-id: auth-service
