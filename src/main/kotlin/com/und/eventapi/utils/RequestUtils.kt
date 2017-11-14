@@ -33,7 +33,7 @@ fun HttpServletRequest.undUserId(): String {
 }
 
 
-fun browser(agentString: String): SystemDetails {
+fun systemDetails(agentString: String): SystemDetails {
     val systemDetails = SystemDetails()
     val userAgent = UserAgent.parseUserAgentString(agentString)
     val browser = userAgent.browser

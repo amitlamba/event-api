@@ -13,9 +13,9 @@ spring:
   data:
     mongodb:
       database: eventdb
-      username: eventuser
-      password: password
-      host: localhost
+     # username: eventuser
+     # password: password
+      host: 192.168.0.109
       port: 27017
 
 security:
@@ -30,8 +30,8 @@ security:
       refresh: refresh
 
 kafka:
-  ip: 192.168.0.107
-  port: 9092
+  ip: 192.168.0.109
+  port: 6667
   topic:
     event: Event-API
     userevent: User-Event-API

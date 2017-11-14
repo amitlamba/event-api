@@ -49,21 +49,11 @@ class EventListener {
     }
 
     private fun handleEvent(event: Event) {
-        //TODO handle setting client id in Event bean set client id in eventUser as well
-        if (event.eventUser.changed() ) {
-            event.eventUser.clientId = event.clientId
+        if (event.eventUser.isIdentified()) {
             eventUserService.toKafka(event.eventUser)
         }
         eventService.save(event)
     }
 
-    fun EventUser.changed() = when {
-        this.googleId.isNotEmpty() -> true
-        this.clientUserId.isNotEmpty() -> true
-        this.email.isNotEmpty() -> true
-        this.mobile.isNotEmpty() -> true
-        this.fbId.isNotEmpty() -> true
-        this.undUserId.isNotEmpty() -> true
-        else -> false
-    }
+
 }

@@ -2,7 +2,7 @@ package com.und.eventapi.service
 
 import com.und.eventapi.model.Event
 import com.und.eventapi.repository.EventRepository
-import com.und.eventapi.utils.browser
+import com.und.eventapi.utils.systemDetails
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -49,11 +49,13 @@ class EventService {
         return event
     }
 
-
     fun save(event: Event): Event {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId)
-        val newEvent = event.copy(systemDetails = browser(event.systemDetails.agentString))
-        return eventRepository.insert(newEvent)//, collectionName)
+        val agentString = event.systemDetails.agentString
+        if(agentString!=null) {
+            event.systemDetails = systemDetails(agentString)
+        }
+        return eventRepository.insert(event)
     }
 }

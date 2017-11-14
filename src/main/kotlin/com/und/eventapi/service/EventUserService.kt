@@ -53,13 +53,15 @@ class EventUserService {
         return event
     }
 
-    fun initialiseUser(instanceId: String?): String? {
+    fun initialiseUser(instanceId: String?): EventUser {
         //TODO move this data through kafka and refactor as immutable
         //TODO handle when user changes with same instance id, or user changes to different id, or add additional id
-        return when {
-            instanceId.isNullOrEmpty() -> save(EventUser(clientId = tenantProvider.tenant)).id
-            findById(instanceId.toString()).isPresent -> return save(EventUser(clientId = tenantProvider.tenant)).id
-            else -> instanceId
+        if(!instanceId.isNullOrEmpty()) {
+            val eventOption = findById(instanceId.toString())
+            if(eventOption.isPresent) {
+                return eventOption.get()
+            }
         }
+        return save(EventUser(clientId = tenantProvider.tenant))
     }
 }

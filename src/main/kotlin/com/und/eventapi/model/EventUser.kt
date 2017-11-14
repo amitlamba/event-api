@@ -1,29 +1,41 @@
 package com.und.eventapi.model
 
-import net.bytebuddy.agent.builder.AgentBuilder
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.util.HashMap
 
 @Document(collection = "#{tenantProvider.getTenant()}_eventUser")
-data class EventUser(
-        @Id
-        var id: String? = null,
-        var isIdentified:Boolean = false,
+class EventUser() {
+    @Id
+    private var id: String? = null
+    var clientId: String = "-1" //client id , user is associated with, this can come from collection
+    var clientUserId: String? = null//this is id of the user client has provided
+    var socialId: SocialId = SocialId()
+    var creationDate: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
+    var standardInfo: StandardInfo = StandardInfo()
+    var additionalInfo: HashMap<String, Any> = hashMapOf()
+    fun isIdentified() = clientUserId != null || socialId.notEmpty() || standardInfo.notEmpty() || !additionalInfo.isEmpty()
 
-        var tempId:String? = "",
-        var instanceId: String="", //this is used when a new cookie value for und is found
+}
 
-        var undUserId: String="", //this is permanent id of user , in und db
-        var clientUserId: String="", //this is id that client system identifies user with
-        var clientId: String="", //id of the client in our system
-        var deviceId: ArrayList<String> =  arrayListOf(),
-        var fbId: String ="",
-        var googleId: String="",
-        var mobile: String="",
-        var email: String="",
-        var firstname:String="",
-        var lastname:String="",
-        val localDateTime: Long = System.currentTimeMillis()
-        //TODO - By Amit Lamba - We should track country code
-//TODO - By Amit Lamba - We should track custom user attributes
-)
+data class SocialId(
+        var fbId: String? = null,
+        var googleId: String? = null,
+        var mobile: String? = null,
+        var email: String? = null
+) {
+    fun notEmpty() = fbId != null || googleId != null || mobile != null || email != null
+}
+
+data class StandardInfo(
+        var firstName: String? = null,
+        var lastName: String? = null,
+        var gender: String? = null,
+        var dob: String? = null,
+        var country: String? = null,
+        var countryCode: String? = null
+) {
+    fun notEmpty() = firstName != null || lastName != null || gender != null || dob != null || country != null || countryCode != null
+}
