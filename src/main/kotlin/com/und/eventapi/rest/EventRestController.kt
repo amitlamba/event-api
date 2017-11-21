@@ -31,22 +31,38 @@ class EventRestController {
     @Autowired
     lateinit private var tenantProvider: TenantProvider
 
-    @RequestMapping(value = "/event", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
-    fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest, device: Device): ResponseEntity<Response<String>> {
-        val toEvent = buildEvent(event, request, device)
+    @RequestMapping(value = "/push/event", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
+    fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest): ResponseEntity<Response<String>> {
+        val toEvent = buildEvent(event, request)
         eventService.toKafka(toEvent)
         //TODO don't send event back rather send instance id, and status, also send a new instance id if user id changes
         return ResponseEntity.ok(Response(status = ResponseStatus.SUCCESS))
     }
 
-    private fun buildEvent(fromEvent: Event, request: HttpServletRequest, device: Device): Event {
-        //val eventUser = fromEvent.eventUser.copy(clientId = tenantProvider.tenant)
-        //val event = fromEvent.copy(clientId = tenantProvider.tenant, eventUser = eventUser)
+    private fun buildEvent(fromEvent: Event, request: HttpServletRequest): Event {
         with(fromEvent) {
-            eventUser.clientId = tenantProvider.tenant
+
             clientId = tenantProvider.tenant
             geoDetails.ipAddress = request.ipAddr()
             systemDetails.agentString = request.getHeader("User-Agent")
+        }
+        return fromEvent
+    }
+
+
+    @RequestMapping(value = "/push/profile", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
+    fun profile(@Valid @RequestBody eventUser: EventUser, request: HttpServletRequest, device: Device): ResponseEntity<Response<String>> {
+        eventUser.clientId = tenantProvider.tenant
+        val toEventUser = buildEventUser(eventUser)
+        eventUserService.toKafka(toEventUser)
+        //TODO don't send event back rather send instance id, and status, also send a new instance id if user id changes
+        return ResponseEntity.ok(Response(status = ResponseStatus.SUCCESS))
+    }
+
+
+    private fun buildEventUser(fromEvent: EventUser): EventUser {
+        with(fromEvent) {
+            clientId = tenantProvider.tenant
         }
         return fromEvent
     }
@@ -63,7 +79,7 @@ class EventRestController {
 
 
     @RequestMapping(value = "/event/initialize", produces = arrayOf("application/json"), consumes = arrayOf("application/json"), method = arrayOf(RequestMethod.POST))
-    fun initialize(@Valid @RequestBody instanceID: String?, device: Device):ResponseEntity<Response<EventUser>> {
+    fun initialize(@Valid @RequestBody instanceID: String?, device: Device): ResponseEntity<Response<EventUser>> {
 
         val eventUser = eventUserService.initialiseUser(instanceID)
         return ResponseEntity.ok(Response(

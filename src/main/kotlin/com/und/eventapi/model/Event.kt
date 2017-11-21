@@ -11,12 +11,12 @@ import java.util.*
  */
 
 @Document(collection = "#{tenantProvider.getTenant()}_event")
-class Event() {
+class Event {
     @Id
     lateinit private var id: String
     lateinit var name: String
     var clientId: String = "-1"
-    var eventUser: EventUser = EventUser()
+    //var eventUser: EventUser = EventUser()
     var geoDetails: GeoDetails = GeoDetails()
     var systemDetails: SystemDetails = SystemDetails()
     var creationTime: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()

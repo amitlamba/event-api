@@ -29,12 +29,14 @@ security:
       path: auth
       refresh: refresh
 
+
+
 kafka:
   ip: 192.168.0.109
   port: 6667
   topic:
-    event: Event-API
-    userevent: User-Event-API
+    event: event
+    eventUser: event-user
 #logging:
 #  level:
 #    org.springframework:

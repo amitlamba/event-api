@@ -1,13 +1,17 @@
 package com.und.eventapi.service
 
+import com.und.eventapi.kafkalistner.EventStream
 import com.und.eventapi.model.Event
+import com.und.eventapi.model.EventUser
 import com.und.eventapi.repository.EventRepository
 import com.und.eventapi.utils.systemDetails
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.SendResult
+import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 import org.springframework.util.concurrent.ListenableFutureCallback
 
@@ -18,44 +22,26 @@ class EventService {
     @Autowired
     lateinit var tenantProvider: TenantProvider
 
-    @Value("\${kafka.ip}")
-    lateinit private var ip: String
-
-    @Value("\${kafka.topic.event}")
-    lateinit private var topic: String
-
-    @Autowired
-    lateinit private var kafkaTemplate: KafkaTemplate<String, Event>
-
     @Autowired
     lateinit private var eventRepository: EventRepository
 
-    fun findByName(name: String): List<Event> {
-        return eventRepository.findByName(name)
-    }
+    @Autowired
+    lateinit private var eventStream: EventStream
 
-    fun toKafka(event: Event): Event {
+    fun findByName(name: String): List<Event> = eventRepository.findByName(name)
 
-        val future = kafkaTemplate.send(topic, event.clientId, event)
-        future.addCallback(object : ListenableFutureCallback<SendResult<String, Event>> {
-            override fun onSuccess(result: SendResult<String, Event>) {
-                println("Sent message: " + result)
-            }
 
-            override fun onFailure(ex: Throwable) {
-                println("Failed to send message")
-            }
-        })
-        return event
-    }
+    fun toKafka(event: Event): Boolean = eventStream.outputEvent().send(MessageBuilder.withPayload(event).build())
 
-    fun save(event: Event): Event {
+
+    @StreamListener("event")
+    fun save(event: Event) {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId)
         val agentString = event.systemDetails.agentString
-        if(agentString!=null) {
+        if (agentString != null) {
             event.systemDetails = systemDetails(agentString)
         }
-        return eventRepository.insert(event)
+        eventRepository.insert(event)
     }
 }

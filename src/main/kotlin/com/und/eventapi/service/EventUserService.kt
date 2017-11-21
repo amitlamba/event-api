@@ -1,12 +1,17 @@
 package com.und.eventapi.service
 
+import com.und.eventapi.kafkalistner.EventStream
+import com.und.eventapi.model.Event
 import com.und.eventapi.model.EventUser
 import com.und.eventapi.repository.EventUserRepository
+import com.und.eventapi.utils.systemDetails
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.SendResult
+import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 import org.springframework.util.concurrent.ListenableFutureCallback
 import java.util.*
@@ -22,38 +27,27 @@ class EventUserService {
     lateinit private var eventUserRepository: EventUserRepository
 
     @Autowired
-    lateinit private var kafkaTemplate: KafkaTemplate<String, EventUser>
-
-    @Value("\${kafka.topic.userevent}")
-    lateinit private var topic: String
+    lateinit private var eventStream: EventStream
 
 
-    fun save(eventUser: EventUser): EventUser {
+    fun save(eventUser: EventUser):EventUser {
         val clientId = eventUser.clientId
         tenantProvider.setTenat(clientId)
-        return eventUserRepository.insert(eventUser)//, collectionName)
+        return eventUserRepository.insert(eventUser)
     }
 
-    fun findById(instanceID: String?): Optional<EventUser> {
-        return eventUserRepository.findById(instanceID.toString())
+    @StreamListener("eventUser")
+    fun pushToMongo(eventUser: EventUser) {
+        save(eventUser)
     }
 
-    fun toKafka(event: EventUser): EventUser {
+    fun findById(instanceID: String?): Optional<EventUser> = eventUserRepository.findById(instanceID.toString())
 
-        val future = kafkaTemplate.send(topic, event.clientId, event)
-        future.addCallback(object : ListenableFutureCallback<SendResult<String, EventUser>> {
-            override fun onSuccess(result: SendResult<String, EventUser>) {
-                println("Sent message: " + result)
-            }
 
-            override fun onFailure(ex: Throwable) {
-                println("Failed to send message")
-            }
-        })
-        return event
-    }
+    fun toKafka(event: EventUser): Boolean = eventStream.outputEventUser().send(MessageBuilder.withPayload(event).build())
 
-    fun initialiseUser(instanceId: String?): EventUser {
+
+    fun initialiseUser(instanceId: String?):EventUser {
         //TODO move this data through kafka and refactor as immutable
         //TODO handle when user changes with same instance id, or user changes to different id, or add additional id
         if(!instanceId.isNullOrEmpty()) {
@@ -62,6 +56,8 @@ class EventUserService {
                 return eventOption.get()
             }
         }
-        return save(EventUser(clientId = tenantProvider.tenant))
+        val eventUser = EventUser()
+        eventUser.clientId = tenantProvider.tenant
+        return save(eventUser)
     }
 }

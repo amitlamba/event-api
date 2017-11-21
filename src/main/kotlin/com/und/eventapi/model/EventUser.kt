@@ -7,10 +7,11 @@ import java.time.ZoneOffset
 import java.util.HashMap
 
 @Document(collection = "#{tenantProvider.getTenant()}_eventUser")
-class EventUser() {
+class EventUser {
     @Id
     private var id: String? = null
     var clientId: String = "-1" //client id , user is associated with, this can come from collection
+    var deviceId: String? = null
     var clientUserId: String? = null//this is id of the user client has provided
     var socialId: SocialId = SocialId()
     var creationDate: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()

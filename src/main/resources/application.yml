@@ -1,0 +1,22 @@
+kafka:
+  topic:
+    eventUser: event-user
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 192.168.0.109
+          defaultBrokerPort: ${KAFKA_PORT}
+          zkNodes: 192.168.0.109
+          replicationFactor: 2
+          minPartitionCount: true
+          minPartitionCount: 2
+      bindings:
+        event:
+          group: eventprocess
+          destination: eventer
+
+
+
+

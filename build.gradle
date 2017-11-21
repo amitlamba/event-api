@@ -1,25 +1,21 @@
 buildscript {
-    ext.kotlin_version = '1.1.60'
-    ext.spring_boot_version = '2.0.0.M3'
+    ext {
+        kotlinVersion = '1.1.60'
+        springBootVersion = '2.0.0.M6'
+    }
     repositories {
-        mavenLocal()
         mavenCentral()
-        maven { url 'https://repo.spring.io/libs-snapshot' }
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
-        jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
-        classpath('io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE')
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
     }
 }
 
-apply plugin: 'maven'
 apply plugin: 'kotlin' // Required for Kotlin integration
-apply plugin: 'java'
 apply plugin: "kotlin-spring" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
@@ -49,110 +45,61 @@ tasks.withType(FindBugs) {
     }
 }
 
-ext {
-    commonsLangVersion = '3.5'
-    flywayVersion = '3.2.1'
-    jstlVersion = '1.2'
-    taglibVersion = '1.1.2'
-    javaxElVersion = '2.2.1-b04'
-    bitWalkerUagentVersion = '1.20'
-    kotlinVersion = '1.1.60'
-    springbootVersion = '2.0.0.M3'
-    aspectjVersion = '1.8.7'
-    jsonPathVersion = '2.1.0'
-    swaggerVersion = '2.7.0'
-    springkafkaVersion = '2.0.0.RELEASE'
-    pgDriverVersion = '9.4-1206-jdbc42'
-    jjwtVersion = '0.9.0'
-    gauvaVersion = '19.0'
-    bootRedisVersion = '1.4.7.RELEASE'
-    dataRedisVersion = '2.0.0.RELEASE'
-    jedisVersion = '2.9.0'
-    quartzVersion = '2.3.0'
-
-}
-
-
+group = 'com.und'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+
+
 repositories {
     mavenCentral()
-    maven { url 'https://repo.spring.io/libs-snapshot' }
     maven { url "https://repo.spring.io/snapshot" }
     maven { url "https://repo.spring.io/milestone" }
-    jcenter()
     mavenLocal()
 }
 
 
-jar {
-    group = 'com.und'
-    baseName = 'event-api'
-    version = '0.1.0'
+ext {
+    springCloudVersion = 'Finchley.M4'
+    bitWalkerUagentVersion = '1.20'
+    swaggerVersion = '2.7.0'
 }
 
-
-
 dependencies {
-    testCompile(
-            'org.springframework.security:spring-security-test:4.2.3.RELEASE',
-    )
-    testCompile group: 'com.nhaarman', name: 'mockito-kotlin', version: '1.5.0'
-    testCompile 'org.mockito:mockito-core:1.+'
-    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {
-        exclude(module: 'commons-logging')
-    }
-    compile(
-             //"org.springframework.boot:spring-boot-starter-data-jpa",
-            "org.springframework.boot:spring-boot-starter-data-rest",
-            "org.springframework.boot:spring-boot-starter-security",
-            "org.springframework.boot:spring-boot-actuator",
-            "org.springframework.boot:spring-boot-starter-mobile",
-            "org.springframework.boot:spring-boot-starter-data-mongodb",
-            "org.aspectj:aspectjrt",
-            "org.aspectj:aspectjweaver",
-            "org.postgresql:postgresql:$pgDriverVersion",
-            "io.springfox:springfox-swagger2:$swaggerVersion",
-            "io.springfox:springfox-swagger-ui:$swaggerVersion",
-            "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
-            "org.springframework.boot:spring-boot-devtools",
-            "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version",
-            "eu.bitwalker:UserAgentUtils:$bitWalkerUagentVersion"
-
-    )
-    compile ("com.und:auth-client:0.4.0-SNAPSHOT")
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.cloud:spring-cloud-starter-config')
-    compile('org.springframework.cloud:spring-cloud-config-client')
-    compile('org.springframework.cloud:spring-cloud-starter-eureka:2.0.0.M2')
-    compile('org.springframework.cloud:spring-cloud-starter-feign')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.cloud:spring-cloud-starter-openfeign')
+    compile('org.springframework.cloud:spring-cloud-starter-stream-kafka')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    //compile('org.springframework.boot:spring-boot-starter-security')
+    //compile('org.springframework.boot:spring-boot-starter-web')
+    compile("org.springframework.boot:spring-boot-starter-mobile:2.0.0.M5")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+    compile("org.jetbrains.kotlin:kotlin-reflect")
+    compile("eu.bitwalker:UserAgentUtils:$bitWalkerUagentVersion")
+    compile("io.springfox:springfox-swagger2:$swaggerVersion")
+    compile("io.springfox:springfox-swagger-ui:$swaggerVersion")
+    compile ("com.und:auth-client:0.4.0-SNAPSHOT")
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-stream-binder-kstream
+    //compile group: 'org.springframework.cloud', name: 'spring-cloud-stream-binder-kstream', version: '2.0.0.M3'
 
-
-    compile("org.springframework.kafka:spring-kafka")
-    compile("org.springframework.kafka:spring-kafka-test")
-    compile group: 'javax.mail', name: 'mail', version: '1.5.0-b01'
-    compile("log4j:log4j")
-
+    runtime('org.postgresql:postgresql')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
 }
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.M2"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
 
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 
-
-}
 
 
 

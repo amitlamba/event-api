@@ -1,14 +1,12 @@
 package com.und.config
 
-import com.fasterxml.jackson.databind.MapperFeature
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.springframework.context.annotation.Bean
+import com.und.eventapi.kafkalistner.EventStream
+import org.springframework.cloud.stream.annotation.EnableBinding
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Primary
 
 
 @Configuration
+@EnableBinding(EventStream::class)
 class JacksonConfig {
 
 /*    @Bean

@@ -28,11 +28,6 @@ fun HttpServletRequest.ipAddr(): String {
 }
 
 
-fun HttpServletRequest.undUserId(): String {
-    return this.cookies.filter { it.name == "und.uid" }.map { it.value }.joinToString { it.toString() }
-}
-
-
 fun systemDetails(agentString: String): SystemDetails {
     val systemDetails = SystemDetails()
     val userAgent = UserAgent.parseUserAgentString(agentString)
