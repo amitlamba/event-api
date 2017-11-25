@@ -1,21 +1,16 @@
 package com.und.eventapi.service
 
 import com.und.eventapi.kafkalistner.EventStream
-import com.und.eventapi.model.Event
 import com.und.eventapi.model.EventUser
+import com.und.eventapi.model.Identity
 import com.und.eventapi.repository.EventUserRepository
-import com.und.eventapi.utils.systemDetails
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.cloud.stream.annotation.StreamListener
-import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.kafka.support.SendResult
+import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
-import org.springframework.util.concurrent.ListenableFutureCallback
 import java.util.*
-import javax.swing.text.html.Option
 
 @Service
 class EventUserService {
@@ -30,34 +25,86 @@ class EventUserService {
     lateinit private var eventStream: EventStream
 
 
-    fun save(eventUser: EventUser):EventUser {
+    fun save(eventUser: EventUser): EventUser {
         val clientId = eventUser.clientId
-        tenantProvider.setTenat(clientId)
-        return eventUserRepository.insert(eventUser)
+        tenantProvider.setTenat(clientId!!)
+        return eventUserRepository.save(eventUser)
     }
 
     @StreamListener("eventUser")
-    fun pushToMongo(eventUser: EventUser) {
-        save(eventUser)
-    }
+    @SendTo("processedEventUserProfile")
+    fun processIdentity(identity: Identity): Identity {
+        fun copyChangedValues(userId :String): EventUser {
 
-    fun findById(instanceID: String?): Optional<EventUser> = eventUserRepository.findById(instanceID.toString())
+            val existingEventUser = eventUserRepository.findById(userId)
+            return if (existingEventUser.isPresent) {
+                val existingUser = existingEventUser.get()
+                val copyUser  = existingUser.copyNonNull(identity.eventUser)
+                copyUser.id = userId
+                copyUser.clientId = existingUser.clientId
+                copyUser.creationDate = existingUser.creationDate
+                copyUser
 
-
-    fun toKafka(event: EventUser): Boolean = eventStream.outputEventUser().send(MessageBuilder.withPayload(event).build())
-
-
-    fun initialiseUser(instanceId: String?):EventUser {
-        //TODO move this data through kafka and refactor as immutable
-        //TODO handle when user changes with same instance id, or user changes to different id, or add additional id
-        if(!instanceId.isNullOrEmpty()) {
-            val eventOption = findById(instanceId.toString())
-            if(eventOption.isPresent) {
-                return eventOption.get()
+            } else {
+                identity.eventUser
             }
         }
-        val eventUser = EventUser()
-        eventUser.clientId = tenantProvider.tenant
-        return save(eventUser)
+
+        val userId = identity.userId
+        //FIXME throw some error message in case userid is found as null
+        //userid will never be null here, this check is present only to satisfy compiler
+        val newIdentity = identity.copy()
+        newIdentity.eventUser = copyChangedValues(userId!!)
+        save(newIdentity.eventUser )
+        return newIdentity
+    }
+
+
+    @StreamListener("processedEventUserProfile")
+    fun processedEventUserProfile(identity: Identity) {
+        println(identity)
+        //update all events where session id, machine id matches and userid is absent
+        //save(identity.eventUser )
+    }
+
+    fun toKafka(identity: Identity): Boolean =
+            eventStream.outputEventUser().send(MessageBuilder.withPayload(identity).build())
+
+    /**
+     * assign device id if absent
+     * assign anonymous session id if absent
+     * returns a copy of identity, doesnt change passed argument
+     */
+    fun initialiseIdentity(identity: Identity?): Identity {
+        val identityCopy = identity?.copy() ?: Identity()
+
+        with(identityCopy) {
+            deviceId = deviceId ?: UUID.randomUUID().toString()
+            sessionId = sessionId ?: UUID.randomUUID().toString()
+        }
+        //TODO verify old data exists if device id, session id is not null
+        return identityCopy
+    }
+
+    fun logout(identity: Identity?): Identity {
+        val identityCopy = identity?.copy() ?: Identity()
+
+        with(identityCopy) {
+            deviceId = deviceId ?: UUID.randomUUID().toString()
+            sessionId = sessionId ?: UUID.randomUUID().toString()
+        }
+        //verify old data exists if device id, session id is not null
+        return identityCopy
+    }
+
+    fun login(identity: Identity?): Identity {
+        val identityCopy = identity?.copy() ?: Identity()
+
+        with(identityCopy) {
+            deviceId = deviceId ?: UUID.randomUUID().toString()
+            sessionId = sessionId ?: UUID.randomUUID().toString()
+        }
+        //verify old data exists if device id, session id is not null
+        return identityCopy
     }
 }

@@ -13,15 +13,27 @@ import java.util.*
 @Document(collection = "#{tenantProvider.getTenant()}_event")
 class Event {
     @Id
-    lateinit private var id: String
+    var id: String? = null
     lateinit var name: String
     var clientId: String = "-1"
+    var identity: Identity = Identity()
     //var eventUser: EventUser = EventUser()
     var geoDetails: GeoDetails = GeoDetails()
     var systemDetails: SystemDetails = SystemDetails()
     var creationTime: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
     var attributes: HashMap<String, Any> = hashMapOf()
     var userIdentified: Boolean = false
+}
+
+data class Identity(
+        //unique id assigned to a device, should always remain fixed, create new if not found
+        var deviceId: String? = null,
+        //if userId is not found assign a new session id, handle change if user login changes, logouts etc
+        var sessionId: String? = null,
+        // id of event user, this id is assigned when a user profile is identified.
+        var userId: String? = null
+) {
+    var eventUser: EventUser = EventUser()
 }
 
 data class GeoDetails(
@@ -39,8 +51,6 @@ data class SystemDetails(
         var browser: String? = null,
         var browserVersion: String? = null,
         var deviceType: String? = null, //mobile, tablet, laptop etc
-        var appId: String? = null,
         var agentString: String? = null
-
 )
 

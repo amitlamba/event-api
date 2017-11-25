@@ -44,4 +44,6 @@ class EventService {
         }
         eventRepository.insert(event)
     }
+
+
 }

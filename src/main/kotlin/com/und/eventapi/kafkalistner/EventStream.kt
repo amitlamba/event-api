@@ -11,5 +11,8 @@ interface EventStream {
     @Output("eventUser")
     fun outputEventUser(): MessageChannel
 
+    @Output("processedEventUserProfile")
+    fun processedEventUserProfile(): MessageChannel
+
 
 }
