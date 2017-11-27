@@ -7,6 +7,7 @@ import java.util.*
 
 interface EventUserRepository : MongoRepository<EventUser, String> {
 
+
     override fun findById(id: String): Optional<EventUser>
 
 }

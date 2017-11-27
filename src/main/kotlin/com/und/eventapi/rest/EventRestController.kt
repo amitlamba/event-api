@@ -1,21 +1,19 @@
 package com.und.eventapi.rest
 
-import com.und.eventapi.model.*
+import com.und.eventapi.model.Event
+import com.und.eventapi.model.Identity
 import com.und.eventapi.service.EventService
 import com.und.eventapi.service.EventUserService
-import com.und.security.utils.TenantProvider
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Scope
-import org.springframework.web.bind.annotation.*
-import javax.servlet.http.HttpServletRequest
-
 import com.und.eventapi.utils.ipAddr
 import com.und.security.model.Data
 import com.und.security.model.Response
 import com.und.security.model.ResponseStatus
+import com.und.security.utils.TenantProvider
 import org.bson.types.ObjectId
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-
+import org.springframework.web.bind.annotation.*
+import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
 
 @RestController

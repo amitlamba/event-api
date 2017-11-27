@@ -63,6 +63,7 @@ class EventUserService {
     @StreamListener("processedEventUserProfile")
     fun processedEventUserProfile(identity: Identity) {
         println(identity)
+        //eventUserRepository.
         //update all events where session id, machine id matches and userid is absent
         //save(identity.eventUser )
     }
