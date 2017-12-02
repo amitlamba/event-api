@@ -1,39 +1,3 @@
-kafka:
-  topic:
-    eventUser: event-user
-spring:
-  cloud:
-    stream:
-      kafka:
-        binder:
-          brokers: nestros.com
-          defaultBrokerPort: ${KAFKA_PORT}
-          zkNodes: nestros.com
-          defaultZkPort: 2181
-          offsetUpdateCount: 1
-          #replicationFactor: 2
-          #minPartitionCount: true
-          minPartitionCount: 2
-        bindings:
-          event:
-            group: eventprocess
-            destination: eventprocess
-            consumer:
-              #startOffset: earliest
-              group: eventprocess
-          eventUser:
-            group: eventUserprocess
-            destination: eventUserprocess
-            consumer:
-              #startOffset: earliest
-              group: eventUserprocess
-          processedEventUserProfile:
-              group: eventUserprocessEvents
-              destination: eventUserprocessEvents
-              consumer:
-                #startOffset: earliest
-                group: eventUserprocessEvents
-
 
 
 
