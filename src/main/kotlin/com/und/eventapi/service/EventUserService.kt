@@ -22,6 +22,9 @@ class EventUserService {
     lateinit private var eventUserRepository: EventUserRepository
 
     @Autowired
+    lateinit private var eventService: EventService
+
+    @Autowired
     lateinit private var eventStream: EventStream
 
 
@@ -52,8 +55,8 @@ class EventUserService {
 
         val userId = identity.userId
         //FIXME throw some error message in case userid is found as null
-        //userid will never be null here, this check is present only to satisfy compiler
         val newIdentity = identity.copy()
+        //userid will never be null here, this check is present only to satisfy compiler
         newIdentity.eventUser = copyChangedValues(userId!!)
         save(newIdentity.eventUser )
         return newIdentity
@@ -62,9 +65,11 @@ class EventUserService {
 
     @StreamListener("processedEventUserProfile")
     fun processedEventUserProfile(identity: Identity) {
+
         println(identity)
-        //eventUserRepository.
+        eventService.updateEventWithUser(identity)
         //update all events where session id, machine id matches and userid is absent
+        //eventUserRepository.
         //save(identity.eventUser )
     }
 
@@ -74,7 +79,7 @@ class EventUserService {
     /**
      * assign device id if absent
      * assign anonymous session id if absent
-     * returns a copy of identity, doesnt change passed argument
+     * returns a copy of identity, doesn't change passed argument
      */
     fun initialiseIdentity(identity: Identity?): Identity {
         val identityCopy = identity?.copy() ?: Identity()

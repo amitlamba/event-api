@@ -3,8 +3,11 @@ package com.und.eventapi.service
 import com.und.eventapi.kafkalistner.EventStream
 import com.und.eventapi.model.Event
 import com.und.eventapi.model.EventUser
+import com.und.eventapi.model.Identity
 import com.und.eventapi.repository.EventRepository
+import com.und.eventapi.repository.EventUserRepository
 import com.und.eventapi.utils.systemDetails
+import com.und.security.utils.AuthenticationUtils
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -26,6 +29,9 @@ class EventService {
     lateinit private var eventRepository: EventRepository
 
     @Autowired
+    lateinit private var eventUserRepository: EventUserRepository
+
+    @Autowired
     lateinit private var eventStream: EventStream
 
     fun findByName(name: String): List<Event> = eventRepository.findByName(name)
@@ -43,6 +49,16 @@ class EventService {
             event.systemDetails = systemDetails(agentString)
         }
         eventRepository.insert(event)
+    }
+
+    fun updateEventWithUser(identity: Identity) {
+        val clientId = identity.eventUser.clientId
+        if (clientId != null) {
+            tenantProvider.setTenat(clientId)
+            val events: List<Event> = eventRepository.findEventsMatchingIdentity(identity)
+            eventRepository.updateEventsWithIdentityMatching(events, identity)
+            println(events)
+        }
     }
 
 
