@@ -27,7 +27,7 @@ class EventUserTest {
         with(eventUserNew.standardInfo) {
             firstName = "namaste"
             lastName = null
-            countryCode = "he he"
+            countryCode = "Zim"
 
         }
         with(eventUserNew.socialId) {
@@ -41,7 +41,7 @@ class EventUserTest {
         Assert.assertThat(copiedUser.standardInfo.lastName , IsEqual.equalTo("mugabe"))
         Assert.assertThat(copiedUser.standardInfo.firstName , IsEqual.equalTo("namaste"))
         Assert.assertThat(copiedUser.standardInfo.country , IsEqual.equalTo("Zimbabwe"))
-        Assert.assertThat(copiedUser.standardInfo.countryCode , IsEqual.equalTo("he he"))
+        Assert.assertThat(copiedUser.standardInfo.countryCode , IsEqual.equalTo("Zim"))
 
 
         Assert.assertThat(copiedUser.socialId.fbId , IsEqual.equalTo("coolBooker"))

@@ -2,6 +2,8 @@ package com.und.model.mongo
 
 import com.fatboyindustrial.gsonjavatime.Converters
 import com.google.gson.GsonBuilder
+import com.mongodb.DBObject
+import org.bson.types.ObjectId
 import java.util.*
 
 
@@ -60,17 +62,20 @@ val products = listOf<Product>(
 
 //add ip, coordinates
 //add users, with ip,coordinates
-class User(var id: Int, var name: String, var email: String, var ip: String, var geo: GeoLocation)
+fun getId():String {
+    return ObjectId.get().toString()
+}
+class User(var id: String?, var name: String, var email: String, var ip: String, var geo: GeoLocation)
 
 val users = listOf<User>(
         //anonnymous user
-        User(1, "amit", "amit@userndot.com", "192.168.0.109",
+        User(getId(), "amit", "amit@userndot.com", "192.168.0.109",
                 GeoLocation(coordinate = Coordinate(1.2f, 1.3f))),
-        User(2, "shiv", "shiv@userndot.com", "192.168.0.100",
+        User(getId(), "shiv", "shiv@userndot.com", "192.168.0.100",
                 GeoLocation(coordinate = Coordinate(1.9f, 1.35f))),
-        User(3, "kamal", "kamal@userndot.com", "192.168.0.102",
+        User(getId(), "kamal", "kamal@userndot.com", "192.168.0.102",
                 GeoLocation(coordinate = Coordinate(1.4f, 1.45f))),
-        User(4, "laksh", "laksh@userndot.com", "192.168.0.105",
+        User(getId(), "laksh", "laksh@userndot.com", "192.168.0.105",
                 GeoLocation(coordinate = Coordinate(2.2f, 9.3f)))
 )
 
@@ -82,16 +87,29 @@ fun main(args: Array<String>) {
     byuserEvents()
 }
 
+val systems = mutableListOf<System>()
 
 fun byuserEvents () {
+    val system1 = System()
+    with(system1) {
+        browser = SystemDetails(name ="Firefox", version = "57.03")
+        os = SystemDetails(name="MACOS", version = "10.03")
+
+    }
+    systems.add(system1)
     //1. select a random user
     // val randomUserId = Random().nextInt(4)
     //val user = users[randomUserId]
     for(user in users) {
-        doevent(user)
+            Thread ({
+                var sessionid = getId()
+                var deviceid = getId()
+                val system = systems[Random().nextInt(systems.size)]
+                doevent(user, system, sessionid, deviceid)
+            }).start()
     }
 }
-fun doevent(user:User) {
+fun doevent(user:User, system:System, sessionId:String, deviceId:String) {
     val gson = Converters.registerOffsetDateTime(GsonBuilder()).setPrettyPrinting().create()
     //0. choose a clientid
     val clientId = 1
@@ -106,7 +124,8 @@ fun doevent(user:User) {
     val viwedProducts = mutableListOf<Product>()
     val addedToCarts = hashMapOf<Product,Int>()
     for (i in 1..randomNumberOfeventsMax) {
-        Thread.sleep(10000)
+        val delay  = Random().nextInt(30)*1000L
+        Thread.sleep(delay )
         var event = events[currenteventId]
         var realevent: Event? = null
         if(event == EVENTS.CHARGED && addedToCarts.isEmpty()) {
@@ -179,20 +198,17 @@ fun doevent(user:User) {
                         "payment mode" to paymentmodes[Random().nextInt(paymentmodes.size)]
 
                 )
-/*
-            EP("Amount", "Number"),
-            EP("Category"),
-            EP("Payment Mode"),
-            EP("Product", "Number"),
-            EP("Quantity", "Number"),
-            EP("Delivery Date", "Date")
- */
             }
 
         }
         realevent.geoLocation = GeoDetails()
         realevent.geoLocation.ip = user.ip
         realevent.geoLocation.geolocation = user.geo
+        realevent.system = system
+        realevent.userIdentified = user.id!=null
+        realevent.userId = "" + (user.id)
+        realevent.sessionId = sessionId
+        realevent.deviceId = deviceId
 
        println(gson.toJson(realevent))
         if (currenteventId == events.size-1 ) {
