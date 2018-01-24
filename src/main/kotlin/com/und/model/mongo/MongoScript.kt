@@ -134,7 +134,7 @@ fun doevent(user:User, system:System, sessionId:String, deviceId:String) {
         }
         when (event) {
             EVENTS.SEARCHED -> {
-                realevent = Event(EVENTS.SEARCHED.id.toString(), EVENTS.SEARCHED.name, clientId)
+                realevent = Event(getId(), EVENTS.SEARCHED.name, clientId)
                 val product = products[Random().nextInt(products.size)]
                 searchedProducts.add(product)
                 realevent.attributes = hashMapOf(
@@ -143,7 +143,7 @@ fun doevent(user:User, system:System, sessionId:String, deviceId:String) {
 
             }
             EVENTS.PRODUCTVIEWED -> {
-                realevent = Event(EVENTS.PRODUCTVIEWED.id.toString(), EVENTS.PRODUCTVIEWED.name, clientId)
+                realevent = Event(getId(), EVENTS.PRODUCTVIEWED.name, clientId)
                 val product = products[Random().nextInt(products.size)]
                 viwedProducts.add(product)
                 realevent.attributes = hashMapOf(
@@ -154,7 +154,7 @@ fun doevent(user:User, system:System, sessionId:String, deviceId:String) {
                 )
             }
             EVENTS.ADDTOCART -> {
-                realevent = Event(EVENTS.ADDTOCART.id.toString(), EVENTS.ADDTOCART.name, clientId)
+                realevent = Event(getId(), EVENTS.ADDTOCART.name, clientId)
                 var product = products[Random().nextInt(products.size)]
                 //fixme get quantity as well if charged
                 if(!viwedProducts.isEmpty()) {
@@ -171,7 +171,7 @@ fun doevent(user:User, system:System, sessionId:String, deviceId:String) {
                 )
             }
             EVENTS.CHARGED -> {
-                realevent = Event(EVENTS.CHARGED.id.toString(), EVENTS.CHARGED.name, clientId)
+                realevent = Event(getId(), EVENTS.CHARGED.name, clientId)
                 var product = products[Random().nextInt(products.size)]
                 //fixme get quantity as well if charged
                 var totalPrice = 0
