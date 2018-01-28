@@ -3,9 +3,7 @@ package com.und.model.mongo
 import com.fatboyindustrial.gsonjavatime.Converters
 import com.google.gson.GsonBuilder
 import org.bson.types.ObjectId
-import org.relaxng.datatype.Datatype
 import java.util.*
-import kotlin.collections.HashMap
 
 
 enum class DataType(var typeName: String) {
@@ -239,7 +237,7 @@ fun doevent(user: User, system: System, sessionId: String, deviceId: String): Mu
         realevent.sessionId = sessionId
         realevent.deviceId = deviceId
         eventsDocument.add(gson.toJson(realevent))
-        //println(gson.toJson(realevent))
+        println(gson.toJson(realevent))
         if (currenteventId == events.size - 1) {
             break
         }

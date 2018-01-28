@@ -65,9 +65,19 @@ var computemetadata = function (collection) {
         });
 
     });
-    db.metadata.insert(finalresult);
+    Object.keys(finalresult).forEach(function (key) {
+        var collectionmetadata = collection+"metadata";
+        var metadata = {"name":key,  properties:[]};
+        var properties = []
+        Object.keys(finalresult[key].properties).forEach(function (value) {
+            properties.push({"name":value, options:finalresult[key].properties[value].options})
+        });
+        metadata.properties = properties;
+        db[collectionmetadata].insert(metadata);
+    })
+    //db.metadata.insert(finalresult);
     return finalresult;
 }
 
-var x = computemetadata("events");
+var x = computemetadata("2_event");
 x;
