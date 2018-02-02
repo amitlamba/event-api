@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder
 import org.bson.types.ObjectId
 import java.util.*
 
-
+//mongoimport -h 192.168.0.109 --db eventdb --collection 1_eventmetadata --drop --file ~/downloads/mongodata.json
 enum class DataType(var typeName: String) {
     NUMBER("Number"),
     DATE("Date"),
@@ -108,9 +108,9 @@ fun createEventMetadata() {
     }
 }
 
-fun main(args: Array<String>) {
+/*fun main(args: Array<String>) {
     println(byuserEvents())
-}
+}*/
 
 fun byuserEvents(): MutableList<String> {
     val eventsDocument = mutableListOf<String>()
