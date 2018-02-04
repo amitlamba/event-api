@@ -2,39 +2,38 @@ package com.und.eventapi.service
 
 import com.und.eventapi.kafkalistner.EventStream
 import com.und.eventapi.model.Event
-import com.und.eventapi.model.EventUser
+import com.und.model.mongo.Event as MongoEvent
 import com.und.eventapi.model.Identity
 import com.und.eventapi.repository.EventRepository
 import com.und.eventapi.repository.EventUserRepository
 import com.und.eventapi.utils.systemDetails
-import com.und.security.utils.AuthenticationUtils
+import com.und.model.mongo.System
+import com.und.model.mongo.SystemDetails
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.cloud.stream.annotation.StreamListener
-import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.kafka.support.SendResult
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
-import org.springframework.util.concurrent.ListenableFutureCallback
+import com.und.eventapi.utils.copy
+import com.und.eventapi.utils.copyToMongo
 
 @Service
 class EventService {
 
 
     @Autowired
-    lateinit var tenantProvider: TenantProvider
+    private lateinit var tenantProvider: TenantProvider
 
     @Autowired
-    lateinit private var eventRepository: EventRepository
+    private lateinit var eventRepository: EventRepository
 
     @Autowired
-    lateinit private var eventUserRepository: EventUserRepository
+    private lateinit var eventUserRepository: EventUserRepository
 
     @Autowired
-    lateinit private var eventStream: EventStream
+    private lateinit var eventStream: EventStream
 
-    fun findByName(name: String): List<Event> = eventRepository.findByName(name)
+    fun findByName(name: String): List<MongoEvent> = eventRepository.findByName(name)
 
 
     fun toKafka(event: Event): Boolean = eventStream.outputEvent().send(MessageBuilder.withPayload(event).build())
@@ -42,23 +41,18 @@ class EventService {
 
     @StreamListener("event")
     fun save(event: Event) {
+
         val clientId = event.clientId
-        tenantProvider.setTenat(clientId)
-        val agentString = event.systemDetails.agentString
-        if (agentString != null) {
-            event.systemDetails = systemDetails(agentString)
-        }
-        eventRepository.insert(event)
+        tenantProvider.setTenat(clientId.toString())
+        val mongoEvent = event.copyToMongo()
+        eventRepository.insert(mongoEvent)
     }
 
     fun updateEventWithUser(identity: Identity) {
-        val clientId = identity.eventUser.clientId
-        if (clientId != null) {
-            tenantProvider.setTenat(clientId)
-            val events: List<Event> = eventRepository.findEventsMatchingIdentity(identity)
-            eventRepository.updateEventsWithIdentityMatching(events, identity)
-            println(events)
-        }
+        tenantProvider.setTenat(identity.clientId.toString())
+        //val events: List<MongoEvent> = eventRepository.findEventsMatchingIdentity(identity)
+        eventRepository.updateEventsWithIdentityMatching( identity)
+
     }
 
 

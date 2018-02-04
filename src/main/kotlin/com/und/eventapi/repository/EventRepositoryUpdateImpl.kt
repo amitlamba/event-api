@@ -1,6 +1,6 @@
 package com.und.eventapi.repository
 
-import com.und.eventapi.model.Event
+import com.und.model.mongo.Event
 import com.und.eventapi.model.Identity
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -19,37 +19,32 @@ class EventRepositoryUpdateImpl : EventRepositoryUpdate {
         return events
     }
 
-    override fun updateEventsWithIdentityMatching(events: List<Event>, identity: Identity) {
+    override fun updateEventsWithIdentityMatching(identity: Identity) {
+        val userId = identity.userId
         val query = Query().addCriteria(Criteria
-                .where("identity.deviceId").`is`(identity.deviceId)
-                .and("identity.sessionId").`is`(identity.sessionId)
-                .and("identity.userId").exists(false)
+                .where("deviceId").`is`(identity.deviceId)
+                .and("sessionId").`is`(identity.sessionId)
+                .and("userId").exists(false)
         )
-        val events2 = mongoTemplate.find(query, Event::class.java)
-        var update = Update.update("identity.userId", identity.userId)
-        mongoTemplate.updateMulti(query,update,Event::class.java)
+
+        if(userId!= null) {
+            val update = Update.update("userId", userId)
+            mongoTemplate.updateMulti(query, update, Event::class.java)
+        }
 
 
-        val query2 = Query().addCriteria(Criteria
-                .where("identity.deviceId").`is`(identity.deviceId)
-                .and("identity.sessionId").exists(false)
-                .and("identity.userId").exists(false)
+        val queryWithoutSession = Query().addCriteria(Criteria
+                .where("deviceId").`is`(identity.deviceId)
+                .and("sessionId").exists(false)
+                .and("userId").exists(false)
         )
-        val events3 = mongoTemplate.find(query, Event::class.java)
-        var update2 = Update.update("identity.sessionId", identity.userId)
-        update2.set("identity.userId", identity.userId)
-        mongoTemplate.updateMulti(query2,update2,Event::class.java)
 
-/*        val eventsMap = events
-                .filter { event -> event.identity.deviceId == identity.deviceId && event.identity.userId == null }
-                .forEach { event ->
-                    event.identity.userId = identity.userId
-                    event.identity.sessionId = identity.sessionId
-                    mongoTemplate.save(event)
-                }*/
+        val updateSession = Update.update("sessionId", identity.sessionId)
+        if(userId != null) {
+            updateSession.set("userId", userId)
+            mongoTemplate.updateMulti(queryWithoutSession, updateSession, Event::class.java)
+        }
 
 
-        //update.set()
-        //mongoTemplate.save(events)
     }
 }

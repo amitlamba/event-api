@@ -8,18 +8,18 @@ import java.util.HashMap
 
 @Document(collection = "#{tenantProvider.getTenant()}_event")
 class Event(
-        @field: Id var id: String? = "",
+        @field: Id var id: String? = null,
         val name: String,
         val clientId: Int,
         var lineItem: MutableList<LineItem> = mutableListOf(),
         var attributes: HashMap<String, Any> = hashMapOf(),
-        var system: System? = null,
-        val creationTime: Long = LocalDateTime.now().atZone(ZoneId.of("UTC")).toEpochSecond()
+        var system: System = System(),
+        var creationTime: Long = LocalDateTime.now().atZone(ZoneId.of("UTC")).toEpochSecond()
 ) {
-    var geoLocation =  GeoDetails()
+    var geoDetails =  GeoDetails()
     var deviceId : String = ""
     var userIdentified :Boolean =  false
-    var userId : String = ""
+    var userId : String? = null
     var sessionId : String = ""
 }
 

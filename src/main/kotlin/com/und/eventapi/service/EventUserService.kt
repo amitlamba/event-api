@@ -2,6 +2,7 @@ package com.und.eventapi.service
 
 import com.und.eventapi.kafkalistner.EventStream
 import com.und.eventapi.model.EventUser
+import com.und.model.mongo.EventUser as MongoEventUser
 import com.und.eventapi.model.Identity
 import com.und.eventapi.repository.EventUserRepository
 import com.und.security.utils.TenantProvider
@@ -10,6 +11,7 @@ import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
+import com.und.eventapi.utils.copyNonNull
 import java.util.*
 
 @Service
@@ -19,46 +21,39 @@ class EventUserService {
     lateinit var tenantProvider: TenantProvider
 
     @Autowired
-    lateinit private var eventUserRepository: EventUserRepository
+    private lateinit var eventUserRepository: EventUserRepository
 
     @Autowired
-    lateinit private var eventService: EventService
+    private lateinit var eventService: EventService
 
     @Autowired
-    lateinit private var eventStream: EventStream
+    private lateinit var eventStream: EventStream
 
 
-    fun save(eventUser: EventUser): EventUser {
+    fun save(eventUser: MongoEventUser): MongoEventUser {
         val clientId = eventUser.clientId
-        tenantProvider.setTenat(clientId!!)
+        tenantProvider.setTenat(clientId.toString())
         return eventUserRepository.save(eventUser)
     }
 
     @StreamListener("eventUser")
     @SendTo("processedEventUserProfile")
-    fun processIdentity(identity: Identity): Identity {
-        fun copyChangedValues(userId :String): EventUser {
+    fun processIdentity(eventUser: EventUser): Identity {
+
+        val identity = eventUser.identity
+        fun copyChangedValues(userId: String): MongoEventUser {
 
             val existingEventUser = eventUserRepository.findById(userId)
-            return if (existingEventUser.isPresent) {
-                val existingUser = existingEventUser.get()
-                val copyUser  = existingUser.copyNonNull(identity.eventUser)
-                copyUser.id = userId
-                copyUser.clientId = existingUser.clientId
-                copyUser.creationDate = existingUser.creationDate
-                copyUser
-
-            } else {
-                identity.eventUser
-            }
+            val existingUser = if (existingEventUser.isPresent) existingEventUser.get() else MongoEventUser()
+            return existingUser.copyNonNull(eventUser)
         }
 
         val userId = identity.userId
         //FIXME throw some error message in case userid is found as null
         val newIdentity = identity.copy()
         //userid will never be null here, this check is present only to satisfy compiler
-        newIdentity.eventUser = copyChangedValues(userId!!)
-        save(newIdentity.eventUser )
+        val eventUser = copyChangedValues(userId!!)
+        save(eventUser)
         return newIdentity
     }
 
@@ -73,8 +68,8 @@ class EventUserService {
         //save(identity.eventUser )
     }
 
-    fun toKafka(identity: Identity): Boolean =
-            eventStream.outputEventUser().send(MessageBuilder.withPayload(identity).build())
+    fun toKafka(eventUser: EventUser): Boolean =
+            eventStream.outputEventUser().send(MessageBuilder.withPayload(eventUser).build())
 
     /**
      * assign device id if absent
@@ -85,12 +80,13 @@ class EventUserService {
         val identityCopy = identity?.copy() ?: Identity()
 
         with(identityCopy) {
-            deviceId = deviceId ?: UUID.randomUUID().toString()
-            sessionId = sessionId ?: UUID.randomUUID().toString()
+            deviceId = if(deviceId.isNullOrEmpty())  UUID.randomUUID().toString() else deviceId
+            sessionId = if(sessionId.isNullOrEmpty())  UUID.randomUUID().toString() else sessionId
         }
         //TODO verify old data exists if device id, session id is not null
         return identityCopy
     }
+
 
     fun logout(identity: Identity?): Identity {
         val identityCopy = identity?.copy() ?: Identity()

@@ -228,9 +228,9 @@ fun doevent(user: User, system: System, sessionId: String, deviceId: String): Mu
             }
 
         }
-        realevent.geoLocation = GeoDetails()
-        realevent.geoLocation.ip = user.ip
-        realevent.geoLocation.geolocation = user.geo
+        realevent.geoDetails = GeoDetails()
+        realevent.geoDetails.ip = user.ip
+        realevent.geoDetails.geolocation = user.geo
         realevent.system = system
         realevent.userIdentified = user.id != null
         realevent.userId = "" + (user.id)
