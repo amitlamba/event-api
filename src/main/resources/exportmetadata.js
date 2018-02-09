@@ -45,20 +45,27 @@ var computemetadata = function (collection) {
             }
 
             if (!Array.isArray(doc.attributes[key])) {
-                var exists = contains.call(result.properties[key].options, doc.attributes[key]);
+                if((typeof  doc.attributes[key]) === 'string') {
+                    var exists = contains.call(result.properties[key].options, doc.attributes[key]);
 
-                if (!exists) {
-                    result.properties[key].options.push(doc.attributes[key]);
+                    if (!exists) {
+
+                        result.properties[key].options.push(doc.attributes[key]);
+                    }
                 }
+                result.properties[key].type = typeof  doc.attributes[key];
             }
             if (Array.isArray(doc.attributes[key])) {
 
                 doc.attributes[key].forEach(function (ival) {
-                    var exists = contains.call(result.properties[key].options, ival);
+                    if((typeof  ival) === 'string') {
+                        var exists = contains.call(result.properties[key].options, ival);
 
-                    if (!exists) {
-                        result.properties[key].options.push(ival);
+                        if (!exists) {
+                            result.properties[key].options.push(ival);
+                        }
                     }
+                    result.properties[key].type = typeof ival;
                 })
             }
 
@@ -68,16 +75,17 @@ var computemetadata = function (collection) {
     Object.keys(finalresult).forEach(function (key) {
         var collectionmetadata = collection+"metadata";
         var metadata = {"name":key,  properties:[]};
-        var properties = []
+        var properties = [];
         Object.keys(finalresult[key].properties).forEach(function (value) {
-            properties.push({"name":value, options:finalresult[key].properties[value].options})
+            properties.push({"name":value, options:finalresult[key].properties[value].options, type:finalresult[key].properties[value].type})
         });
         metadata.properties = properties;
         db[collectionmetadata].insert(metadata);
-    })
+    });
     //db.metadata.insert(finalresult);
     return finalresult;
-}
+};
 
 var x = computemetadata("2_event");
 x;
+
