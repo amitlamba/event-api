@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Demographics",
+    "properties": [
+      {
+        "name": "age",
+        "type": "range",
+        "options": [
+          "18-25",
+          "25-35",
+          "35-45",
+          "45-60"
+        ]
+      },
+      {
+        "name": "gender",
+        "type": "String",
+        "options": [
+          "M",
+          "F"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Technographics",
+    "properties": [
+      {
+        "name": "Browser",
+        "type": "String",
+        "options": [
+          "Chrome",
+          "Firefox",
+          "Internet Explorer",
+          "Mobile Application",
+          "Opera",
+          "Others",
+          "Safari",
+          "Sea Monkey",
+          "UC Browser"
+        ]
+      },
+      {
+        "name": "OS",
+        "type": "String",
+        "options": [
+          "Android",
+          "Blackberry",
+          "Ios",
+          "Linux",
+          "Mac",
+          "Others",
+          "Windows"
+        ]
+      },
+      {
+        "name": "Device",
+        "type": "String",
+        "options": [
+          "Desktop",
+          "Mobile",
+          "Tablet",
+          "TV"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Reachability",
+    "properties": [
+      {
+        "name": "hasDeviceToken",
+        "type": "Boolean",
+        "options": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "hasEmailAddress",
+        "type": "Boolean",
+        "options": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "hasPhoneNumber",
+        "type": "Boolean",
+        "options": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "unsubscribedPush",
+        "type": "Boolean",
+        "options": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "unsubscribedEmail",
+        "type": "Boolean",
+        "options": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "unsubscribedSMS",
+        "type": "Boolean",
+        "options": [
+          "Yes",
+          "No"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AppFields",
+    "properties": [
+      {
+        "name": "App Version",
+        "type": "String",
+        "options": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Make",
+        "type": "String",
+        "options": [
+          "Apple",
+          "Samsung",
+          "Motorola",
+          "Sony",
+          "HTC",
+          "Xiaomi"
+        ]
+      },
+      {
+        "name": "Models",
+        "type": "String",
+        "options": [
+          "Iphone 6",
+          "Iphone 8",
+          "Iphone 7",
+          "Moto g3"
+        ]
+      },
+      {
+        "name": "OS Version",
+        "type": "String",
+        "options": [
+          "4.0.1",
+          "4.4.1",
+          "9.2",
+          "9.1",
+          "6.0.1"
+        ]
+      },
+      {
+        "name": "SDK Version",
+        "type": "String",
+        "options": [
+          9001,
+          9002,
+          9003,
+          9004
+        ]
+      }
+    ]
+  }
+]
+
+
