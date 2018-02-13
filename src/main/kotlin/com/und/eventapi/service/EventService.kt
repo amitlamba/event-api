@@ -41,12 +41,12 @@ class EventService {
         val clientId = event.clientId
         tenantProvider.setTenat(clientId.toString())
         val mongoEvent = event.copyToMongo()
+        //FIXME add to metadata
         eventRepository.insert(mongoEvent)
     }
 
     fun updateEventWithUser(identity: Identity) {
         tenantProvider.setTenat(identity.clientId.toString())
-        //val events: List<MongoEvent> = eventRepository.findEventsMatchingIdentity(identity)
         eventRepository.updateEventsWithIdentityMatching( identity)
 
     }

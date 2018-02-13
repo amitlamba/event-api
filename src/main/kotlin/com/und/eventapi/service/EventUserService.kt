@@ -33,6 +33,7 @@ class EventUserService {
     fun save(eventUser: MongoEventUser): MongoEventUser {
         val clientId = eventUser.clientId
         tenantProvider.setTenat(clientId.toString())
+        //FIXME save to user profile metadata
         return eventUserRepository.save(eventUser)
     }
 
