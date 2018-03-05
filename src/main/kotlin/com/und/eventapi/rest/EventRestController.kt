@@ -30,7 +30,7 @@ class EventRestController {
     @Autowired
     private lateinit var tenantProvider: TenantProvider
 
-    @RequestMapping(value = "/event/initialize", produces = ["application/json"], consumes =["application/json"], method = [RequestMethod.POST])
+    @PostMapping(value = ["/event/initialize"], produces = ["application/json"], consumes =["application/json"])
     fun initialize(@Valid @RequestBody identity: Identity?): ResponseEntity<Response<Identity>> {
 
         return ResponseEntity.ok(Response(
@@ -39,7 +39,7 @@ class EventRestController {
         ))
     }
 
-    @RequestMapping(value = "/push/event", produces = ["application/json"], consumes =["application/json"], method = [RequestMethod.POST])
+    @PostMapping(value = ["/push/event"], produces = ["application/json"], consumes =["application/json"])
     fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest): ResponseEntity<Response<String>> {
         val toEvent = buildEvent(event, request)
         eventService.toKafka(toEvent)
@@ -57,7 +57,7 @@ class EventRestController {
     }
 
 
-    @RequestMapping(value = "/push/profile", produces = ["application/json"], consumes =["application/json"], method = [RequestMethod.POST])
+    @PostMapping(value = ["/push/profile"], produces = ["application/json"], consumes =["application/json"])
     fun profile(@Valid @RequestBody eventUser : EventUser): ResponseEntity<Response<Identity>> {
 
         //this method can't be called before identity has been initialized

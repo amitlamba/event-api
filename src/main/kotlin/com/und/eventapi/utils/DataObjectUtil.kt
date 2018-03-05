@@ -68,19 +68,19 @@ fun com.und.model.mongo.EventUser.copyNonNull(eventUser: EventUser): com.und.mod
     copyEventUser.creationTime = creationTime
 
     copyEventUser.identity = Identity()
-    copyEventUser.identity?.clientUserId = unchanged(eventUser.clientUserId, identity?.clientUserId)
-    copyEventUser.identity?.fbId = unchanged(eventUser.fbId, identity?.fbId)
-    copyEventUser.identity?.googleId = unchanged(eventUser.googleId, identity?.googleId)
-    copyEventUser.identity?.mobile = unchanged(eventUser.mobile, identity?.mobile)
-    copyEventUser.identity?.email = unchanged(eventUser.email, identity?.email)
+    copyEventUser.identity.clientUserId = unchanged(eventUser.clientUserId, identity.clientUserId)
+    copyEventUser.identity.fbId = unchanged(eventUser.fbId, identity.fbId)
+    copyEventUser.identity.googleId = unchanged(eventUser.googleId, identity.googleId)
+    copyEventUser.identity.mobile = unchanged(eventUser.mobile, identity.mobile)
+    copyEventUser.identity.email = unchanged(eventUser.email, identity.email)
 
     copyEventUser.standardInfo = StandardInfo()
-    copyEventUser.standardInfo?.firstname = unchanged(eventUser.firstName, standardInfo?.firstname)
-    copyEventUser.standardInfo?.lastname = unchanged(eventUser.lastName, standardInfo?.lastname)
-    copyEventUser.standardInfo?.gender = unchanged(eventUser.gender, standardInfo?.gender)
-    copyEventUser.standardInfo?.dob = unchanged(eventUser.dob, standardInfo?.dob)
-    copyEventUser.standardInfo?.country = unchanged(eventUser.country, standardInfo?.country)
-    //copyEventUser.standardInfo?.countryCode = unchanged(eventUser.countryCode, standardInfo?.countryCode)
+    copyEventUser.standardInfo.firstname = unchanged(eventUser.firstName, standardInfo.firstname)
+    copyEventUser.standardInfo.lastname = unchanged(eventUser.lastName, standardInfo.lastname)
+    copyEventUser.standardInfo.gender = unchanged(eventUser.gender, standardInfo.gender)
+    copyEventUser.standardInfo.dob = unchanged(eventUser.dob, standardInfo.dob)
+    copyEventUser.standardInfo.country = unchanged(eventUser.country, standardInfo.country)
+    //copyEventUser.standardInfo.countryCode = unchanged(eventUser.countryCode, standardInfo.countryCode)
 
     return copyEventUser
 }

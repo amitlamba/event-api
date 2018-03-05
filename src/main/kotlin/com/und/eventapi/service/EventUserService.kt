@@ -53,8 +53,8 @@ class EventUserService {
         //FIXME throw some error message in case userid is found as null
         val newIdentity = identity.copy()
         //userid will never be null here, this check is present only to satisfy compiler
-        val eventUser = copyChangedValues(userId!!)
-        save(eventUser)
+        val eventUserCopied = copyChangedValues(userId!!)
+        save(eventUserCopied)
         return newIdentity
     }
 
@@ -93,8 +93,8 @@ class EventUserService {
         val identityCopy = identity?.copy() ?: Identity()
 
         with(identityCopy) {
-            deviceId = deviceId ?: UUID.randomUUID().toString()
-            sessionId = sessionId ?: UUID.randomUUID().toString()
+            deviceId = if(deviceId.isNullOrEmpty())  UUID.randomUUID().toString() else deviceId
+            sessionId = if(sessionId.isNullOrEmpty())  UUID.randomUUID().toString() else sessionId
         }
         //verify old data exists if device id, session id is not null
         return identityCopy
@@ -104,8 +104,8 @@ class EventUserService {
         val identityCopy = identity?.copy() ?: Identity()
 
         with(identityCopy) {
-            deviceId = deviceId ?: UUID.randomUUID().toString()
-            sessionId = sessionId ?: UUID.randomUUID().toString()
+            deviceId = if(deviceId.isNullOrEmpty())  UUID.randomUUID().toString() else deviceId
+            sessionId = if(sessionId.isNullOrEmpty())  UUID.randomUUID().toString() else sessionId
         }
         //verify old data exists if device id, session id is not null
         return identityCopy

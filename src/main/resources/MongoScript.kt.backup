@@ -1,5 +1,3 @@
-package com.und.model.mongo
-
 import com.fatboyindustrial.gsonjavatime.Converters
 import com.google.gson.GsonBuilder
 import org.bson.types.ObjectId
