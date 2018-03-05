@@ -1,7 +1,7 @@
 package com.und.eventapi
 
-import com.und.eventapi.model.EventUser
-import com.und.model.mongo.EventUser as MongoEventUser
+import com.und.web.model.eventapi.EventUser
+import com.und.model.mongo.eventapi.EventUser as MongoEventUser
 import com.und.eventapi.utils.copyNonNull
 import org.hamcrest.core.IsEqual
 import org.junit.Assert

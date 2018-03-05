@@ -1,17 +1,17 @@
-package com.und.eventapi.service
+package com.und.service.eventapi
 
-import com.und.eventapi.kafkalistner.EventStream
-import com.und.eventapi.model.Event
-import com.und.eventapi.model.Identity
-import com.und.eventapi.repository.EventRepository
-import com.und.eventapi.repository.EventUserRepository
+import com.und.messaging.eventapi.EventStream
+import com.und.web.model.eventapi.Event
+import com.und.web.model.eventapi.Identity
+import com.und.repository.eventapi.EventRepository
+import com.und.repository.eventapi.EventUserRepository
 import com.und.eventapi.utils.copyToMongo
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
-import com.und.model.mongo.Event as MongoEvent
+import com.und.model.mongo.eventapi.Event as MongoEvent
 
 @Service
 class EventService {

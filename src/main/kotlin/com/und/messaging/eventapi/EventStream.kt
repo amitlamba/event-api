@@ -1,4 +1,4 @@
-package com.und.eventapi.kafkalistner
+package com.und.messaging.eventapi
 
 import org.springframework.cloud.stream.annotation.Output
 import org.springframework.messaging.MessageChannel

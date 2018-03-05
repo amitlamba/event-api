@@ -1,6 +1,6 @@
-package com.und.eventapi.model
+package com.und.web.model.eventapi
 
-import com.und.model.mongo.LineItem
+import com.und.model.mongo.eventapi.LineItem
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*

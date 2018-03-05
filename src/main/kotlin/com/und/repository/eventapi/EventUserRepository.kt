@@ -1,6 +1,6 @@
-package com.und.eventapi.repository
+package com.und.repository.eventapi
 
-import com.und.model.mongo.EventUser
+import com.und.model.mongo.eventapi.EventUser
 import org.springframework.data.mongodb.repository.MongoRepository
 import java.util.*
 

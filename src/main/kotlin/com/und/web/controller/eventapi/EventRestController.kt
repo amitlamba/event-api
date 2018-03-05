@@ -1,10 +1,10 @@
-package com.und.eventapi.rest
+package com.und.web.controller.eventapi
 
-import com.und.eventapi.model.Event
-import com.und.eventapi.model.EventUser
-import com.und.eventapi.model.Identity
-import com.und.eventapi.service.EventService
-import com.und.eventapi.service.EventUserService
+import com.und.web.model.eventapi.Event
+import com.und.web.model.eventapi.EventUser
+import com.und.web.model.eventapi.Identity
+import com.und.service.eventapi.EventService
+import com.und.service.eventapi.EventUserService
 import com.und.eventapi.utils.ipAddr
 import com.und.security.model.Data
 import com.und.security.model.Response

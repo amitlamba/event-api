@@ -1,4 +1,4 @@
-package com.und.eventapi.model
+package com.und.web.model.eventapi
 
 import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
@@ -6,7 +6,7 @@ import java.time.ZoneOffset
 import java.util.*
 
 class EventUser {
-    var identity: Identity =  Identity()
+    var identity: Identity = Identity()
     var email: String? = null
     var clientUserId: String? = null //this is id of the user client has provided
     var undId: String? = null

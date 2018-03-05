@@ -1,7 +1,7 @@
-package com.und.eventapi.repository
+package com.und.repository.eventapi
 
-import com.und.model.mongo.Event
-import com.und.eventapi.model.Identity
+import com.und.model.mongo.eventapi.Event
+import com.und.web.model.eventapi.Identity
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria

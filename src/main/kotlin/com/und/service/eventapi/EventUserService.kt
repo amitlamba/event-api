@@ -1,10 +1,10 @@
-package com.und.eventapi.service
+package com.und.service.eventapi
 
-import com.und.eventapi.kafkalistner.EventStream
-import com.und.eventapi.model.EventUser
-import com.und.model.mongo.EventUser as MongoEventUser
-import com.und.eventapi.model.Identity
-import com.und.eventapi.repository.EventUserRepository
+import com.und.messaging.eventapi.EventStream
+import com.und.web.model.eventapi.EventUser
+import com.und.model.mongo.eventapi.EventUser as MongoEventUser
+import com.und.web.model.eventapi.Identity
+import com.und.repository.eventapi.EventUserRepository
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.stream.annotation.StreamListener

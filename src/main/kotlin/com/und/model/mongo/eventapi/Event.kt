@@ -1,4 +1,4 @@
-package com.und.model.mongo
+package com.und.model.mongo.eventapi
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -16,7 +16,7 @@ class Event(
         var system: System = System(),
         var creationTime: Long = LocalDateTime.now().atZone(ZoneId.of("UTC")).toEpochSecond()
 ) {
-    var geoDetails =  GeoDetails()
+    var geoDetails = GeoDetails()
     var deviceId : String = ""
     var userIdentified :Boolean =  false
     var userId : String? = null

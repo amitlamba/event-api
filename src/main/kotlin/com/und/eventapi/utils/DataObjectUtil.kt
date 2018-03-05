@@ -1,10 +1,11 @@
 package com.und.eventapi.utils
 
-import com.und.eventapi.model.Event
-import com.und.eventapi.model.EventUser
+import com.und.web.model.eventapi.Event
+import com.und.web.model.eventapi.EventUser
 import com.und.model.mongo.*
-import com.und.model.mongo.SystemDetails
-import com.und.model.mongo.Event as MongoEvent
+import com.und.model.mongo.eventapi.*
+import com.und.model.mongo.eventapi.SystemDetails
+import com.und.model.mongo.eventapi.Event as MongoEvent
 
 fun Event.copyToMongo(): MongoEvent {
     val event = this
@@ -44,7 +45,7 @@ fun Event.copyToMongo(): MongoEvent {
 
     }
     //FIXME hard coded charged
-    if (event.name == "charged") {
+    if ("charged".equals(event.name , ignoreCase = false)) {
         mongoEvent.lineItem = event.lineItem
     }
     //copy attributes
@@ -52,7 +53,7 @@ fun Event.copyToMongo(): MongoEvent {
     return mongoEvent
 }
 
-fun com.und.model.mongo.EventUser.copyNonNull(eventUser: EventUser): com.und.model.mongo.EventUser {
+fun com.und.model.mongo.eventapi.EventUser.copyNonNull(eventUser: EventUser): com.und.model.mongo.eventapi.EventUser {
     fun unchanged(new: String?, old: String?): String? = when {
         new == old -> old
         old == null -> new
@@ -60,7 +61,7 @@ fun com.und.model.mongo.EventUser.copyNonNull(eventUser: EventUser): com.und.mod
         else -> new
     }
 
-    val copyEventUser = com.und.model.mongo.EventUser()
+    val copyEventUser = com.und.model.mongo.eventapi.EventUser()
     copyEventUser.id = id
     copyEventUser.additionalInfo.putAll(additionalInfo)
     copyEventUser.additionalInfo.putAll(eventUser.additionalInfo)

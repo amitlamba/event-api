@@ -1,12 +1,12 @@
 package com.und.eventapi.utils
 
-import com.und.eventapi.model.Event
-import com.und.eventapi.model.EventUser
-import com.und.model.mongo.EventUser as MongoEventUser
-import com.und.model.mongo.Event as MongoEvent
-import com.und.model.mongo.Identity
-import com.und.model.mongo.StandardInfo
-import com.und.model.mongo.System
+import com.und.web.model.eventapi.Event
+import com.und.web.model.eventapi.EventUser
+import com.und.model.mongo.eventapi.EventUser as MongoEventUser
+import com.und.model.mongo.eventapi.Event as MongoEvent
+import com.und.model.mongo.eventapi.Identity
+import com.und.model.mongo.eventapi.StandardInfo
+import com.und.model.mongo.eventapi.System
 import eu.bitwalker.useragentutils.UserAgent
 import javax.servlet.http.HttpServletRequest
 
