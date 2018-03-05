@@ -12,33 +12,21 @@ class ExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     fun handleFieldErrors(ex: MethodArgumentNotValidException): ErrorList {
 
-        var errorList:List<Errors>?=null
+        var errorList: List<Errors> = listOf()
         val bindingError = ex.bindingResult
         val fieldErrors = bindingError.fieldErrors
-        for (fieldError in fieldErrors)
-            errorList=listOf(Errors(errorCount = bindingError.fieldErrorCount,fieldName = fieldError.field, message = fieldError.defaultMessage))
-        val errorListHandle= ErrorList(errorList)
-        return errorListHandle
+        for (fieldError in fieldErrors) {
+            if (fieldError != null && fieldError.defaultMessage != null) {
+                errorList = listOf(
+                        Errors(errorCount = bindingError.fieldErrorCount,
+                                fieldName = fieldError.field,
+                                message = fieldError.defaultMessage)
+                )
+            }
+        }
+        return  ErrorList(errorList)
 
     }
-
-
-
-
-
-
-//    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-//    fun handleFieldErrors(ex: MethodArgumentNotValidException): ErrorDetails {
-//
-//        val bindingError = ex.bindingResult
-//        val e1 = bindingError.fieldError
-//        val errorDetails = ErrorDetails(HttpStatus.NOT_ACCEPTABLE.value(),
-//                "${e1.field} field has this error ${e1.rejectedValue}",
-//                "${ex.cause} value is the cause of error",
-//                "${e1.defaultMessage}")
-//        return errorDetails
-//
-//    }
 
 
 }
