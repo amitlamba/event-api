@@ -4,7 +4,8 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.HashMap
+import java.util.*
+import javax.validation.constraints.Pattern
 
 @Document(collection = "#{tenantProvider.getTenant()}_event")
 class Event(
@@ -17,10 +18,10 @@ class Event(
         var creationTime: Long = LocalDateTime.now().atZone(ZoneId.of("UTC")).toEpochSecond()
 ) {
     var geoDetails = GeoDetails()
-    var deviceId : String = ""
-    var userIdentified :Boolean =  false
-    var userId : String? = null
-    var sessionId : String = ""
+    var deviceId: String = ""
+    var userIdentified: Boolean = false
+    var userId: String? = null
+    var sessionId: String = ""
 }
 
 data class Coordinate(val latitude: Float, val longitude: Float)
@@ -40,11 +41,22 @@ class System {
 
 
 class LineItem {
+
+    @Pattern(regexp = "^\\d+$",message = "{event.lineItem.price.invalid}")
     var price: Int = 0
+
+    //FIXME currency validator logic
+    //@ValidateCurrency("{event.lineItem.currency.invalid}")
     var currency: String? = null
+
     var product: String? = null
+
     var categories: MutableList<String> = mutableListOf()
+
     var tags: MutableList<String> = mutableListOf()
-    var quantity:Int=0
+
+    @Pattern(regexp = "^\\d+$",message = "{event.lineItem.quantity.invalid}")
+    var quantity: Int = 0
+
     var properties: HashMap<String, Any> = hashMapOf()
 }

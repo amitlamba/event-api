@@ -5,12 +5,15 @@ import javax.validation.Payload
 import kotlin.reflect.KClass
 
 @MustBeDocumented
-@Constraint(validatedBy = arrayOf(DateValidator::class))
-@Target(AnnotationTarget.FUNCTION, AnnotationTarget.ANNOTATION_CLASS,
-        AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.CLASS)
+@Constraint(validatedBy = arrayOf(LatitudeValidator::class))
+@Target(AnnotationTarget.FUNCTION, AnnotationTarget.FIELD, AnnotationTarget.PROPERTY_GETTER)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ValidateDate(
-        val message: String = "{event.date.invalid}",
+annotation class ValidateLatitude(
+
+        val message: String = "{event.latitude.invalid}",
         val groups: Array<KClass<*>> = arrayOf(),
         val payload: Array<KClass<out Payload>> = arrayOf()
 )
+
+
+

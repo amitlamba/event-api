@@ -1,24 +1,24 @@
 package com.und.eventapi.validation
 
-
-import java.time.LocalDate
-import javax.validation.ConstraintValidatorContext
+import com.und.web.model.eventapi.Event
 import javax.validation.ConstraintValidator
-import java.time.format.DateTimeFormatter
+import javax.validation.ConstraintValidatorContext
 
-class DateValidator : ConstraintValidator<ValidateDate, LocalDate> {
+class DateValidator : ConstraintValidator<ValidateDate, Event> {
 
-    var annotation: ValidateDate?=null
-    private val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    override fun initialize(date: ValidateDate) {}
 
-    override fun initialize(annotation: ValidateDate) {
-        this.annotation = annotation
-    }
+    override fun isValid(event: Event, context: ConstraintValidatorContext?): Boolean {
 
-    override fun isValid(value: LocalDate?, context: ConstraintValidatorContext?): Boolean {
+        val result: Boolean
 
-        val startDate: LocalDate = LocalDate.parse(annotation!!.startDate, dateFormatter)
-        val endDate: LocalDate = LocalDate.parse(annotation!!.endDate, dateFormatter)
-        return startDate < endDate
+        result = if (event.getDateStart() != null && event.getDateEnd() != null) {
+            event.getDateStart()!! < event.getDateEnd()
+            //var bindingResult:BindingResult
+            //throw MethodArgumentNotValidException()
+        } else true
+        return result
     }
 }
+
+

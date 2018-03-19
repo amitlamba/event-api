@@ -1,8 +1,7 @@
 package com.und.web.model.eventapi
 
+import com.und.eventapi.validation.*
 import com.und.model.mongo.eventapi.LineItem
-import com.und.eventapi.validation.ValidateDate
-import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -14,40 +13,42 @@ import javax.validation.constraints.*
  */
 
 //FIXME handle validation for other fields and different types, e.g. @see
-//@ValidateDate
+@ValidateDate(message="{event.date.invalid}")
 open class Event {
 
     @NotBlank(message = "{event.name.empty}")
+    @Size(min=2,max=30,message="{event.name.invalidSize}")
     lateinit var name: String
 
-    @NotNull(message="{event.clientid.null}")
+    //FIXME display different message at different time
+    @NotNull(message = "{event.clientId.null}")
+    @ValidateID(message = "{event.clientId.invalid}")
+    @Min(value=1,message="{event.clientId.zero}")
     var clientId: Int = -1
 
     var identity: Identity = Identity()
+
     var creationTime: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
 
-    @Pattern(regexp="'\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|\$)){4}\\b'",
-            message="{event.ip.invalid}")
+    @Pattern(regexp="(([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])[.]){3}([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])",message="{event.ip.invalid}")
     var ipAddress: String? = null
 
-    @Size(min = 3, max = 25, message = "{event.city.invalidSize}")
-    @Pattern(regexp = "^[A-Za-z][a-zA-Z\\s]*$",message = "{event.city.invalidCharacters}")
+    @Size(min = 3, max = 30, message = "{event.city.invalidSize}")
+    @Pattern(regexp = "[A-Za-z][a-zA-Z\\s]*", message = "{event.city.invalid}")
     var city: String? = null
 
-    @Size(min = 4, max = 25, message = "{event.state.invalidSize}")
-    @Pattern(regexp = "^[A-Za-z][a-zA-Z\\s]*$",message = "{event.state.invalidCharacters}")
+    @Size(min = 4, max = 30, message = "{event.state.invalidSize}")
+    @Pattern(regexp = "[A-Za-z][a-zA-Z\\s]*", message = "{event.state.invalid}")
     var state: String? = null
 
-    @Size(min = 4, max = 25, message = "{event.country.invalidSize}")
-    @Pattern(regexp = "^[A-Za-z][a-zA-Z\\s]*$",message = "{event.country.invalidCharacters}")
+    @Size(min = 4, max = 35, message = "{event.country.invalidSize}")
+    @Pattern(regexp = "[A-Za-z][a-zA-Z\\s]*", message = "{event.country.invalid}")
     var country: String? = null
 
-    @Pattern(regexp = "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$",
-            message="{event.latitude.invalid}")
+    @ValidateLatitude(message="{event.latitude.invalid}")
     var latitude: String? = null
 
-    @Pattern(regexp = "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$",
-            message="{event.longitude.invalid}")
+    @ValidateLongitude(message="{event.longitude.invalid}")
     var longitude: String? = null
 
     var agentString: String? = null
@@ -55,12 +56,19 @@ open class Event {
     var lineItem: MutableList<LineItem> = mutableListOf()
     var attributes: HashMap<String, Any> = hashMapOf()
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    var startDate= LocalDate.now()
+    @ValidateDateFormat(message="{event.startDate.invalid}")
+    var startDate: LocalDate? = LocalDate.now()
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    var endDate=LocalDate.of(2017, 1, 13)
+    @ValidateDateFormat(message="{event.endDate.invalid}")
+    var endDate: LocalDate? = LocalDate.of(2020, 1, 1)
 
+    fun getDateStart(): LocalDate? {
+        return startDate
+    }
+
+    fun getDateEnd(): LocalDate? {
+        return endDate
+    }
 }
 
 data class Identity(
