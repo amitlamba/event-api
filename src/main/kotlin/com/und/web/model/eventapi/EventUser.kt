@@ -1,10 +1,12 @@
 package com.und.web.model.eventapi
 
-import com.und.eventapi.validation.ValidateID
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*
-import javax.validation.constraints.*
+import javax.validation.constraints.Email
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Pattern
+import javax.validation.constraints.Size
 
 class EventUser {
     var identity: Identity = Identity()
@@ -44,8 +46,8 @@ class EventUser {
     //TODO validate country code
     var countryCode: String? = null
 
-    @ValidateID(message = "{event.clientId.invalid}")
-    @Min(value=1,message="{event.clientId.zero}")
+    //@ValidateID(message = "{event.clientId.invalid}")
+    //@Min(value=1,message="{event.clientId.zero}")
     var clientId: Int = -1 //client id , user is associated with, this can come from collection
 
     var additionalInfo: HashMap<String, Any> = hashMapOf()
