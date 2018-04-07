@@ -1,5 +1,0 @@
-# JACKSON
-spring:
-  data:
-    mongodb:
-      uri: mongodb://${MONGO_IP}:${MONGO_PORT}/eventdb
