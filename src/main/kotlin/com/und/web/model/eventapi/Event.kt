@@ -1,15 +1,11 @@
 package com.und.web.model.eventapi
 
-import com.und.eventapi.validation.ValidateDate
-import com.und.eventapi.validation.ValidateDateFormat
-import com.und.eventapi.validation.ValidateLatitude
-import com.und.eventapi.validation.ValidateLongitude
+import com.und.eventapi.validation.*
 import com.und.model.mongo.eventapi.LineItem
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*
-import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
@@ -21,12 +17,11 @@ import javax.validation.constraints.Size
 @ValidateDate(message="{event.date.invalid}")
 open class Event {
 
-    @NotBlank(message = "{event.name.empty}")
     @Size(min=2,max=30,message="{event.name.invalidSize}")
     lateinit var name: String
 
     //FIXME display different message at different time
-    //@ValidateID(message = "{event.clientId.invalid}")
+    @ValidateID(message = "{event.clientId.invalid}")
     //@Min(value=1,message="{event.clientId.zero}")
     var clientId: Int = -1
 

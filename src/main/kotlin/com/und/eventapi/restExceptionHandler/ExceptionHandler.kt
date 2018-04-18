@@ -32,7 +32,7 @@ class ExceptionHandler {
         return ErrorList(errorList)
     }
 
- /*   @ExceptionHandler(Exception::class)
+   /* @ExceptionHandler(Exception::class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     fun processOtherError(ex: Exception): Error {
@@ -61,8 +61,7 @@ class ExceptionHandler {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ResponseBody
     fun handleInvalidFormatException(ex: Exception) :Error{
-        //FIXME correct the message field date will also throw this message
-        val error=Error("Abra Kadabra")
+        val error=Error("InvalidFormatException")
         return error
     }
 
@@ -70,7 +69,7 @@ class ExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     @ResponseBody
     fun handleHttpMessageNotReadableException(ex: HttpMessageNotReadableException) :Error{
-        val error=Error("Empty body")
+        val error=Error("HttpMessageNotReadableException")
         return error
     }
 }

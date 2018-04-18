@@ -12,7 +12,7 @@ class IDValidator : ConstraintValidator<ValidateID, Int> {
 
         val result: Boolean
         result = if (id != null) {
-            val pattern = Pattern.compile("\\d+")
+            val pattern = Pattern.compile("-1|[0-9]+")
             val matcher = pattern.matcher(id.toString())
             matcher.matches()
         } else true
