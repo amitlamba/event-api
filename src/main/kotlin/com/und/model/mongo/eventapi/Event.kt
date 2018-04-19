@@ -17,10 +17,12 @@ class Event(
         var creationTime: Long = LocalDateTime.now().atZone(ZoneId.of("UTC")).toEpochSecond()
 ) {
     var geoDetails = GeoDetails()
-    var deviceId : String = ""
-    var userIdentified :Boolean =  false
-    var userId : String? = null
-    var sessionId : String = ""
+    var deviceId: String = ""
+    var userIdentified: Boolean = false
+    var userId: String? = null
+    var sessionId: String = ""
+
+    var geogrophy: Geogrophy? = null
 }
 
 data class Coordinate(val latitude: Float, val longitude: Float)
@@ -45,6 +47,8 @@ class LineItem {
     var product: String? = null
     var categories: MutableList<String> = mutableListOf()
     var tags: MutableList<String> = mutableListOf()
-    var quantity:Int=0
+    var quantity: Int = 0
     var properties: HashMap<String, Any> = hashMapOf()
 }
+
+class Geogrophy(val country: String?, val state: String?, val city: String?)
