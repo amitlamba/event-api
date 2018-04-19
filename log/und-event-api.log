@@ -1,0 +1,976 @@
+2018-04-19 11:01:07.181  INFO [event-api,,,] 2024 --- [main] com.und.EventApplicationKt               : The following profiles are active: dev
+2018-04-19 11:01:07.224  INFO [event-api,,,] 2024 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@20576557: startup date [Thu Apr 19 11:01:07 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@11963225
+2018-04-19 11:01:08.588  INFO [event-api,,,] 2024 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-04-19 11:01:09.635  INFO [event-api,,,] 2024 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'httpRequestHandlerAdapter' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration; factoryMethodName=httpRequestHandlerAdapter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration; factoryMethodName=httpRequestHandlerAdapter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/data/rest/webmvc/config/RepositoryRestMvcConfiguration.class]]
+2018-04-19 11:01:09.904  INFO [event-api,,,] 2024 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'environmentWebEndpointExtension' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.actuate.autoconfigure.env.EnvironmentEndpointAutoConfiguration; factoryMethodName=environmentWebEndpointExtension; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/actuate/autoconfigure/env/EnvironmentEndpointAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.autoconfigure.LifecycleMvcEndpointAutoConfiguration$EndpointConfiguration; factoryMethodName=environmentWebEndpointExtension; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/autoconfigure/LifecycleMvcEndpointAutoConfiguration$EndpointConfiguration.class]]
+2018-04-19 11:01:10.821  INFO [event-api,,,] 2024 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=35015cd8-7c95-37c2-af92-ec5d9c5c95c6
+2018-04-19 11:01:10.852  INFO [event-api,,,] 2024 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-04-19 11:01:10.855  INFO [event-api,,,] 2024 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-04-19 11:01:10.872  INFO [event-api,,,] 2024 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:01:11.051  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$b7d1c514] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.560  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$7ccd7bcb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.587  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.597  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@78743dd8' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.621  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$a1a21e7d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.651  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.861  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$4f116ec0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:11.915  INFO [event-api,,,] 2024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$39b68e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:01:14.026  INFO [event-api,,,] 2024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5454 (http)
+2018-04-19 11:01:14.087  INFO [event-api,,,] 2024 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-19 11:01:14.088  INFO [event-api,,,] 2024 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-19 11:01:14.116  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_161\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\nodejs\;C:\Users\Kamalpreet Singh\AppData\Local\Microsoft\WindowsApps;C:\Gradle\gradle-4.6\bin;C:\Users\Kamalpreet Singh\AppData\Roaming\npm;.]
+2018-04-19 11:01:14.814  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-19 11:01:14.815  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7591 ms
+2018-04-19 11:01:18.824  INFO [event-api,,,] 2024 --- [localhost-startStop-1] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[192.168.0.109:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-04-19 11:01:18.840  INFO [event-api,,,] 2024 --- [localhost-startStop-1] org.mongodb.driver.cluster               : Adding discovered server 192.168.0.109:27017 to client view of cluster
+2018-04-19 11:01:19.356  INFO [event-api,,,] 2024 --- [cluster-ClusterId{value='5ad829a699c20807e8b60c26', description='null'}-192.168.0.109:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:11}] to 192.168.0.109:27017
+2018-04-19 11:01:19.419  INFO [event-api,,,] 2024 --- [cluster-ClusterId{value='5ad829a699c20807e8b60c26', description='null'}-192.168.0.109:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=192.168.0.109:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=68848382}
+2018-04-19 11:01:19.419  INFO [event-api,,,] 2024 --- [cluster-ClusterId{value='5ad829a699c20807e8b60c26', description='null'}-192.168.0.109:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2018-04-19 11:01:22.254  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-04-19 11:01:24.066  INFO [event-api,,,] 2024 --- [localhost-startStop-1] s.c.a.AnnotationConfigApplicationContext : Refreshing FeignContext-auth-service: startup date [Thu Apr 19 11:01:24 IST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@20576557
+2018-04-19 11:01:24.093  INFO [event-api,,,] 2024 --- [localhost-startStop-1] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:01:25.034  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-19 11:01:25.034  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'tracingFilter' to: [/*]
+2018-04-19 11:01:25.034  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'exceptionLoggingFilter' to: [/*]
+2018-04-19 11:01:25.034  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-19 11:01:25.034  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-19 11:01:25.049  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-19 11:01:25.049  INFO [event-api,,,] 2024 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-19 11:01:25.049  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-04-19 11:01:25.049  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-04-19 11:01:25.049  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'authenticationTokenFilterBean' to: [/*]
+2018-04-19 11:01:25.049  INFO [event-api,,,] 2024 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-04-19 11:01:27.427  INFO [event-api,,,] 2024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@389a9ff6, org.springframework.security.web.context.SecurityContextPersistenceFilter@307e9c02, org.springframework.security.web.header.HeaderWriterFilter@322593ed, org.springframework.security.web.authentication.logout.LogoutFilter@3cc2c4b8, com.und.security.filter.RestAuthenticationTokenFilter@1c8174f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67eabe02, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30cb489a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15af06f, org.springframework.security.web.session.SessionManagementFilter@3eadfbbb, org.springframework.security.web.access.ExceptionTranslationFilter@20ddc780, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5eed2edf]
+2018-04-19 11:01:27.615  WARN [event-api,,,] 2024 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-04-19 11:01:27.620  INFO [event-api,,,] 2024 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-04-19 11:01:27.635  WARN [event-api,,,] 2024 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-04-19 11:01:27.635  INFO [event-api,,,] 2024 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-04-19 11:01:28.302  INFO [event-api,,,] 2024 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@20576557: startup date [Thu Apr 19 11:01:07 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@11963225
+2018-04-19 11:01:28.551  INFO [event-api,,,] 2024 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/push/profile],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<com.und.security.model.Response<com.und.web.model.eventapi.Identity>> com.und.web.controller.eventapi.EventRestController.profile(com.und.web.model.eventapi.EventUser)
+2018-04-19 11:01:28.551  INFO [event-api,,,] 2024 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/event/initialize],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<com.und.security.model.Response<com.und.web.model.eventapi.Identity>> com.und.web.controller.eventapi.EventRestController.initialize(com.und.web.model.eventapi.Identity)
+2018-04-19 11:01:28.551  INFO [event-api,,,] 2024 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/push/event],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<com.und.security.model.Response<java.lang.String>> com.und.web.controller.eventapi.EventRestController.saveEvent(com.und.web.model.eventapi.Event,javax.servlet.http.HttpServletRequest)
+2018-04-19 11:01:28.567  INFO [event-api,,,] 2024 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-19 11:01:28.569  INFO [event-api,,,] 2024 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-19 11:01:28.818  INFO [event-api,,,] 2024 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-19 11:01:28.818  INFO [event-api,,,] 2024 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-19 11:01:28.888  INFO [event-api,,,] 2024 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2018-04-19 11:01:28.963  INFO [event-api,,,] 2024 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in exceptionHandler
+2018-04-19 11:01:28.963  INFO [event-api,,,] 2024 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in repositoryRestExceptionHandler
+2018-04-19 11:01:29.227  INFO [event-api,,,] 2024 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-19 11:01:30.319  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerAdapter   : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@20576557: startup date [Thu Apr 19 11:01:07 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@11963225
+2018-04-19 11:01:30.442  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.Resource<?>> org.springframework.data.rest.webmvc.RepositoryEntityController.getItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.http.HttpHeaders) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.443  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[PUT],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.putItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.data.rest.webmvc.support.ETag,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.444  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.headForItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.445  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[PATCH],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.patchItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.data.rest.webmvc.support.ETag,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException,org.springframework.data.rest.webmvc.ResourceNotFoundException
+2018-04-19 11:01:30.447  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.optionsForCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.448  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[GET],produces=[application/x-spring-data-compact+json || text/uri-list]}" onto public org.springframework.hateoas.Resources<?> org.springframework.data.rest.webmvc.RepositoryEntityController.getCollectionResourceCompact(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.449  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.optionsForItemResource(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.450  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[DELETE],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.deleteItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.support.ETag) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.453  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.headCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.455  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.hateoas.Resources<?> org.springframework.data.rest.webmvc.RepositoryEntityController.getCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.456  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[POST],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.postCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:01:30.459  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.RepositoryLinksResource> org.springframework.data.rest.webmvc.RepositoryController.listRepositories()
+2018-04-19 11:01:30.462  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryController.headForRepositories()
+2018-04-19 11:01:30.464  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositoryController.optionsForRepositories()
+2018-04-19 11:01:30.467  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}/{propertyId}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+2018-04-19 11:01:30.468  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+2018-04-19 11:01:30.468  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[DELETE],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.deletePropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String) throws java.lang.Exception
+2018-04-19 11:01:30.469  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}/{propertyId}],methods=[DELETE],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.deletePropertyReferenceId(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,java.lang.String) throws java.lang.Exception
+2018-04-19 11:01:30.472  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[PATCH || PUT || POST],consumes=[application/json || application/x-spring-data-compact+json || text/uri-list],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.createPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.http.HttpMethod,org.springframework.hateoas.Resources<java.lang.Object>,java.io.Serializable,java.lang.String) throws java.lang.Exception
+2018-04-19 11:01:30.476  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[GET],produces=[application/x-spring-data-compact+json || text/uri-list]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReferenceCompact(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+2018-04-19 11:01:30.479  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.data.rest.webmvc.RepositorySearchesResource org.springframework.data.rest.webmvc.RepositorySearchController.listSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.479  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.headForSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.480  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.headForSearch(org.springframework.data.rest.webmvc.RootResourceInformation,java.lang.String)
+2018-04-19 11:01:30.481  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.executeSearch(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.util.MultiValueMap<java.lang.String, java.lang.Object>,java.lang.String,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.http.HttpHeaders)
+2018-04-19 11:01:30.481  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.optionsForSearch(org.springframework.data.rest.webmvc.RootResourceInformation,java.lang.String)
+2018-04-19 11:01:30.482  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.optionsForSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.482  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[GET],produces=[application/x-spring-data-compact+json]}" onto public org.springframework.hateoas.ResourceSupport org.springframework.data.rest.webmvc.RepositorySearchController.executeSearchCompact(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.http.HttpHeaders,org.springframework.util.MultiValueMap<java.lang.String, java.lang.Object>,java.lang.String,java.lang.String,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler)
+2018-04-19 11:01:30.501  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile/{repository}],methods=[GET],produces=[application/schema+json]}" onto public org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.json.JsonSchema> org.springframework.data.rest.webmvc.RepositorySchemaController.schema(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.501  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile],methods=[OPTIONS]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.ProfileController.profileOptions()
+2018-04-19 11:01:30.502  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile],methods=[GET]}" onto org.springframework.http.HttpEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.ProfileController.listAllFormsOfMetadata()
+2018-04-19 11:01:30.503  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile/{repository}],methods=[GET],produces=[application/alps+json || */*]}" onto org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.RootResourceInformation> org.springframework.data.rest.webmvc.alps.AlpsController.descriptor(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:01:30.504  INFO [event-api,,,] 2024 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile/{repository}],methods=[OPTIONS],produces=[application/alps+json]}" onto org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.alps.AlpsController.alpsOptions()
+2018-04-19 11:01:32.128  INFO [event-api,,,] 2024 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-04-19 11:01:32.131  INFO [event-api,,,] 2024 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-04-19 11:01:32.133  INFO [event-api,,,] 2024 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-19 11:01:33.069  INFO [event-api,,,] 2024 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.event' has 1 subscriber(s).
+2018-04-19 11:01:33.069  INFO [event-api,,,] 2024 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.processedEventUserProfile' has 1 subscriber(s).
+2018-04-19 11:01:33.069  INFO [event-api,,,] 2024 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.eventUser' has 1 subscriber(s).
+2018-04-19 11:01:33.084  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-19 11:01:33.116  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'integrationMbeanExporter' has been autodetected for JMX exposure
+2018-04-19 11:01:33.116  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-04-19 11:01:33.116  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-04-19 11:01:33.131  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-04-19 11:01:33.131  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-04-19 11:01:33.162  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-04-19 11:01:33.256  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'integrationMbeanExporter': registering with JMX server as MBean [org.springframework.integration.monitor:name=integrationMbeanExporter,type=IntegrationMBeanExporter]
+2018-04-19 11:01:33.392  INFO [event-api,,,] 2024 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=20576557,type=ConfigurationPropertiesRebinder]
+2018-04-19 11:01:33.470  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering beans for JMX exposure on startup
+2018-04-19 11:01:33.470  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel nullChannel
+2018-04-19 11:01:33.470  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=nullChannel': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=nullChannel]
+2018-04-19 11:01:33.501  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel eventUser
+2018-04-19 11:01:33.501  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=eventUser': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=eventUser]
+2018-04-19 11:01:33.595  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel processedEventUserProfile
+2018-04-19 11:01:33.595  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=processedEventUserProfile': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=processedEventUserProfile]
+2018-04-19 11:01:33.611  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel event
+2018-04-19 11:01:33.611  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=event': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=event]
+2018-04-19 11:01:33.626  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel errorChannel
+2018-04-19 11:01:33.642  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=errorChannel': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=errorChannel]
+2018-04-19 11:01:33.689  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@caee26e
+2018-04-19 11:01:33.704  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@caee26e,bean=handler': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@caee26e,bean=handler]
+2018-04-19 11:01:33.720  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler errorLogger
+2018-04-19 11:01:33.720  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=errorLogger,bean=internal': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=errorLogger,bean=internal]
+2018-04-19 11:01:33.736  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@10ecf244
+2018-04-19 11:01:33.736  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@10ecf244,bean=handler': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@10ecf244,bean=handler]
+2018-04-19 11:01:33.751  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@28592982
+2018-04-19 11:01:33.751  INFO [event-api,,,] 2024 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@28592982,bean=handler': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@28592982,bean=handler]
+2018-04-19 11:01:33.783  INFO [event-api,,,] 2024 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147482648
+2018-04-19 11:01:34.083  INFO [event-api,,,] 2024 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at: http://nestros.com:8888
+2018-04-19 11:01:34.380  INFO [event-api,,,] 2024 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=event-api, profiles=[dev], label=null, version=92887db6d0d9ff5496ba0cba5f74158b9b286cb5, state=null
+2018-04-19 11:01:34.380  INFO [event-api,,,] 2024 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: CompositePropertySource {name='configService', propertySources=[MapPropertySource {name='configClient'}, MapPropertySource {name='/home/shiv/undot/configprop/event-api/event-api-dev.yml'}, MapPropertySource {name='/home/shiv/undot/configprop/event-api/event-api.yml'}]}
+2018-04-19 11:01:34.411  INFO [event-api,,,] 2024 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@24489d12: startup date [Thu Apr 19 11:01:34 IST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@20576557
+2018-04-19 11:01:34.443  INFO [event-api,,,] 2024 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:01:34.911  INFO [event-api,,,] 2024 --- [main] o.s.c.s.b.k.p.KafkaTopicProvisioner      : Using kafka topic for outbound: processedEventUserProfile
+2018-04-19 11:01:34.911  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [192.168.0.109:6667]
+	client.id = 
+	connections.max.idle.ms = 300000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 120000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2018-04-19 11:01:34.990  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:01:34.990  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:01:36.011  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.0.109:6667]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2018-04-19 11:01:36.042  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:01:36.042  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:01:36.371  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2018-04-19 11:01:36.387  INFO [event-api,,,] 2024 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.processedEventUserProfile' has 2 subscriber(s).
+2018-04-19 11:01:36.387  INFO [event-api,,,] 2024 --- [main] o.s.c.s.b.k.p.KafkaTopicProvisioner      : Using kafka topic for outbound: eventUser
+2018-04-19 11:01:36.387  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [192.168.0.109:6667]
+	client.id = 
+	connections.max.idle.ms = 300000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 120000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2018-04-19 11:01:36.387  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:01:36.387  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:01:37.074  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.0.109:6667]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2018-04-19 11:01:37.074  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:01:37.074  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:01:37.356  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-2] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2018-04-19 11:01:37.356  INFO [event-api,,,] 2024 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.eventUser' has 2 subscriber(s).
+2018-04-19 11:01:37.356  INFO [event-api,,,] 2024 --- [main] o.s.c.s.b.k.p.KafkaTopicProvisioner      : Using kafka topic for outbound: event
+2018-04-19 11:01:37.356  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [192.168.0.109:6667]
+	client.id = 
+	connections.max.idle.ms = 300000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 120000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2018-04-19 11:01:37.356  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:01:37.356  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:01:38.049  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.0.109:6667]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2018-04-19 11:01:38.049  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:01:38.049  INFO [event-api,,,] 2024 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:01:38.268  INFO [event-api,,,] 2024 --- [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-3] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2018-04-19 11:01:38.283  INFO [event-api,,,] 2024 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.event' has 2 subscriber(s).
+2018-04-19 11:01:38.283  INFO [event-api,,,] 2024 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-04-19 11:01:38.299  INFO [event-api,,,] 2024 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2018-04-19 11:01:38.362  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region desktop
+2018-04-19 11:01:38.471  INFO [event-api,,,] 2024 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-04-19 11:01:38.487  INFO [event-api,,,] 2024 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-04-19 11:01:38.690  INFO [event-api,,,] 2024 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-04-19 11:01:38.690  INFO [event-api,,,] 2024 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-04-19 11:01:38.940  INFO [event-api,,,] 2024 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-04-19 11:01:39.034  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-04-19 11:01:39.362  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-04-19 11:01:39.362  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2018-04-19 11:01:39.362  INFO [event-api,,,] 2024 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2018-04-19 11:01:39.377  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1524115899377 with initial instances count: 8
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application event-api with eureka with status UP
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1524115899409, current=UP, previous=STARTING]
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EVENT-API/LAPTOP-UE9SO1VS:event-api:5454: registering service...
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'event-api-1.errorChannel' has 1 subscriber(s).
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147482647
+2018-04-19 11:01:39.409  INFO [event-api,,,] 2024 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483547
+2018-04-19 11:01:39.471  INFO [event-api,,,] 2024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5454 (http) with context path ''
+2018-04-19 11:01:39.471  INFO [event-api,,,] 2024 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 5454
+2018-04-19 11:01:39.471  INFO [event-api,,,] 2024 --- [main] com.und.EventApplicationKt               : Started EventApplicationKt in 36.14 seconds (JVM running for 37.098)
+2018-04-19 11:01:39.534  INFO [event-api,,,] 2024 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EVENT-API/LAPTOP-UE9SO1VS:event-api:5454 - registration status: 204
+2018-04-19 11:01:47.559  INFO [event-api,,,] 2024 --- [http-nio-5454-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-19 11:01:47.559  INFO [event-api,,,] 2024 --- [http-nio-5454-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-19 11:01:47.622  INFO [event-api,,,] 2024 --- [http-nio-5454-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 63 ms
+2018-04-19 11:01:47.653  INFO [event-api,74bf2b3da65a6502,74bf2b3da65a6502,false] 2024 --- [http-nio-5454-exec-3] c.u.s.f.RestAuthenticationTokenFilter    : checking authentication for token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYW1hbHByZWV0LnNpbmdoQHVzZXJuZG90LmNvbSIsInVzZXJJZCI6IjEzIiwiY2xpZW50SWQiOiI3Iiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJjcmVhdGVkIjoxNTI0MTE1OTA1NjYyLCJleHAiOjE1MjQ3MjA3MDV9.wnIJeP_nsyu6xAUuqifg2WtFZcynQO1Fwo7uagvb4irQtVLV9y2_lFfn9jz66wYiNc-n0rlM71aJTJ5zkCM8Rw 
+2018-04-19 11:01:47.669  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-auth-service: startup date [Thu Apr 19 11:01:47 IST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@20576557
+2018-04-19 11:01:47.762  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:01:48.206  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] c.netflix.config.ChainedDynamicProperty  : Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-04-19 11:01:48.253  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-auth-service
+2018-04-19 11:01:48.300  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] c.netflix.loadbalancer.BaseLoadBalancer  : Client: auth-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-04-19 11:01:48.315  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-04-19 11:01:48.362  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] c.netflix.config.ChainedDynamicProperty  : Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-04-19 11:01:48.362  INFO [event-api,74bf2b3da65a6502,f791eb85c0f777dd,false] 2024 --- [http-nio-5454-exec-3] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client auth-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[192.168.0.109:9595],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.0.109:9595;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 05:30:00 IST 1970;	First connection made: Thu Jan 01 05:30:00 IST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@76d1ac01
+2018-04-19 11:01:48.951  INFO [event-api,74bf2b3da65a6502,74bf2b3da65a6502,false] 2024 --- [http-nio-5454-exec-3] c.u.s.f.RestAuthenticationTokenFilter    : authenticated user usernameFromToken, setting security context
+2018-04-19 11:01:49.123  INFO [event-api,be04c5499c5d9fbf,be04c5499c5d9fbf,false] 2024 --- [http-nio-5454-exec-1] c.u.s.f.RestAuthenticationTokenFilter    : checking authentication for token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYW1hbHByZWV0LnNpbmdoQHVzZXJuZG90LmNvbSIsInVzZXJJZCI6IjEzIiwiY2xpZW50SWQiOiI3Iiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJjcmVhdGVkIjoxNTI0MTE1OTA1NjYyLCJleHAiOjE1MjQ3MjA3MDV9.wnIJeP_nsyu6xAUuqifg2WtFZcynQO1Fwo7uagvb4irQtVLV9y2_lFfn9jz66wYiNc-n0rlM71aJTJ5zkCM8Rw 
+2018-04-19 11:01:49.295  INFO [event-api,be04c5499c5d9fbf,be04c5499c5d9fbf,false] 2024 --- [http-nio-5454-exec-1] c.u.s.f.RestAuthenticationTokenFilter    : authenticated user usernameFromToken, setting security context
+2018-04-19 11:01:49.326  INFO [event-api,,,] 2024 --- [PollingServerListUpdater-0] c.netflix.config.ChainedDynamicProperty  : Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-04-19 11:07:13.379  INFO [event-api,,,] 2024 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-04-19 11:07:13.394  INFO [event-api,e7613200dd8d5b54,e7613200dd8d5b54,false] 2024 --- [http-nio-5454-exec-4] c.u.s.f.RestAuthenticationTokenFilter    : checking authentication for token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYW1hbHByZWV0LnNpbmdoQHVzZXJuZG90LmNvbSIsInVzZXJJZCI6IjEzIiwiY2xpZW50SWQiOiI3Iiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJjcmVhdGVkIjoxNTI0MTE2MTQ1MzM4LCJleHAiOjE1MjQ3MjA5NDV9.Iw1Do_HuUnra4-8E0K6Y0PJMn2EFI31JEflaKPrii8zSp-wqaxTUN7Y3nQllpV2HrHzEa1DqVGMziwCoHsljow 
+2018-04-19 11:08:27.990  INFO [event-api,,,] 12372 --- [main] com.und.EventApplicationKt               : The following profiles are active: dev
+2018-04-19 11:08:28.052  INFO [event-api,,,] 12372 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46a953cf: startup date [Thu Apr 19 11:08:28 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@287f94b1
+2018-04-19 11:08:29.126  INFO [event-api,,,] 12372 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-04-19 11:08:29.767  INFO [event-api,,,] 12372 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'httpRequestHandlerAdapter' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration; factoryMethodName=httpRequestHandlerAdapter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration; factoryMethodName=httpRequestHandlerAdapter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/data/rest/webmvc/config/RepositoryRestMvcConfiguration.class]]
+2018-04-19 11:08:29.955  INFO [event-api,,,] 12372 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'environmentWebEndpointExtension' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.actuate.autoconfigure.env.EnvironmentEndpointAutoConfiguration; factoryMethodName=environmentWebEndpointExtension; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/actuate/autoconfigure/env/EnvironmentEndpointAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.autoconfigure.LifecycleMvcEndpointAutoConfiguration$EndpointConfiguration; factoryMethodName=environmentWebEndpointExtension; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/autoconfigure/LifecycleMvcEndpointAutoConfiguration$EndpointConfiguration.class]]
+2018-04-19 11:08:30.804  INFO [event-api,,,] 12372 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=35015cd8-7c95-37c2-af92-ec5d9c5c95c6
+2018-04-19 11:08:30.835  INFO [event-api,,,] 12372 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-04-19 11:08:30.835  INFO [event-api,,,] 12372 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-04-19 11:08:30.850  INFO [event-api,,,] 12372 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:08:31.007  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$7e0c1d23] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.549  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$4307d3da] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.580  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.580  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7672960e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.596  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$67dc768c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.627  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.815  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$154bc6cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:31.862  INFO [event-api,,,] 12372 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c6740e9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-19 11:08:33.754  INFO [event-api,,,] 12372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5454 (http)
+2018-04-19 11:08:33.817  INFO [event-api,,,] 12372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-19 11:08:33.817  INFO [event-api,,,] 12372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-19 11:08:33.848  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_161\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\nodejs\;C:\Users\Kamalpreet Singh\AppData\Local\Microsoft\WindowsApps;C:\Gradle\gradle-4.6\bin;C:\Users\Kamalpreet Singh\AppData\Roaming\npm;.]
+2018-04-19 11:08:34.144  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-19 11:08:34.144  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6092 ms
+2018-04-19 11:08:36.845  INFO [event-api,,,] 12372 --- [localhost-startStop-1] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[192.168.0.109:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-04-19 11:08:36.845  INFO [event-api,,,] 12372 --- [localhost-startStop-1] org.mongodb.driver.cluster               : Adding discovered server 192.168.0.109:27017 to client view of cluster
+2018-04-19 11:08:37.298  INFO [event-api,,,] 12372 --- [cluster-ClusterId{value='5ad82b5c99c208305437f473', description='null'}-192.168.0.109:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:14}] to 192.168.0.109:27017
+2018-04-19 11:08:37.360  INFO [event-api,,,] 12372 --- [cluster-ClusterId{value='5ad82b5c99c208305437f473', description='null'}-192.168.0.109:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=192.168.0.109:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=68578524}
+2018-04-19 11:08:37.376  INFO [event-api,,,] 12372 --- [cluster-ClusterId{value='5ad82b5c99c208305437f473', description='null'}-192.168.0.109:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2018-04-19 11:08:39.840  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-04-19 11:08:41.437  INFO [event-api,,,] 12372 --- [localhost-startStop-1] s.c.a.AnnotationConfigApplicationContext : Refreshing FeignContext-auth-service: startup date [Thu Apr 19 11:08:41 IST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46a953cf
+2018-04-19 11:08:41.453  INFO [event-api,,,] 12372 --- [localhost-startStop-1] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'tracingFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'exceptionLoggingFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'authenticationTokenFilterBean' to: [/*]
+2018-04-19 11:08:42.404  INFO [event-api,,,] 12372 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-04-19 11:08:45.013  INFO [event-api,,,] 12372 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@470866d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@789f5552, org.springframework.security.web.header.HeaderWriterFilter@506e382b, org.springframework.security.web.authentication.logout.LogoutFilter@4f6a5cc9, com.und.security.filter.RestAuthenticationTokenFilter@7aa9c320, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2dc77962, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71e55e48, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11267e87, org.springframework.security.web.session.SessionManagementFilter@2b06c388, org.springframework.security.web.access.ExceptionTranslationFilter@59700156, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@571903ff]
+2018-04-19 11:08:45.200  WARN [event-api,,,] 12372 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-04-19 11:08:45.200  INFO [event-api,,,] 12372 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-04-19 11:08:45.216  WARN [event-api,,,] 12372 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-04-19 11:08:45.216  INFO [event-api,,,] 12372 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-04-19 11:08:45.864  INFO [event-api,,,] 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46a953cf: startup date [Thu Apr 19 11:08:28 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@287f94b1
+2018-04-19 11:08:46.061  INFO [event-api,,,] 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/push/profile],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<com.und.security.model.Response<com.und.web.model.eventapi.Identity>> com.und.web.controller.eventapi.EventRestController.profile(com.und.web.model.eventapi.EventUser)
+2018-04-19 11:08:46.061  INFO [event-api,,,] 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/event/initialize],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<com.und.security.model.Response<com.und.web.model.eventapi.Identity>> com.und.web.controller.eventapi.EventRestController.initialize(com.und.web.model.eventapi.Identity)
+2018-04-19 11:08:46.061  INFO [event-api,,,] 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/push/event],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<com.und.security.model.Response<java.lang.String>> com.und.web.controller.eventapi.EventRestController.saveEvent(com.und.web.model.eventapi.Event,javax.servlet.http.HttpServletRequest)
+2018-04-19 11:08:46.061  INFO [event-api,,,] 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-19 11:08:46.061  INFO [event-api,,,] 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-19 11:08:46.264  INFO [event-api,,,] 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-19 11:08:46.264  INFO [event-api,,,] 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-19 11:08:46.296  INFO [event-api,,,] 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2018-04-19 11:08:46.342  INFO [event-api,,,] 12372 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in exceptionHandler
+2018-04-19 11:08:46.342  INFO [event-api,,,] 12372 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in repositoryRestExceptionHandler
+2018-04-19 11:08:46.547  INFO [event-api,,,] 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-19 11:08:47.553  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerAdapter   : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46a953cf: startup date [Thu Apr 19 11:08:28 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@287f94b1
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.Resource<?>> org.springframework.data.rest.webmvc.RepositoryEntityController.getItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.http.HttpHeaders) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[PUT],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.putItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.data.rest.webmvc.support.ETag,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.headCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.hateoas.Resources<?> org.springframework.data.rest.webmvc.RepositoryEntityController.getCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.optionsForItemResource(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[PATCH],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.patchItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.data.rest.webmvc.support.ETag,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException,org.springframework.data.rest.webmvc.ResourceNotFoundException
+2018-04-19 11:08:47.616  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[GET],produces=[application/x-spring-data-compact+json || text/uri-list]}" onto public org.springframework.hateoas.Resources<?> org.springframework.data.rest.webmvc.RepositoryEntityController.getCollectionResourceCompact(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.headForItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[POST],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.postCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[DELETE],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.deleteItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.support.ETag) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.optionsForCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.RepositoryLinksResource> org.springframework.data.rest.webmvc.RepositoryController.listRepositories()
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryController.headForRepositories()
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositoryController.optionsForRepositories()
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}/{propertyId}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+2018-04-19 11:08:47.632  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[PATCH || PUT || POST],consumes=[application/json || application/x-spring-data-compact+json || text/uri-list],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.createPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.http.HttpMethod,org.springframework.hateoas.Resources<java.lang.Object>,java.io.Serializable,java.lang.String) throws java.lang.Exception
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[DELETE],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.deletePropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String) throws java.lang.Exception
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}/{propertyId}],methods=[DELETE],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.deletePropertyReferenceId(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,java.lang.String) throws java.lang.Exception
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[GET],produces=[application/x-spring-data-compact+json || text/uri-list]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReferenceCompact(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.headForSearch(org.springframework.data.rest.webmvc.RootResourceInformation,java.lang.String)
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[HEAD],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.headForSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.optionsForSearch(org.springframework.data.rest.webmvc.RootResourceInformation,java.lang.String)
+2018-04-19 11:08:47.647  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.data.rest.webmvc.RepositorySearchesResource org.springframework.data.rest.webmvc.RepositorySearchController.listSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[GET],produces=[application/hal+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.executeSearch(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.util.MultiValueMap<java.lang.String, java.lang.Object>,java.lang.String,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.http.HttpHeaders)
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[GET],produces=[application/x-spring-data-compact+json]}" onto public org.springframework.hateoas.ResourceSupport org.springframework.data.rest.webmvc.RepositorySearchController.executeSearchCompact(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.http.HttpHeaders,org.springframework.util.MultiValueMap<java.lang.String, java.lang.Object>,java.lang.String,java.lang.String,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler)
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[OPTIONS],produces=[application/hal+json || application/json]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.optionsForSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile/{repository}],methods=[GET],produces=[application/schema+json]}" onto public org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.json.JsonSchema> org.springframework.data.rest.webmvc.RepositorySchemaController.schema(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile],methods=[OPTIONS]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.ProfileController.profileOptions()
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile],methods=[GET]}" onto org.springframework.http.HttpEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.ProfileController.listAllFormsOfMetadata()
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile/{repository}],methods=[GET],produces=[application/alps+json || */*]}" onto org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.RootResourceInformation> org.springframework.data.rest.webmvc.alps.AlpsController.descriptor(org.springframework.data.rest.webmvc.RootResourceInformation)
+2018-04-19 11:08:47.663  INFO [event-api,,,] 12372 --- [main] o.s.d.r.w.BasePathAwareHandlerMapping    : Mapped "{[/profile/{repository}],methods=[OPTIONS],produces=[application/alps+json]}" onto org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.alps.AlpsController.alpsOptions()
+2018-04-19 11:08:49.099  INFO [event-api,,,] 12372 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-04-19 11:08:49.099  INFO [event-api,,,] 12372 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-04-19 11:08:49.114  INFO [event-api,,,] 12372 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-19 11:08:49.927  INFO [event-api,,,] 12372 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.eventUser' has 1 subscriber(s).
+2018-04-19 11:08:49.927  INFO [event-api,,,] 12372 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.processedEventUserProfile' has 1 subscriber(s).
+2018-04-19 11:08:49.927  INFO [event-api,,,] 12372 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.event' has 1 subscriber(s).
+2018-04-19 11:08:49.956  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-19 11:08:49.972  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'integrationMbeanExporter' has been autodetected for JMX exposure
+2018-04-19 11:08:49.972  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-04-19 11:08:49.972  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-04-19 11:08:49.972  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-04-19 11:08:49.987  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-04-19 11:08:50.003  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-04-19 11:08:50.034  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'integrationMbeanExporter': registering with JMX server as MBean [org.springframework.integration.monitor:name=integrationMbeanExporter,type=IntegrationMBeanExporter]
+2018-04-19 11:08:50.081  INFO [event-api,,,] 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=46a953cf,type=ConfigurationPropertiesRebinder]
+2018-04-19 11:08:50.112  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering beans for JMX exposure on startup
+2018-04-19 11:08:50.112  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel eventUser
+2018-04-19 11:08:50.112  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=eventUser': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=eventUser]
+2018-04-19 11:08:50.190  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel event
+2018-04-19 11:08:50.206  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=event': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=event]
+2018-04-19 11:08:50.222  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel errorChannel
+2018-04-19 11:08:50.222  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=errorChannel': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=errorChannel]
+2018-04-19 11:08:50.269  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel processedEventUserProfile
+2018-04-19 11:08:50.269  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=processedEventUserProfile': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=processedEventUserProfile]
+2018-04-19 11:08:50.284  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel nullChannel
+2018-04-19 11:08:50.284  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageChannel,name=nullChannel': registering with JMX server as MBean [org.springframework.integration:type=MessageChannel,name=nullChannel]
+2018-04-19 11:08:50.315  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@2553fbd0
+2018-04-19 11:08:50.331  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@2553fbd0,bean=handler': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@2553fbd0,bean=handler]
+2018-04-19 11:08:50.347  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@7040d71
+2018-04-19 11:08:50.362  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@7040d71,bean=handler': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@7040d71,bean=handler]
+2018-04-19 11:08:50.362  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@2a8081f5
+2018-04-19 11:08:50.362  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@2a8081f5,bean=handler': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=org.springframework.cloud.stream.binding.StreamListenerMessageHandler@2a8081f5,bean=handler]
+2018-04-19 11:08:50.378  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler errorLogger
+2018-04-19 11:08:50.378  INFO [event-api,,,] 12372 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Located managed bean 'org.springframework.integration:type=MessageHandler,name=errorLogger,bean=internal': registering with JMX server as MBean [org.springframework.integration:type=MessageHandler,name=errorLogger,bean=internal]
+2018-04-19 11:08:50.425  INFO [event-api,,,] 12372 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase -2147482648
+2018-04-19 11:08:50.769  INFO [event-api,,,] 12372 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at: http://nestros.com:8888
+2018-04-19 11:08:51.019  INFO [event-api,,,] 12372 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=event-api, profiles=[dev], label=null, version=92887db6d0d9ff5496ba0cba5f74158b9b286cb5, state=null
+2018-04-19 11:08:51.019  INFO [event-api,,,] 12372 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: CompositePropertySource {name='configService', propertySources=[MapPropertySource {name='configClient'}, MapPropertySource {name='/home/shiv/undot/configprop/event-api/event-api-dev.yml'}, MapPropertySource {name='/home/shiv/undot/configprop/event-api/event-api.yml'}]}
+2018-04-19 11:08:51.066  INFO [event-api,,,] 12372 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@318ca53a: startup date [Thu Apr 19 11:08:51 IST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46a953cf
+2018-04-19 11:08:51.113  INFO [event-api,,,] 12372 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:08:51.661  INFO [event-api,,,] 12372 --- [main] o.s.c.s.b.k.p.KafkaTopicProvisioner      : Using kafka topic for outbound: processedEventUserProfile
+2018-04-19 11:08:51.661  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [192.168.0.109:6667]
+	client.id = 
+	connections.max.idle.ms = 300000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 120000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2018-04-19 11:08:51.771  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:08:51.771  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:08:52.796  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.0.109:6667]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2018-04-19 11:08:52.828  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:08:52.828  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:08:53.062  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2018-04-19 11:08:53.093  INFO [event-api,,,] 12372 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.processedEventUserProfile' has 2 subscriber(s).
+2018-04-19 11:08:53.093  INFO [event-api,,,] 12372 --- [main] o.s.c.s.b.k.p.KafkaTopicProvisioner      : Using kafka topic for outbound: eventUser
+2018-04-19 11:08:53.093  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [192.168.0.109:6667]
+	client.id = 
+	connections.max.idle.ms = 300000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 120000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2018-04-19 11:08:53.093  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:08:53.093  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:08:53.843  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.0.109:6667]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2018-04-19 11:08:53.843  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:08:53.843  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:08:54.083  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-2] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2018-04-19 11:08:54.083  INFO [event-api,,,] 12372 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.eventUser' has 2 subscriber(s).
+2018-04-19 11:08:54.098  INFO [event-api,,,] 12372 --- [main] o.s.c.s.b.k.p.KafkaTopicProvisioner      : Using kafka topic for outbound: event
+2018-04-19 11:08:54.098  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [192.168.0.109:6667]
+	client.id = 
+	connections.max.idle.ms = 300000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 120000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2018-04-19 11:08:54.098  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:08:54.098  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:08:54.817  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.0.109:6667]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2018-04-19 11:08:54.817  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 1.0.0
+2018-04-19 11:08:54.817  INFO [event-api,,,] 12372 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : aaa7af6d4a11b29d
+2018-04-19 11:08:55.041  INFO [event-api,,,] 12372 --- [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-3] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2018-04-19 11:08:55.041  INFO [event-api,,,] 12372 --- [main] o.s.integration.channel.DirectChannel    : Channel 'event-api-1.event' has 2 subscriber(s).
+2018-04-19 11:08:55.041  INFO [event-api,,,] 12372 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-04-19 11:08:55.056  INFO [event-api,,,] 12372 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2018-04-19 11:08:55.150  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region desktop
+2018-04-19 11:08:55.244  INFO [event-api,,,] 12372 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-04-19 11:08:55.244  INFO [event-api,,,] 12372 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-04-19 11:08:55.431  INFO [event-api,,,] 12372 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-04-19 11:08:55.431  INFO [event-api,,,] 12372 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-04-19 11:08:55.728  INFO [event-api,,,] 12372 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-04-19 11:08:55.853  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-04-19 11:08:56.281  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-04-19 11:08:56.281  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2018-04-19 11:08:56.297  INFO [event-api,,,] 12372 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2018-04-19 11:08:56.297  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1524116336297 with initial instances count: 8
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application event-api with eureka with status UP
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1524116336328, current=UP, previous=STARTING]
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EVENT-API/LAPTOP-UE9SO1VS:event-api:5454: registering service...
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'event-api-1.errorChannel' has 1 subscriber(s).
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147482647
+2018-04-19 11:08:56.328  INFO [event-api,,,] 12372 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483547
+2018-04-19 11:08:56.408  INFO [event-api,,,] 12372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5454 (http) with context path ''
+2018-04-19 11:08:56.408  INFO [event-api,,,] 12372 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 5454
+2018-04-19 11:08:56.408  INFO [event-api,,,] 12372 --- [main] com.und.EventApplicationKt               : Started EventApplicationKt in 32.117 seconds (JVM running for 34.341)
+2018-04-19 11:08:56.455  INFO [event-api,,,] 12372 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EVENT-API/LAPTOP-UE9SO1VS:event-api:5454 - registration status: 204
+2018-04-19 11:10:05.294  INFO [event-api,,,] 12372 --- [http-nio-5454-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-19 11:10:05.294  INFO [event-api,,,] 12372 --- [http-nio-5454-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-19 11:10:05.373  INFO [event-api,,,] 12372 --- [http-nio-5454-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 79 ms
+2018-04-19 11:10:05.404  INFO [event-api,9ac112ee4f218bd8,9ac112ee4f218bd8,false] 12372 --- [http-nio-5454-exec-1] c.u.s.f.RestAuthenticationTokenFilter    : checking authentication for token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYW1hbHByZWV0LnNpbmdoQHVzZXJuZG90LmNvbSIsInVzZXJJZCI6IjEzIiwiY2xpZW50SWQiOiI3Iiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJjcmVhdGVkIjoxNTI0MTE2NDAzNDM3LCJleHAiOjE1MjQ3MjEyMDN9.hpkfgMZpn6WpKFXaIEikW5wa0nSsTW9NaRw_ei_9kGi6UbFAX-oUUK9soOzYJMl_8mBmlySON7mcLb22Y3ENaw 
+2018-04-19 11:10:05.419  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-auth-service: startup date [Thu Apr 19 11:10:05 IST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46a953cf
+2018-04-19 11:10:05.498  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-04-19 11:10:06.111  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] c.netflix.config.ChainedDynamicProperty  : Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-04-19 11:10:06.191  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-auth-service
+2018-04-19 11:10:06.300  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] c.netflix.loadbalancer.BaseLoadBalancer  : Client: auth-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-04-19 11:10:06.315  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-04-19 11:10:06.395  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] c.netflix.config.ChainedDynamicProperty  : Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-04-19 11:10:06.395  INFO [event-api,9ac112ee4f218bd8,d6e1e14c1076e15d,false] 12372 --- [http-nio-5454-exec-1] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client auth-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[192.168.0.109:9595],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.0.109:9595;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 05:30:00 IST 1970;	First connection made: Thu Jan 01 05:30:00 IST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@5033a14e
+2018-04-19 11:10:07.098  INFO [event-api,9ac112ee4f218bd8,9ac112ee4f218bd8,false] 12372 --- [http-nio-5454-exec-1] c.u.s.f.RestAuthenticationTokenFilter    : authenticated user usernameFromToken, setting security context
+2018-04-19 11:10:07.333  INFO [event-api,,,] 12372 --- [PollingServerListUpdater-0] c.netflix.config.ChainedDynamicProperty  : Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-04-19 11:10:07.348  INFO [event-api,260aea6aee9697d5,260aea6aee9697d5,false] 12372 --- [http-nio-5454-exec-2] c.u.s.f.RestAuthenticationTokenFilter    : checking authentication for token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYW1hbHByZWV0LnNpbmdoQHVzZXJuZG90LmNvbSIsInVzZXJJZCI6IjEzIiwiY2xpZW50SWQiOiI3Iiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJjcmVhdGVkIjoxNTI0MTE2NDAzNDM3LCJleHAiOjE1MjQ3MjEyMDN9.hpkfgMZpn6WpKFXaIEikW5wa0nSsTW9NaRw_ei_9kGi6UbFAX-oUUK9soOzYJMl_8mBmlySON7mcLb22Y3ENaw 
+2018-04-19 11:10:07.614  INFO [event-api,260aea6aee9697d5,260aea6aee9697d5,false] 12372 --- [http-nio-5454-exec-2] c.u.s.f.RestAuthenticationTokenFilter    : authenticated user usernameFromToken, setting security context

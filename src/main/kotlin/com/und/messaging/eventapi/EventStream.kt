@@ -3,6 +3,7 @@ package com.und.messaging.eventapi
 import org.springframework.cloud.stream.annotation.Output
 import org.springframework.messaging.MessageChannel
 
+
 interface EventStream {
 
     @Output("event")
@@ -13,6 +14,7 @@ interface EventStream {
 
     @Output("processedEventUserProfile")
     fun processedEventUserProfile(): MessageChannel
+
 
 
 }

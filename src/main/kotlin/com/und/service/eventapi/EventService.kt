@@ -9,6 +9,7 @@ import com.und.eventapi.utils.copyToMongo
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.stream.annotation.StreamListener
+import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 import com.und.model.mongo.eventapi.Event as MongoEvent
@@ -50,6 +51,8 @@ class EventService {
         eventRepository.updateEventsWithIdentityMatching( identity)
 
     }
+
+
 
 
 }
