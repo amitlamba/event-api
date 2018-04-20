@@ -50,12 +50,13 @@ class EventUserService {
         }
 
         val userId = identity.userId
-        //FIXME throw some error message in case userid is found as null
-        val newIdentity = identity.copy()
-        //userid will never be null here, this check is present only to satisfy compiler
-        val eventUserCopied = copyChangedValues(userId!!)
-        save(eventUserCopied)
-        return newIdentity
+        if(userId != null) {
+            val eventUserCopied = copyChangedValues(userId)
+            val persistedUser = save(eventUserCopied)
+            return Identity(userId = persistedUser.id, deviceId = identity.deviceId, sessionId = identity.sessionId)
+        }else{
+            throw IllegalArgumentException("user id should have been preset found null")
+        }
     }
 
 
@@ -81,8 +82,8 @@ class EventUserService {
         val identityCopy = identity?.copy() ?: Identity()
 
         with(identityCopy) {
-            deviceId = if(deviceId.isNullOrEmpty())  UUID.randomUUID().toString() else deviceId
-            sessionId = if(sessionId.isNullOrEmpty())  UUID.randomUUID().toString() else sessionId
+            deviceId = if (deviceId.isNullOrEmpty()) UUID.randomUUID().toString() else deviceId
+            sessionId = if (sessionId.isNullOrEmpty()) UUID.randomUUID().toString() else sessionId
         }
         //TODO verify old data exists if device id, session id is not null
         return identityCopy
@@ -93,8 +94,8 @@ class EventUserService {
         val identityCopy = identity?.copy() ?: Identity()
 
         with(identityCopy) {
-            deviceId = if(deviceId.isNullOrEmpty())  UUID.randomUUID().toString() else deviceId
-            sessionId = if(sessionId.isNullOrEmpty())  UUID.randomUUID().toString() else sessionId
+            deviceId = if (deviceId.isNullOrEmpty()) UUID.randomUUID().toString() else deviceId
+            sessionId = if (sessionId.isNullOrEmpty()) UUID.randomUUID().toString() else sessionId
         }
         //verify old data exists if device id, session id is not null
         return identityCopy
@@ -104,8 +105,8 @@ class EventUserService {
         val identityCopy = identity?.copy() ?: Identity()
 
         with(identityCopy) {
-            deviceId = if(deviceId.isNullOrEmpty())  UUID.randomUUID().toString() else deviceId
-            sessionId = if(sessionId.isNullOrEmpty())  UUID.randomUUID().toString() else sessionId
+            deviceId = if (deviceId.isNullOrEmpty()) UUID.randomUUID().toString() else deviceId
+            sessionId = if (sessionId.isNullOrEmpty()) UUID.randomUUID().toString() else sessionId
         }
         //verify old data exists if device id, session id is not null
         return identityCopy
