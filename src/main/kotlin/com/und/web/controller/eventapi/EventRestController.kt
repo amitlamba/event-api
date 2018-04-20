@@ -61,11 +61,11 @@ class EventRestController {
     fun profile(@Valid @RequestBody eventUser : EventUser): ResponseEntity<Response<Identity>> {
 
         //this method can't be called before identity has been initialized
-        eventUserService.toKafka(eventUser)
         val identityInit = eventUserService.initialiseIdentity(eventUser.identity)
         identityInit.userId = identityInit.userId ?: ObjectId.get().toString()
-
         identityInit.clientId = tenantProvider.tenant.toInt()
+        eventUser.identity = identityInit
+        eventUserService.toKafka(eventUser)
         //don't send event back rather send instance id, and status, also send a new instance id if user id changes
         return ResponseEntity.ok(Response(
                 status = ResponseStatus.SUCCESS,

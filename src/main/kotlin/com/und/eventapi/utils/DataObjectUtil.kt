@@ -26,16 +26,9 @@ fun Event.copyToMongo(): MongoEvent {
             application = SystemDetails(name = "", version = "")
             device = SystemDetails(name = sysDetail.deviceType ?: "", version = "")
         }
-
-        with(mongoEvent.geogrophy) {
-            val country = event.country
-            val state = event.state
-            val city = event.city
-            mongoEvent.geogrophy=Geogrophy(country,state,city)
-        }
-
     }
 
+    mongoEvent.geogrophy = Geogrophy(event.country,event.state,event.city)
     //TODO fix null values or empty strings not allowed
     mongoEvent.userId = event.identity.userId
     mongoEvent.sessionId = event.identity.sessionId
@@ -48,8 +41,8 @@ fun Event.copyToMongo(): MongoEvent {
         val latitude = if (event.latitude != null) event.latitude?.toFloat() else 0.0f
         val longitude = if (event.longitude != null) event.longitude?.toFloat() else 0.0f
         if ((latitude != null && longitude != null) && (latitude != 0.0f && longitude != 0.0f)) {
-        geolocation = GeoLocation(coordinate = Coordinate(latitude = latitude, longitude = longitude))
-    }
+            geolocation = GeoLocation(coordinate = Coordinate(latitude = latitude, longitude = longitude))
+        }
 
     }
     //FIXME hard coded charged
@@ -68,9 +61,9 @@ fun com.und.model.mongo.eventapi.EventUser.copyNonNull(eventUser: EventUser): co
         new == null -> old
         else -> new
     }
-
+    //FIXME bugs here in copying data
     val copyEventUser = com.und.model.mongo.eventapi.EventUser()
-    copyEventUser.id = id
+    copyEventUser.id = unchanged(eventUser.identity.userId, id)
     copyEventUser.additionalInfo.putAll(additionalInfo)
     copyEventUser.additionalInfo.putAll(eventUser.additionalInfo)
     copyEventUser.clientId = clientId
