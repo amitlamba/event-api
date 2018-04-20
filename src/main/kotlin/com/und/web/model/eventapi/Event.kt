@@ -20,13 +20,8 @@ open class Event {
     @Size(min=2,max=30,message="{event.name.invalidSize}")
     lateinit var name: String
 
-    //FIXME display different message at different time
-    @ValidateID(message = "{event.clientId.invalid}")
-    //@Min(value=1,message="{event.clientId.zero}")
     var clientId: Int = -1
-
     var identity: Identity = Identity()
-
     var creationTime: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
 
     @Pattern(regexp="(([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])[.]){3}([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])",message="{event.ip.invalid}")

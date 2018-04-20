@@ -28,10 +28,12 @@ fun Event.copyToMongo(): MongoEvent {
         }
 
         with(mongoEvent.geogrophy) {
-            country = event.country
-            state = event.state
-            city = event.city
+            val country = event.country
+            val state = event.state
+            val city = event.city
+            mongoEvent.geogrophy=Geogrophy(country,state,city)
         }
+
     }
 
     //TODO fix null values or empty strings not allowed
@@ -46,8 +48,8 @@ fun Event.copyToMongo(): MongoEvent {
         val latitude = if (event.latitude != null) event.latitude?.toFloat() else 0.0f
         val longitude = if (event.longitude != null) event.longitude?.toFloat() else 0.0f
         if ((latitude != null && longitude != null) && (latitude != 0.0f && longitude != 0.0f)) {
-            geolocation = GeoLocation(coordinate = Coordinate(latitude = latitude, longitude = longitude))
-        }
+        geolocation = GeoLocation(coordinate = Coordinate(latitude = latitude, longitude = longitude))
+    }
 
     }
     //FIXME hard coded charged
