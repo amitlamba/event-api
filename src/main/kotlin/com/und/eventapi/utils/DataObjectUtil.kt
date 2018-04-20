@@ -26,14 +26,9 @@ fun Event.copyToMongo(): MongoEvent {
             application = SystemDetails(name = "", version = "")
             device = SystemDetails(name = sysDetail.deviceType ?: "", version = "")
         }
-
-        with(mongoEvent.geogrophy) {
-            country = event.country
-            state = event.state
-            city = event.city
-        }
     }
 
+    mongoEvent.geogrophy = Geogrophy(event.country,event.state,event.city)
     //TODO fix null values or empty strings not allowed
     mongoEvent.userId = event.identity.userId
     mongoEvent.sessionId = event.identity.sessionId
