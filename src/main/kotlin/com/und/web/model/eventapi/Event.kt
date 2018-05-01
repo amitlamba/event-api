@@ -17,7 +17,7 @@ import javax.validation.constraints.Size
 @ValidateDate(message="{event.date.invalid}")
 open class Event {
 
-    @Size(min=2,max=30,message="{event.name.invalidSize}")
+    @Size(min=2,max=40,message="{event.name.invalidSize}")
     lateinit var name: String
 
     var clientId: Int = -1
@@ -27,15 +27,15 @@ open class Event {
     @Pattern(regexp="(([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])[.]){3}([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])",message="{event.ip.invalid}")
     var ipAddress: String? = null
 
-    @Size(min = 3, max = 30, message = "{event.city.invalidSize}")
+    @Size(min = 2, max = 40, message = "{event.city.invalidSize}")
     @Pattern(regexp = "[A-Za-z][a-zA-Z\\s]*", message = "{event.city.invalid}")
     var city: String? = null
 
-    @Size(min = 4, max = 30, message = "{event.state.invalidSize}")
+    @Size(min = 2, max = 40, message = "{event.state.invalidSize}")
     @Pattern(regexp = "[A-Za-z][a-zA-Z\\s]*", message = "{event.state.invalid}")
     var state: String? = null
 
-    @Size(min = 4, max = 35, message = "{event.country.invalidSize}")
+    @Size(min = 2, max = 40, message = "{event.country.invalidSize}")
     @Pattern(regexp = "[A-Za-z][a-zA-Z\\s]*", message = "{event.country.invalid}")
     var country: String? = null
 
@@ -51,10 +51,10 @@ open class Event {
     var attributes: HashMap<String, Any> = hashMapOf()
 
     @ValidateDateFormat(message="{event.startDate.invalid}")
-    var startDate: LocalDate? = LocalDate.now()
+    private var startDate: LocalDate? = LocalDate.now()
 
     @ValidateDateFormat(message="{event.endDate.invalid}")
-    var endDate: LocalDate? = LocalDate.of(2020, 1, 1)
+    private var endDate: LocalDate? = LocalDate.of(2020, 1, 1)
 
     fun getDateStart(): LocalDate? {
         return startDate
@@ -63,6 +63,7 @@ open class Event {
     fun getDateEnd(): LocalDate? {
         return endDate
     }
+
 }
 
 data class Identity(
