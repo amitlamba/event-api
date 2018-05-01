@@ -5,7 +5,6 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*
 import javax.validation.constraints.Email
-import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
