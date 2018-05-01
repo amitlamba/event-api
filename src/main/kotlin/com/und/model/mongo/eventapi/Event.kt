@@ -2,6 +2,7 @@ package com.und.model.mongo.eventapi
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.HashMap
@@ -14,7 +15,7 @@ class Event(
         var lineItem: MutableList<LineItem> = mutableListOf(),
         var attributes: HashMap<String, Any> = hashMapOf(),
         var system: System = System(),
-        var creationTime: Long = LocalDateTime.now().atZone(ZoneId.of("UTC")).toEpochSecond()
+        var creationTime: LocalDateTime = LocalDateTime.now()
 ) {
     var geoDetails = GeoDetails()
     var deviceId: String = ""
