@@ -5,6 +5,9 @@ import com.und.web.model.eventapi.EventUser
 import com.und.model.mongo.*
 import com.und.model.mongo.eventapi.*
 import com.und.model.mongo.eventapi.SystemDetails
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import com.und.model.mongo.eventapi.Event as MongoEvent
 
 fun Event.copyToMongo(): MongoEvent {
@@ -48,10 +51,35 @@ fun Event.copyToMongo(): MongoEvent {
     //FIXME hard coded charged
     if ("charged".equals(event.name , ignoreCase = false)) {
         mongoEvent.lineItem = event.lineItem
+        mongoEvent.lineItem.forEach {
+            item->
+            item.properties = toDateInMap(item.properties)
+
+        }
     }
     //copy attributes
-    mongoEvent.attributes.putAll(event.attributes)
+   mongoEvent.attributes.putAll(toDateInMap(event.attributes))
     return mongoEvent
+}
+
+private fun toDateInMap(attributes:HashMap<String, Any>): HashMap<String, Any> {
+    val dateFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
+    val regexDate = "[0-9][0-9][0-9][0-9][-][0-9][0-9][-][0-9][0-9][T][0-9][0-9][:][0-9][0-9][:][0-9][0-9][.][0-9]*[Z]".toRegex()
+    val outMap:HashMap<String, Any> = HashMap()
+    attributes.forEach { key, value ->
+        when(value) {
+            is String -> {
+                var valueWithType = value
+                if(regexDate.matches(value)) {
+                    valueWithType = LocalDateTime.parse(value, dateFormatter)
+                }
+                outMap+=(key to  valueWithType)
+
+            }
+            else ->  outMap+=(key to  value)
+        }
+    }
+    return outMap
 }
 
 fun com.und.model.mongo.eventapi.EventUser.copyNonNull(eventUser: EventUser): com.und.model.mongo.eventapi.EventUser {
