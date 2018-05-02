@@ -1,11 +1,9 @@
 package com.und.eventapi.utils
 
-import com.und.web.model.eventapi.Event
-import com.und.web.model.eventapi.EventUser
-import com.und.model.mongo.*
 import com.und.model.mongo.eventapi.*
 import com.und.model.mongo.eventapi.SystemDetails
-import java.text.SimpleDateFormat
+import com.und.web.model.eventapi.Event
+import com.und.web.model.eventapi.EventUser
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import com.und.model.mongo.eventapi.Event as MongoEvent
