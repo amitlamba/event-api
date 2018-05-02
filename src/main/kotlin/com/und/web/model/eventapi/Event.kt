@@ -22,7 +22,7 @@ open class Event {
 
     var clientId: Int = -1
     var identity: Identity = Identity()
-    var creationTime: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
+    var creationTime: LocalDateTime = LocalDateTime.now()
 
     @Pattern(regexp="(([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])[.]){3}([0-9]|[1][0-9]{1,2}|2[0-4][0-9]|25[0-5])",message="{event.ip.invalid}")
     var ipAddress: String? = null
