@@ -1,6 +1,5 @@
 package com.und.web.model.eventapi
 
-import com.und.eventapi.validation.ValidateID
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*

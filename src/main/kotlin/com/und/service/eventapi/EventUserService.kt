@@ -1,5 +1,6 @@
 package com.und.service.eventapi
 
+import com.und.common.utils.MetadataUtil
 import com.und.messaging.eventapi.EventStream
 import com.und.web.model.eventapi.EventUser
 import com.und.model.mongo.eventapi.EventUser as MongoEventUser
@@ -12,6 +13,11 @@ import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 import com.und.eventapi.utils.copyNonNull
+import com.und.model.mongo.eventapi.*
+import com.und.repository.eventapi.CommonMetadataRepository
+import com.und.repository.eventapi.EventMetadataRepository
+import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.*
 
 @Service
@@ -24,6 +30,9 @@ class EventUserService {
     private lateinit var eventUserRepository: EventUserRepository
 
     @Autowired
+    private lateinit var commonMetadataRepository: CommonMetadataRepository
+
+    @Autowired
     private lateinit var eventService: EventService
 
     @Autowired
@@ -34,8 +43,22 @@ class EventUserService {
         val clientId = eventUser.clientId
         tenantProvider.setTenat(clientId.toString())
         //FIXME save to user profile metadata
+         val userProfileMetadta = buildMetadata(eventUser)
+        commonMetadataRepository.save(userProfileMetadta)
         return eventUserRepository.save(eventUser)
     }
+
+
+    private fun buildMetadata(eventUser: MongoEventUser): CommonMetadata {
+        val propertyName = "userProperties"
+        val metadata = commonMetadataRepository.findByName(propertyName) ?: CommonMetadata()
+        metadata.name = propertyName
+        val properties = MetadataUtil.buildMetadata(eventUser.additionalInfo, metadata.properties)
+        metadata.properties.clear()
+        metadata.properties.addAll(properties)
+        return metadata
+    }
+
 
     @StreamListener("eventUser")
     @SendTo("processedEventUserProfile")

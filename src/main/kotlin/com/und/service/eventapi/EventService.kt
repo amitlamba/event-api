@@ -1,5 +1,6 @@
 package com.und.service.eventapi
 
+import com.und.common.utils.MetadataUtil
 import com.und.eventapi.utils.copyToMongo
 import com.und.messaging.eventapi.EventStream
 import com.und.model.mongo.eventapi.DataType
@@ -60,45 +61,13 @@ class EventService {
     private fun buildMetadata(event: MongoEvent): EventMetadata {
         val metadata = eventMetadataRepository.findByName(event.name) ?: EventMetadata()
         metadata.name = event.name
-        event.attributes.forEach { key, value ->
-            val property = metadata.properties.find { it.name == key } ?: Property()
-            property.options.add(value)
-            if(property.name == null) {
-                property.name = key
-                metadata.properties += property
-            }
-        }
-        metadata.properties.forEach { property ->
-            property.dataType = dataType(property.options)
-            if(property.dataType in setOf(DataType.Date, DataType.Number) ) {
-                property.options.clear()
-            }
-            property.regex = null
-        }
-
+        val properties = MetadataUtil.buildMetadata(event.attributes, metadata.properties)
+        metadata.properties.clear()
+        metadata.properties.addAll(properties)
         return metadata
     }
 
-    private fun dataType(options: MutableSet<Any>): DataType {
 
-        fun findDataType(value: Any?): DataType {
-            return when (value) {
-                is Number, is Int, is Float,  is Double -> DataType.Number
-                is Date, is LocalDate, is LocalDateTime -> DataType.Date
-                is Array<*> -> {
-                    if (value.isNotEmpty()) findDataType(value[0]) else DataType.String
-                }
-                else -> DataType.String
-            }
-        }
-
-        val dataTypes = mutableSetOf<DataType>()
-        options.forEach {
-            dataTypes.add(findDataType(it))
-        }
-        //if multiple data types are found default to string
-        return if(dataTypes.size==1) dataTypes.first() else DataType.String
-    }
 
     fun updateEventWithUser(identity: Identity) {
         tenantProvider.setTenat(identity.clientId.toString())
