@@ -43,10 +43,10 @@ class EventService {
     fun findByName(name: String): List<MongoEvent> = eventRepository.findByName(name)
 
 
-    fun toKafka(event: Event): Boolean = eventStream.outputEvent().send(MessageBuilder.withPayload(event).build())
+    fun toKafka(event: Event): Boolean = eventStream.outEvent().send(MessageBuilder.withPayload(event).build())
 
 
-    @StreamListener("event")
+    @StreamListener("inEvent")
     fun save(event: Event) {
 
         val clientId = event.clientId

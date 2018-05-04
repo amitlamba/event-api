@@ -1,19 +1,30 @@
 package com.und.messaging.eventapi
 
 import org.springframework.cloud.stream.annotation.Input
+import org.springframework.cloud.stream.annotation.Output
 import org.springframework.messaging.MessageChannel
+import org.springframework.messaging.SubscribableChannel
 
 
 interface EventStream {
 
-    @Input("event")
-    fun outputEvent(): MessageChannel
+    @Input("inEvent")
+    fun inEvent(): SubscribableChannel
 
-    @Input("eventUser")
-    fun outputEventUser(): MessageChannel
+    @Output("outEvent")
+    fun outEvent(): MessageChannel
 
-    @Input("processedEventUserProfile")
-    fun processedEventUserProfile(): MessageChannel
+    @Input("inEventUser")
+    fun inEventUser(): SubscribableChannel
+
+    @Output("outEventUser")
+    fun outEventUser(): MessageChannel
+
+    @Input("inProcessEventUserProfile")
+    fun inProcessEventUserProfile(): SubscribableChannel
+
+    @Output("outProcessEventUserProfile")
+    fun outProcessEventUserProfile(): MessageChannel
 
 
 /*    @Output("event")

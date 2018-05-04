@@ -14,7 +14,7 @@
       },
       {
         "name": "gender",
-        "type": "String",
+        "type": "string",
         "options": [
           "M",
           "F"
@@ -27,7 +27,7 @@
     "properties": [
       {
         "name": "Browser",
-        "type": "String",
+        "type": "string",
         "options": [
           "Chrome",
           "Firefox",
@@ -42,7 +42,7 @@
       },
       {
         "name": "OS",
-        "type": "String",
+        "type": "string",
         "options": [
           "Android",
           "Blackberry",
@@ -55,7 +55,7 @@
       },
       {
         "name": "Device",
-        "type": "String",
+        "type": "string",
         "options": [
           "Desktop",
           "Mobile",
@@ -70,7 +70,7 @@
     "properties": [
       {
         "name": "hasDeviceToken",
-        "type": "Boolean",
+        "type": "boolean",
         "options": [
           "Yes",
           "No"
@@ -86,7 +86,7 @@
       },
       {
         "name": "hasPhoneNumber",
-        "type": "Boolean",
+        "type": "boolean",
         "options": [
           "Yes",
           "No"
@@ -94,7 +94,7 @@
       },
       {
         "name": "unsubscribedPush",
-        "type": "Boolean",
+        "type": "boolean",
         "options": [
           "Yes",
           "No"
@@ -123,7 +123,7 @@
     "properties": [
       {
         "name": "App Version",
-        "type": "String",
+        "type": "string",
         "options": [
           0,
           1,
@@ -134,7 +134,7 @@
       },
       {
         "name": "Make",
-        "type": "String",
+        "type": "string",
         "options": [
           "Apple",
           "Samsung",
@@ -146,7 +146,7 @@
       },
       {
         "name": "Models",
-        "type": "String",
+        "type": "string",
         "options": [
           "Iphone 6",
           "Iphone 8",
@@ -156,7 +156,7 @@
       },
       {
         "name": "OS Version",
-        "type": "String",
+        "type": "string",
         "options": [
           "4.0.1",
           "4.4.1",
@@ -167,7 +167,7 @@
       },
       {
         "name": "SDK Version",
-        "type": "String",
+        "type": "string",
         "options": [
           9001,
           9002,

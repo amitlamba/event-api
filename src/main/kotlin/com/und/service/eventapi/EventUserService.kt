@@ -60,8 +60,8 @@ class EventUserService {
     }
 
 
-    @StreamListener("eventUser")
-    @SendTo("processedEventUserProfile")
+    @StreamListener("inEventUser")
+    @SendTo("outProcessEventUserProfile")
     fun processIdentity(eventUser: EventUser): Identity {
 
         val identity = eventUser.identity
@@ -83,7 +83,7 @@ class EventUserService {
     }
 
 
-    @StreamListener("processedEventUserProfile")
+    @StreamListener("inProcessEventUserProfile")
     fun processedEventUserProfile(identity: Identity) {
 
         //println(identity)
@@ -94,7 +94,7 @@ class EventUserService {
     }
 
     fun toKafka(eventUser: EventUser): Boolean =
-            eventStream.outputEventUser().send(MessageBuilder.withPayload(eventUser).build())
+            eventStream.outEventUser().send(MessageBuilder.withPayload(eventUser).build())
 
     /**
      * assign device id if absent

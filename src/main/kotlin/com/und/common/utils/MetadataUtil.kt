@@ -22,7 +22,7 @@ object MetadataUtil {
         }
         outProperties.forEach { property ->
             property.dataType = dataType(property.options)
-            if (property.dataType in setOf(DataType.Date, DataType.Number)) {
+            if (property.dataType in setOf(DataType.date, DataType.number)) {
                 property.options.clear()
             }
             property.regex = null
@@ -35,12 +35,12 @@ object MetadataUtil {
 
         fun findDataType(value: Any?): DataType {
             return when (value) {
-                is Number, is Int, is Float, is Double -> DataType.Number
-                is Date, is LocalDate, is LocalDateTime -> DataType.Date
+                is Number, is Int, is Float, is Double -> DataType.number
+                is Date, is LocalDate, is LocalDateTime -> DataType.date
                 is Array<*> -> {
-                    if (value.isNotEmpty()) findDataType(value[0]) else DataType.String
+                    if (value.isNotEmpty()) findDataType(value[0]) else DataType.string
                 }
-                else -> DataType.String
+                else -> DataType.string
             }
         }
 
@@ -49,6 +49,6 @@ object MetadataUtil {
             dataTypes.add(findDataType(it))
         }
         //if multiple data types are found default to string
-        return if (dataTypes.size == 1) dataTypes.first() else DataType.String
+        return if (dataTypes.size == 1) dataTypes.first() else DataType.string
     }
 }
