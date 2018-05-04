@@ -63,6 +63,8 @@ class EventUserService {
     @StreamListener("inEventUser")
     @SendTo("outProcessEventUserProfile")
     fun processIdentity(eventUser: EventUser): Identity {
+        tenantProvider.setTenat(eventUser.identity.clientId.toString())
+        eventUser.clientId = eventUser.identity.clientId?:-1
 
         val identity = eventUser.identity
         fun copyChangedValues(userId: String): MongoEventUser {
@@ -76,7 +78,7 @@ class EventUserService {
         if(userId != null) {
             val eventUserCopied = copyChangedValues(userId)
             val persistedUser = save(eventUserCopied)
-            return Identity(userId = persistedUser.id, deviceId = identity.deviceId, sessionId = identity.sessionId)
+            return Identity(userId = persistedUser.id, deviceId = identity.deviceId, sessionId = identity.sessionId, clientId = identity.clientId)
         }else{
             throw IllegalArgumentException("user id should have been preset found null")
         }
@@ -85,7 +87,7 @@ class EventUserService {
 
     @StreamListener("inProcessEventUserProfile")
     fun processedEventUserProfile(identity: Identity) {
-
+        tenantProvider.setTenat(identity.clientId.toString())
         //println(identity)
         eventService.updateEventWithUser(identity)
         //update all events where session id, machine id matches and userid is absent

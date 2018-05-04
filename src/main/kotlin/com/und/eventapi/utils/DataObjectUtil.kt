@@ -89,10 +89,11 @@ fun com.und.model.mongo.eventapi.EventUser.copyNonNull(eventUser: EventUser): co
     }
     //FIXME bugs here in copying data
     val copyEventUser = com.und.model.mongo.eventapi.EventUser()
+
     copyEventUser.id = unchanged(eventUser.identity.userId, id)
     copyEventUser.additionalInfo.putAll(additionalInfo)
     copyEventUser.additionalInfo.putAll(eventUser.additionalInfo)
-    copyEventUser.clientId = clientId
+    copyEventUser.clientId = if(id==null) eventUser.clientId else clientId
     copyEventUser.creationTime = creationTime
 
     copyEventUser.identity = Identity()
