@@ -56,7 +56,7 @@ class EventUser {
     var additionalInfo: HashMap<String, Any> = hashMapOf()
 
     //FIXME creation date can't keep changing
-    var creationDate: Long = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
+    var creationDate: LocalDateTime = LocalDateTime.now()
 
 
 
