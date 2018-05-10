@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.2.31'
+        kotlinVersion = '1.2.41'
         springBootVersion = '2.0.0.RELEASE'
 
     }
@@ -61,7 +61,7 @@ repositories {
 }
 
 ext {
-    springCloudVersion = 'Finchley.M9'
+    springCloudVersion = 'Finchley.RC1'
     bitWalkerUagentVersion = '1.20'
     swaggerVersion = '2.7.0'
 }
