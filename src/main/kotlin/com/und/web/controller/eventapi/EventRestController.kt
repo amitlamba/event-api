@@ -44,21 +44,10 @@ class EventRestController {
     @PreAuthorize("hasRole('ROLE_EVENT')")
     @PostMapping(value = ["/push/event"], produces = ["application/json"], consumes =["application/json"])
     fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest): ResponseEntity<Response<String>> {
-        val toEvent = buildEvent(event, request)
+        val toEvent = eventService.buildEvent(event, request)
         eventService.toKafka(toEvent)
         return ResponseEntity.ok(Response(status = ResponseStatus.SUCCESS))
     }
-
-    private fun buildEvent(fromEvent: Event, request: HttpServletRequest): Event {
-        with(fromEvent) {
-
-            clientId = tenantProvider.tenant.toInt()
-            ipAddress = request.ipAddr()
-            agentString = request.getHeader("User-Agent")
-        }
-        return fromEvent
-    }
-
 
     @PreAuthorize("hasRole('ROLE_EVENT')")
     @PostMapping(value = ["/push/profile"], produces = ["application/json"], consumes =["application/json"])

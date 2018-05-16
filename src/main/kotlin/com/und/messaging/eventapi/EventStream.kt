@@ -26,6 +26,12 @@ interface EventStream {
     @Output("outProcessEventUserProfile")
     fun outProcessEventUserProfile(): MessageChannel
 
+    @Input("inTrackEvent")
+    fun inTrackEvent(): SubscribableChannel
+
+    @Output("outTrackEvent")
+    fun outTrackEvent(): MessageChannel
+
 
 /*    @Output("event")
     fun readEvent(): SubscribableChannel
