@@ -13,6 +13,7 @@ import com.und.security.utils.TenantProvider
 import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
@@ -30,6 +31,7 @@ class EventRestController {
     @Autowired
     private lateinit var tenantProvider: TenantProvider
 
+    @PreAuthorize("hasRole('ROLE_EVENT')")
     @PostMapping(value = ["/event/initialize"], produces = ["application/json"], consumes =["application/json"])
     fun initialize(@Valid @RequestBody identity: Identity?): ResponseEntity<Response<Identity>> {
 
@@ -39,6 +41,7 @@ class EventRestController {
         ))
     }
 
+    @PreAuthorize("hasRole('ROLE_EVENT')")
     @PostMapping(value = ["/push/event"], produces = ["application/json"], consumes =["application/json"])
     fun saveEvent(@Valid @RequestBody event: Event, request: HttpServletRequest): ResponseEntity<Response<String>> {
         val toEvent = buildEvent(event, request)
@@ -57,6 +60,7 @@ class EventRestController {
     }
 
 
+    @PreAuthorize("hasRole('ROLE_EVENT')")
     @PostMapping(value = ["/push/profile"], produces = ["application/json"], consumes =["application/json"])
     fun profile(@Valid @RequestBody eventUser : EventUser): ResponseEntity<Response<Identity>> {
 
