@@ -32,6 +32,11 @@ interface EventStream {
     @Output("outTrackEvent")
     fun outTrackEvent(): MessageChannel
 
+    @Input("inEmailRead")
+    fun inEmailRead(): SubscribableChannel
+
+    @Output("outEmailRead")
+    fun outEmailRead(): MessageChannel
 
 /*    @Output("event")
     fun readEvent(): SubscribableChannel

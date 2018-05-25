@@ -59,6 +59,11 @@ class EventUserService {
         return metadata
     }
 
+    fun getEventUserByEventUserId(id: String): MongoEventUser? {
+        var mongoEventUser: MongoEventUser? = null
+        eventUserRepository.findById(id).ifPresent({eu -> mongoEventUser = eu})
+        return mongoEventUser
+    }
 
     @StreamListener("inEventUser")
     @SendTo("outProcessEventUserProfile")
