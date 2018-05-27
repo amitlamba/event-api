@@ -5,7 +5,7 @@ import com.und.messaging.eventapi.EventStream
 import com.und.web.model.eventapi.EventUser
 import com.und.model.mongo.eventapi.EventUser as MongoEventUser
 import com.und.web.model.eventapi.Identity
-import com.und.repository.eventapi.EventUserRepository
+import com.und.repository.mongo.EventUserRepository
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.stream.annotation.StreamListener
@@ -14,8 +14,8 @@ import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 import com.und.eventapi.utils.copyNonNull
 import com.und.model.mongo.eventapi.*
-import com.und.repository.eventapi.CommonMetadataRepository
-import com.und.repository.eventapi.EventMetadataRepository
+import com.und.repository.mongo.CommonMetadataRepository
+import com.und.repository.mongo.EventMetadataRepository
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*

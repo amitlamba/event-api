@@ -4,7 +4,7 @@ import com.und.messaging.eventapi.EventStream
 import com.und.model.mongo.Email
 import com.und.model.mongo.EmailStatus
 import com.und.model.mongo.EmailStatusUpdate
-import com.und.repository.EmailSentRepository
+import com.und.repository.mongo.EmailSentRepository
 import com.und.security.utils.TenantProvider
 import com.und.web.model.eventapi.Event
 import org.springframework.beans.factory.annotation.Autowired
