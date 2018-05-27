@@ -1,6 +1,6 @@
 package com.und.web.controller
 
-import com.und.service.eventapi.EventService
+import com.und.service.eventapi.EventTrackService
 import com.und.web.model.eventapi.Event
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse
 class TrackingController {
 
     @Autowired
-    private lateinit  var eventService: EventService
+    private lateinit  var eventTrackService: EventTrackService
 
     @GetMapping(value = ["/track"])
     fun trackUrlClick(@RequestParam("c") clientId: Int, @RequestParam("e") mongoEmailId: String,
@@ -28,7 +28,7 @@ class TrackingController {
                 Pair("und_redirect_to_url", redirectToUrl)
                 )
 
-        eventService.toKafka(toKafka)
+        eventTrackService.toKafka(toKafka)
 
         httpServletResponse.setHeader("Location", redirectToUrl)
     }

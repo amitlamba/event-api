@@ -16,6 +16,7 @@ class EventUser {
     var standardInfo: StandardInfo = StandardInfo()
     val additionalInfo: HashMap<String, Any> = hashMapOf()
     var creationTime: LocalDateTime = LocalDateTime.now()
+    var communication: Communication? = null
 }
 
 
