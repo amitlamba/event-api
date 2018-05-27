@@ -1,6 +1,6 @@
 package com.und.config
 
-import com.und.messaging.eventapi.EventStream
+import com.und.config.EventStream
 import org.springframework.cloud.stream.annotation.EnableBinding
 import org.springframework.context.annotation.Configuration
 

@@ -1,7 +1,7 @@
 package com.und.service.eventapi
 
 import com.und.common.utils.MetadataUtil
-import com.und.messaging.eventapi.EventStream
+import com.und.config.EventStream
 import com.und.web.model.eventapi.EventUser
 import com.und.model.mongo.eventapi.EventUser as MongoEventUser
 import com.und.web.model.eventapi.Identity

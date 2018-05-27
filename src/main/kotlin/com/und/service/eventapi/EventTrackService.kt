@@ -1,6 +1,6 @@
 package com.und.service.eventapi
 
-import com.und.messaging.eventapi.EventStream
+import com.und.config.EventStream
 import com.und.model.mongo.Email
 import com.und.model.mongo.EmailStatus
 import com.und.model.mongo.EmailStatusUpdate

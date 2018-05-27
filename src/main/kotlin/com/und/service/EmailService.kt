@@ -2,11 +2,11 @@ package com.und.service
 
 import com.und.common.utils.decrypt
 import com.und.common.utils.encrypt
-import com.und.messaging.eventapi.EventStream
+import com.und.config.EventStream
 import com.und.model.EmailRead
 import com.und.model.mongo.EmailStatus
 import com.und.model.mongo.EmailStatusUpdate
-import com.und.repository.EmailSentRepository
+import com.und.repository.mongo.EmailSentRepository
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value

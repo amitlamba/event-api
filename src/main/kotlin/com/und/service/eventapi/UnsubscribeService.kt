@@ -3,7 +3,7 @@ package com.und.service.eventapi
 import com.und.model.mongo.Email
 import com.und.model.mongo.eventapi.Communication
 import com.und.model.mongo.eventapi.CommunicationDetails
-import com.und.repository.EmailSentRepository
+import com.und.repository.mongo.EmailSentRepository
 import com.und.security.utils.TenantProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

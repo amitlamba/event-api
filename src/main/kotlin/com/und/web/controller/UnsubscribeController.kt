@@ -1,11 +1,8 @@
 package com.und.web.controller
 
-import com.und.model.mongo.Email
-import com.und.repository.EmailSentRepository
 import com.und.security.model.Data
 import com.und.security.model.Response
 import com.und.security.model.ResponseStatus
-import com.und.security.utils.TenantProvider
 import com.und.service.eventapi.UnsubscribeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity

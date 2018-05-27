@@ -1,6 +1,6 @@
 package com.und
 
-import com.und.messaging.eventapi.EventStream
+import com.und.config.EventStream
 import com.und.service.EmailService
 import org.junit.Before
 import org.junit.Test

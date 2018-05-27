@@ -1,4 +1,4 @@
-package com.und.messaging.eventapi
+package com.und.config
 
 import org.springframework.cloud.stream.annotation.Input
 import org.springframework.cloud.stream.annotation.Output

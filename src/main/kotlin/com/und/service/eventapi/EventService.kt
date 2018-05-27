@@ -3,7 +3,7 @@ package com.und.service.eventapi
 import com.und.common.utils.MetadataUtil
 import com.und.eventapi.utils.copyToMongo
 import com.und.eventapi.utils.ipAddr
-import com.und.messaging.eventapi.EventStream
+import com.und.config.EventStream
 import com.und.model.mongo.eventapi.EventMetadata
 import com.und.repository.mongo.EventMetadataRepository
 import com.und.repository.mongo.EventRepository
